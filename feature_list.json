@@ -1,6 +1,6 @@
 {
   "repository": "LangChain-Dynamic-Tool-Router-for-Agents-",
-  "tagline": "Policy-driven runtime tool routing for LangChain and LangGraph agents.",
+  "tagline": "Runtime tool authorization for AI agents.",
   "allowed_statuses": [
     "pending",
     "spec_ready",
@@ -38,6 +38,13 @@
       "mode": "SHIP",
       "status": "in_progress",
       "summary": "Productize the Dynamic Tool Router as a sellable developer-preview package with buyer-facing README, demo flow, docs, security model, release notes, and SHIP-mode review gates."
+    },
+    {
+      "id": "005-readme-3-landing-page",
+      "title": "README 3.0 Landing Page",
+      "mode": "SHIP",
+      "status": "spec_ready",
+      "summary": "Refine the README into a GitHub-native product landing page with stronger positioning, diagrams, demo path, trust signals, and CTO-ready narrative."
     }
   ]
 }
