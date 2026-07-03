@@ -117,3 +117,24 @@
 - Moved Feature 007 from `review` to `done`.
 - Accepted limitations: no runtime code changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, and no runtime capability change.
 - Recommended next feature: `008-demo-experience` as a spec gate only.
+
+## 008-demo-experience
+
+- Confirmed local branch is current with `origin/main`.
+- Confirmed Features 001, 002, 003, 004, 005, 006, 007, and 009 are `done`.
+- Created SHIP-001 Wave 1 spec-gate artifacts for the stronger developer-preview demo experience.
+- Registered Feature 008 as `spec_ready`.
+- Created ADR 008 for demo experience strategy.
+- Implementation not started; README, runtime code, publishing, tags, and GitHub Releases were not touched.
+- Human approval received for SHIP-mode implementation.
+- Moved Feature 008 from `spec_ready` to `in_progress`.
+- Added guided local demo at `examples/demo_experience/run_demo.py`.
+- Updated `docs/demo-guide.md` with guided demo command and expected output shape.
+- Verified with `python -m json.tool feature_list.json`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests`.
+- Verified with `python examples/basic_agent/run_example.py`.
+- Verified with `python examples/demo_experience/run_demo.py`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests/integration`.
+- Created `progress/review_008-demo-experience.md`.
+- Moved Feature 008 from `in_progress` to `review`.
+- Feature 008 is not closed; next valid lifecycle action is human approval for `review -> done`.

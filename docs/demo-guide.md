@@ -20,7 +20,50 @@ Show that the router can:
 python -m pip install -e .
 ```
 
-## Run The Demo
+## Run The Guided Demo
+
+Use this command when showing the product to a new developer, CTO, or design partner:
+
+```sh
+python examples/demo_experience/run_demo.py
+```
+
+Expected output shape:
+
+```text
+Runtime Tool Authorization for AI Agents
+Never expose every tool. Expose the right tool.
+
+== 1. Request Context ==
+...
+== 2. JSON Policy Loading ==
+...
+== 3. Runtime Tool Authorization ==
+Candidate tool surface: search_docs, fetch_customer_record, delete_customer_record
+Allowed tool surface: search_docs, fetch_customer_record, not_authorized
+Denied path: delete_customer_record -> plan is not allowed -> fallback not_authorized
+...
+== 7. Audit Evidence ==
+1. action=authorize, tool=search_docs, allowed=True, reason=authorized
+...
+Audit export: /tmp/.../guided_demo_audit_export.json
+```
+
+The guided demo shows:
+
+1. request context,
+2. tenant/user/role/plan/permission policy inputs,
+3. JSON policy loading,
+4. allowed tool exposure,
+5. denied tool behavior,
+6. fallback behavior,
+7. audit event output,
+8. LangChain-style adapter boundary,
+9. LangGraph-style adapter boundary.
+
+It does not require LangChain, LangGraph, external services, a database, or hosted infrastructure.
+
+## Run The Compact Demo
 
 ```sh
 python examples/basic_agent/run_example.py
@@ -35,6 +78,8 @@ Audit export: /tmp/.../runtime_audit_export.json
 ```
 
 ## What To Look For
+
+The guided demo is optimized for comprehension. The compact demo is optimized for quick smoke verification.
 
 ### Authorized Tool
 

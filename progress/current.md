@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-None. Feature 007 is closed as `done`; the next SHIP feature should be opened only after explicit human approval.
+`008-demo-experience`
 
 ## Current State
 
@@ -20,9 +20,11 @@ Feature 006 status: `done`
 
 Feature 007 status: `done`
 
+Feature 008 status: `review`
+
 Feature 009 status: `done`
 
-Feature 009 was approved for closure. Feature 007 was implemented, verified, reviewed, approved for closure, and closed.
+Feature 008 was approved, implemented, verified, and moved to `review`. It is not closed.
 
 ## Product Direction
 
@@ -61,80 +63,51 @@ Review artifacts:
 - `progress/review_006-github-trust-signals.md`
 - `progress/review_009-packaging-and-release.md`
 - `progress/review_007-architecture-mermaid-diagrams.md`
+- `progress/review_008-demo-experience.md`
 
-## Feature 009 Closure Evidence
-
-Human approval received:
-
-```text
-FEATURE: 009-packaging-and-release
-MODE: SHIP
-STATE CHANGE: review -> done
-```
-
-Accepted evidence:
-
-- `python scripts/verify_release_candidate.py` passed.
-- feature registry JSON passed.
-- unit tests passed.
-- basic demo passed.
-- integration tests passed or skipped explicitly.
-- editable install passed.
-- editable install with dev extra passed.
-- package build passed.
-- wheel and sdist generated for `0.1.0.dev0`.
-- review artifact exists at `progress/review_009-packaging-and-release.md`.
-
-## Feature 007 Closure Evidence
+## Feature 008 Review Evidence
 
 Human approval received:
-
-```text
-FEATURE: 007-architecture-mermaid-diagrams
-MODE: SHIP
-STATE CHANGE: review -> done
-```
-
-Accepted evidence:
-
-- `docs/architecture.md` created.
-- `progress/review_007-architecture-mermaid-diagrams.md` created.
-- `feature_list.json` updated.
-- `docs/product-positioning.md` updated.
-- `docs/security-model.md` updated.
-- `progress/007-architecture-mermaid-diagrams.md` updated.
-- `progress/current.md` updated.
-- `progress/history.md` updated.
-- `specs/007-architecture-mermaid-diagrams/tasks.md` updated.
-
-Accepted verification:
-
-- `python -m json.tool feature_list.json` passed.
-- `PYTHONPATH=src python -m unittest discover -s tests` passed.
-- `python examples/basic_agent/run_example.py` passed.
-- Markdown links checked manually.
-- Mermaid syntax reviewed for GitHub-compatible `flowchart` and `sequenceDiagram`.
-- Product claims checked against current developer-preview behavior.
-- No runtime code changes confirmed.
-
-Accepted limitations:
-
-- No PyPI publish.
-- No git tag.
-- No GitHub Release.
-- No production-readiness claim.
-- No runtime capability change.
-
-## Next Valid Lifecycle Action
-
-Open the next SHIP-001 feature as a spec gate only after explicit approval.
-
-Recommended next candidate:
 
 ```text
 FEATURE: 008-demo-experience
 MODE: SHIP
-STATE CHANGE: candidate -> spec_ready
+STATE CHANGE: spec_ready -> approved
 ```
 
-Rationale: Wave 1 still needs a stronger demo experience after README, architecture, trust signals, and packaging have been handled.
+Implemented:
+
+- `examples/demo_experience/run_demo.py`
+- guided demo documentation in `docs/demo-guide.md`
+- lifecycle/progress/review artifact updates
+
+Verification:
+
+- `python -m json.tool feature_list.json` passed.
+- `PYTHONPATH=src python -m unittest discover -s tests` passed: Ran 23 tests; OK; skipped 2 optional integration-gated tests.
+- `python examples/basic_agent/run_example.py` passed.
+- `python examples/demo_experience/run_demo.py` passed.
+- `PYTHONPATH=src python -m unittest discover -s tests/integration` passed: Ran 2 tests; OK; skipped 2 optional dependency-gated tests.
+
+Accepted implementation boundaries:
+
+- No runtime code changes.
+- No external service dependencies.
+- No mandatory LangChain/LangGraph dependency.
+- No PyPI publish.
+- No git tag.
+- No GitHub Release.
+- No production-readiness claim.
+
+## Next Valid Lifecycle Action
+
+Human closure approval:
+
+```text
+APPROVAL
+FEATURE: 008-demo-experience
+MODE: SHIP
+STATE CHANGE: review -> done
+```
+
+Do not open the next feature until Feature 008 closure is explicitly approved.
