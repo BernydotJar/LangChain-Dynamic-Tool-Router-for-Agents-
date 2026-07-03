@@ -4,7 +4,7 @@ Feature: `001-dynamic-tool-router`
 
 Mode: MVP
 
-Reviewer: Codex implementation self-check; human review still required before closure.
+Reviewer: Codex implementation self-check; human closure approval received.
 
 ## Summary
 
@@ -39,5 +39,15 @@ Pass/Fail: Pass for MVP review readiness.
 
 ## Recommendation
 
-- Approve for human review.
-- Keep status at `review` until human closure approval.
+- Approve for closure.
+- Feature closed as `done` after explicit human approval.
+
+## Closure Approval
+
+Human approval accepted:
+
+```text
+FEATURE: 001-dynamic-tool-router
+MODE: MVP
+STATE CHANGE: review -> done
+```

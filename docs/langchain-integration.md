@@ -2,6 +2,8 @@
 
 The MVP intentionally avoids hard dependencies on LangChain and LangGraph.
 
+Feature 003 adds optional dependency-gated integration tests under `tests/integration`. These tests exercise real LangChain/LangGraph import paths when the packages are installed and skip clearly when they are absent.
+
 ## LangChain-Style Injection
 
 Use `RuntimeToolInjector.inject_into_agent_kwargs()` before constructing or invoking an agent.

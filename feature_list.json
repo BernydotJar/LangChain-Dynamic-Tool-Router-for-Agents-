@@ -15,8 +15,22 @@
       "id": "001-dynamic-tool-router",
       "title": "Dynamic Tool Router for Agents",
       "mode": "MVP",
-      "status": "review",
+      "status": "done",
       "summary": "Runtime tool selection, injection, permissions, fallback, audit logging, adapters, and a simple admin dashboard."
+    },
+    {
+      "id": "002-persistent-policy-and-audit-store",
+      "title": "Persistent Policy and Audit Store",
+      "mode": "MVP",
+      "status": "done",
+      "summary": "File-backed policy configuration and audit persistence for durable tool governance evidence."
+    },
+    {
+      "id": "003-langchain-langgraph-real-integration-tests",
+      "title": "LangChain/LangGraph Real Integration Tests",
+      "mode": "MVP",
+      "status": "review",
+      "summary": "Optional real-framework compatibility tests or executable examples for LangChain and LangGraph tool injection."
     }
   ]
 }

@@ -136,7 +136,7 @@
   <body>
     <header>
       <h1>Tool Policy Router Admin</h1>
-      <div class="muted">Review request-time tool authorization decisions and fallback events.</div>
+      <div class="muted">Review request-time tool authorization decisions and fallback events from persisted audit samples.</div>
     </header>
     <main>
       <section>
@@ -173,6 +173,7 @@
       </section>
       <section>
         <h2>Audit Log</h2>
+        <div class="content muted">Sample rows mirror <code>examples/audit/sample_audit.jsonl</code>. The MVP dashboard remains static and unauthenticated.</div>
         <table aria-label="Tool audit log">
           <thead>
             <tr>

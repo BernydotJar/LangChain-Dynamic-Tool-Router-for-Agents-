@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "default_allow": false,
+  "fallback_tool_name": "not_authorized",
+  "policies": {
+    "search_docs": {
+      "allowed_plans": ["free", "pro", "enterprise"],
+      "reason": "authorized"
+    },
+    "fetch_customer_record": {
+      "allowed_plans": ["pro", "enterprise"],
+      "required_permissions": ["crm:read"],
+      "required_mcp_servers": ["crm-mcp"],
+      "reason": "authorized"
+    },
+    "delete_customer_record": {
+      "allowed_plans": ["enterprise"],
+      "required_permissions": ["crm:delete"],
+      "required_roles": ["admin"],
+      "required_mcp_servers": ["crm-mcp"],
+      "reason": "authorized"
+    },
+    "not_authorized": {
+      "allowed_plans": ["free", "pro", "enterprise"],
+      "reason": "authorized"
+    }
+  }
+}

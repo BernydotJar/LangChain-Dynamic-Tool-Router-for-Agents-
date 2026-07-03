@@ -31,9 +31,11 @@ The router records:
 
 Audit metadata intentionally avoids raw tool arguments by default. Applications can add a custom audit sink later if they need redacted argument capture.
 
+Feature 002 adds `FileAuditStore` for local JSON Lines persistence and JSON export. This is durable enough for local demos, tests, and simple single-process deployments, but it is not tamper-proof and does not provide compliance retention controls.
+
 ## MVP Limitations
 
-- No persistent audit backend.
+- No database-backed or hosted audit backend.
 - No cryptographic policy signing.
 - No distributed policy store.
 - No admin authentication for the static dashboard example.

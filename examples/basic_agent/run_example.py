@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -9,12 +10,11 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from tool_policy_router import (  # noqa: E402
     CallableTool,
-    InMemoryAuditLog,
+    FileAuditStore,
+    FilePolicyStore,
     LangGraphToolRouterMiddleware,
     Principal,
     RuntimeToolInjector,
-    ToolPolicy,
-    ToolPolicyRouter,
     ToolRegistry,
     ToolRequestContext,
 )
@@ -46,26 +46,10 @@ def build_registry() -> ToolRegistry:
 
 
 def main() -> None:
-    audit_log = InMemoryAuditLog()
-    router = ToolPolicyRouter(
-        policies={
-            "search_docs": ToolPolicy(allowed_plans={"free", "pro", "enterprise"}),
-            "fetch_customer_record": ToolPolicy(
-                allowed_plans={"pro", "enterprise"},
-                required_permissions={"crm:read"},
-                required_mcp_servers={"crm-mcp"},
-            ),
-            "delete_customer_record": ToolPolicy(
-                allowed_plans={"enterprise"},
-                required_permissions={"crm:delete"},
-                required_roles={"admin"},
-                required_mcp_servers={"crm-mcp"},
-            ),
-            "not_authorized": ToolPolicy(allowed_plans={"free", "pro", "enterprise"}),
-        },
-        fallback_tool_name="not_authorized",
-        audit_log=audit_log,
-    )
+    audit_output_dir = Path(tempfile.gettempdir()) / "tool_policy_router_example"
+    audit_log = FileAuditStore(audit_output_dir / "runtime_audit.jsonl", reset=True)
+    policy_store = FilePolicyStore(ROOT / "examples" / "policies" / "tool_policies.json")
+    router = policy_store.create_router(audit_log=audit_log)
     injector = RuntimeToolInjector(build_registry(), router)
 
     context = ToolRequestContext(
@@ -97,6 +81,9 @@ def main() -> None:
     print("LangGraph state tools:", ", ".join(tool.name for tool in state["tools"]))
     print("Audit events:")
     print(json.dumps(audit_log.to_dicts(), indent=2))
+    export_path = audit_output_dir / "runtime_audit_export.json"
+    audit_log.export_json(export_path)
+    print("Audit export:", export_path)
 
 
 if __name__ == "__main__":
