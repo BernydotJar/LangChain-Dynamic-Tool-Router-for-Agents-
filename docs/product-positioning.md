@@ -28,6 +28,8 @@ agent runtime  ←→  tool catalog
 
 It evaluates policy at request time and injects only the tools the current principal/context may use.
 
+For the canonical architecture view, see [`architecture.md`](architecture.md).
+
 ## Target Buyers
 
 ### AI Platform Teams

@@ -82,3 +82,34 @@
 - Registered Feature 005 as `spec_ready`.
 - Preserved Feature 004 as the active `in_progress` feature.
 - Feature 005 must not enter implementation until Feature 004 verification and review handling are complete.
+
+## 009-packaging-and-release
+
+- Ran `python scripts/verify_release_candidate.py`.
+- Fixed the verifier to run tests with `PYTHONPATH=src` and to install the `dev` extra before `python -m build`.
+- Verification passed for registry JSON, unit tests, basic demo, integration tests, editable install, dev-extra install, and package build.
+- Recorded package build warnings for license metadata as a non-blocking follow-up.
+- Created `progress/review_009-packaging-and-release.md`.
+- Moved Feature 009 from `in_progress` to `review`.
+- Human closure approval received.
+- Moved Feature 009 from `review` to `done`.
+- Accepted limitations: no PyPI publish, no git tag, no GitHub Release, and setuptools license metadata warning deferred as a non-blocking follow-up.
+
+## 007-architecture-mermaid-diagrams
+
+- Preserved existing feature numbering.
+- Created SHIP-001 Wave 1 spec-gate artifacts for architecture visuals.
+- Registered Feature 007 as `spec_ready`.
+- Created ADR 007 for architecture visual language.
+- Implementation not started; `docs/architecture.md` and README diagrams are deferred until approval.
+- Human approval received for SHIP-mode implementation.
+- Moved Feature 007 to `in_progress`.
+- Created `docs/architecture.md` as the canonical architecture document.
+- Added terminal-native and Mermaid diagrams for system architecture, request lifecycle, policy decision flow, before/after tool exposure, audit lifecycle, MCP-style filtering, and adapter boundaries.
+- Updated product positioning and security docs with architecture cross-references.
+- Verified with `python -m json.tool feature_list.json`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests`.
+- Verified with `python examples/basic_agent/run_example.py`.
+- Completed manual Markdown link, Mermaid compatibility, claim grounding, and no-runtime-code-change checks.
+- Created `progress/review_007-architecture-mermaid-diagrams.md`.
+- Moved Feature 007 from `in_progress` to `review`.

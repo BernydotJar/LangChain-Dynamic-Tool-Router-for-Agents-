@@ -34,7 +34,7 @@ Run the local release-candidate verifier:
 python scripts/verify_release_candidate.py
 ```
 
-The script runs JSON validation, unit tests, the basic demo, integration tests, editable install, and a package build check when the `build` module is available.
+The script runs JSON validation, unit tests, the basic demo, integration tests, editable install, editable install with the `dev` extra, and a local package build.
 
 The script does not publish packages, create tags, or create GitHub releases.
 

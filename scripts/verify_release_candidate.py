@@ -9,6 +9,7 @@ from __future__ import annotations
 import subprocess
 import sys
 from dataclasses import dataclass
+from os import environ
 
 
 @dataclass(frozen=True)
@@ -16,6 +17,7 @@ class Check:
     name: str
     command: list[str]
     required: bool = True
+    pythonpath_src: bool = False
 
 
 CHECKS = [
@@ -26,6 +28,7 @@ CHECKS = [
     Check(
         name="unit tests",
         command=[sys.executable, "-m", "unittest", "discover", "-s", "tests"],
+        pythonpath_src=True,
     ),
     Check(
         name="basic demo",
@@ -34,31 +37,37 @@ CHECKS = [
     Check(
         name="integration tests",
         command=[sys.executable, "-m", "unittest", "discover", "-s", "tests/integration"],
+        pythonpath_src=True,
     ),
     Check(
         name="editable install",
         command=[sys.executable, "-m", "pip", "install", "-e", "."],
     ),
     Check(
+        name="editable install with dev extra",
+        command=[sys.executable, "-m", "pip", "install", "-e", ".[dev]"],
+    ),
+    Check(
         name="package build",
         command=[sys.executable, "-m", "build"],
-        required=False,
     ),
 ]
 
 
 def run_check(check: Check) -> bool:
     print(f"\n==> {check.name}")
-    print("$ " + " ".join(check.command))
+    prefix = "PYTHONPATH=src " if check.pythonpath_src else ""
+    print("$ " + prefix + " ".join(check.command))
 
-    result = subprocess.run(check.command, check=False)
+    env = None
+    if check.pythonpath_src:
+        env = dict(environ)
+        env["PYTHONPATH"] = "src"
+
+    result = subprocess.run(check.command, check=False, env=env)
 
     if result.returncode == 0:
         print(f"PASS: {check.name}")
-        return True
-
-    if not check.required:
-        print(f"SKIP/INFO: {check.name} did not pass. Install dev extras with: python -m pip install -e .[dev]")
         return True
 
     print(f"FAIL: {check.name}")

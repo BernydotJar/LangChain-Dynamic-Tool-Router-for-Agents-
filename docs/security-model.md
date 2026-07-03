@@ -8,6 +8,8 @@ It controls which tools are exposed to an agent/tool surface for a given user, t
 
 It is not a complete security boundary by itself.
 
+For the canonical architecture and request-flow diagrams, see [`architecture.md`](architecture.md).
+
 ## Trust Boundaries
 
 - The application owns authenticated identity and must build `Principal` from trusted server-side session data.

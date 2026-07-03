@@ -25,18 +25,19 @@ Epic: `SHIP-001-developer-preview-release`
 
 ## Verification
 
-- [ ] Validate feature registry JSON.
-- [ ] Run tests.
-- [ ] Run demo.
-- [ ] Run integration tests.
-- [ ] Verify editable install still works.
-- [ ] Verify build if `build` module is available.
+- [x] Validate feature registry JSON.
+- [x] Run tests.
+- [x] Run demo.
+- [x] Run integration tests.
+- [x] Verify editable install still works.
+- [x] Verify editable install with dev extra.
+- [x] Verify package build.
 
 ## Review
 
-- [ ] Create `progress/review_009-packaging-and-release.md`.
-- [ ] Move Feature 009 to `review` only after verification.
+- [x] Create `progress/review_009-packaging-and-release.md`.
+- [x] Move Feature 009 to `review` only after verification.
 
 ## Current Assessment
 
-Implementation artifacts are present, but Feature 009 must remain `in_progress` until local verification output is captured.
+Implementation artifacts are present, local verification passed, and Feature 009 is ready for review. Do not move to `done` until human closure approval.

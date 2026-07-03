@@ -8,11 +8,11 @@ Epic: `SHIP-001-developer-preview-release`
 
 ## State
 
-Status: `in_progress`
+Status: `done`
 
 ## Summary
 
-Feature 009 prepares the repository for a credible developer-preview package and first public release workflow.
+Feature 009 prepares the repository for a credible developer-preview package and first public release workflow. Implementation and local verification are complete, and human closure approval was received.
 
 ## Preconditions
 
@@ -36,9 +36,9 @@ Feature 009 prepares the repository for a credible developer-preview package and
 - [x] README packaging/release section added
 - [x] CHANGELOG updated
 - [x] release candidate verifier script added
-- [ ] local verification evidence
-- [ ] package build verification evidence
-- [ ] review artifact
+- [x] local verification evidence
+- [x] package build verification evidence
+- [x] review artifact
 
 ## Release Candidate Verifier
 
@@ -66,6 +66,41 @@ python -m build
 
 If `python -m build` cannot run because the build package is unavailable, install the dev extra first and retry.
 
+## Verification Evidence
+
+Passed:
+
+```sh
+python scripts/verify_release_candidate.py
+# PASS: feature registry JSON
+# PASS: unit tests
+# PASS: basic demo
+# PASS: integration tests
+# PASS: editable install
+# PASS: editable install with dev extra
+# PASS: package build
+# Release candidate verification completed.
+```
+
+The verifier executed:
+
+```sh
+python -m json.tool feature_list.json
+PYTHONPATH=src python -m unittest discover -s tests
+python examples/basic_agent/run_example.py
+PYTHONPATH=src python -m unittest discover -s tests/integration
+python -m pip install -e .
+python -m pip install -e .[dev]
+python -m build
+```
+
+Observed test and build results:
+
+- Unit discovery: `Ran 23 tests in 0.007s`, `OK (skipped=2)`.
+- Integration discovery: `Ran 2 tests in 0.000s`, `OK (skipped=2)`.
+- Package build created `langchain_dynamic_tool_router-0.1.0.dev0.tar.gz` and `langchain_dynamic_tool_router-0.1.0.dev0-py3-none-any.whl`.
+- Setuptools emitted deprecation warnings for `project.license` table format and license classifier usage. The build still passed; cleanup is a recommended follow-up before a non-preview release.
+
 ## Manual Checks
 
 - Package metadata is accurate.
@@ -73,12 +108,27 @@ If `python -m build` cannot run because the build package is unavailable, instal
 - Release checklist does not create tags without maintainer approval.
 - `v0.1.0-dev` notes clearly state developer-preview limitations.
 
-## Next Valid Lifecycle Action
+## Review Artifact
 
-After local verification passes, create:
+Created:
 
 ```text
 progress/review_009-packaging-and-release.md
 ```
 
-Then move Feature 009 from `in_progress` to `review`.
+## Next Valid Lifecycle Action
+
+Closed after human approval:
+
+```text
+FEATURE: 009-packaging-and-release
+MODE: SHIP
+STATE CHANGE: review -> done
+```
+
+## Accepted Limitations
+
+- No PyPI publish.
+- No git tag.
+- No GitHub Release.
+- Setuptools license metadata deprecation warning is documented as a non-blocking follow-up for a future non-preview release.
