@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tool Policy Router Admin</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fa;
+        --panel: #ffffff;
+        --text: #1b1f24;
+        --muted: #64707d;
+        --line: #d8dee6;
+        --ok: #147d45;
+        --deny: #b42318;
+        --focus: #2454a6;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      header {
+        padding: 24px 28px 12px;
+        border-bottom: 1px solid var(--line);
+        background: var(--panel);
+      }
+
+      h1 {
+        margin: 0 0 6px;
+        font-size: 22px;
+        letter-spacing: 0;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.8fr) minmax(480px, 1.4fr);
+        gap: 18px;
+        padding: 18px 28px 28px;
+      }
+
+      section {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      h2 {
+        margin: 0;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        font-size: 15px;
+      }
+
+      .content {
+        padding: 14px 16px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      select {
+        width: 100%;
+        min-height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: white;
+        color: var(--text);
+        padding: 6px 8px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .badge {
+        display: inline-block;
+        min-width: 58px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .allow {
+        background: #dbf5e7;
+        color: var(--ok);
+      }
+
+      .deny {
+        background: #fde3df;
+        color: var(--deny);
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        main {
+          grid-template-columns: 1fr;
+          padding: 14px;
+        }
+
+        header {
+          padding: 18px 14px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tool Policy Router Admin</h1>
+      <div class="muted">Review request-time tool authorization decisions and fallback events.</div>
+    </header>
+    <main>
+      <section>
+        <h2>Policy Snapshot</h2>
+        <div class="content">
+          <label for="tenant">Tenant</label>
+          <select id="tenant">
+            <option>tenant_acme</option>
+            <option>tenant_globex</option>
+          </select>
+        </div>
+        <table aria-label="Tool policy snapshot">
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Policy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>search_docs</td>
+              <td>free, pro, enterprise</td>
+            </tr>
+            <tr>
+              <td>fetch_customer_record</td>
+              <td>pro+, crm:read, crm-mcp</td>
+            </tr>
+            <tr>
+              <td>delete_customer_record</td>
+              <td>enterprise, admin, crm:delete</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>Audit Log</h2>
+        <table aria-label="Tool audit log">
+          <thead>
+            <tr>
+              <th>Decision</th>
+              <th>User</th>
+              <th>Tool</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge allow">allow</span></td>
+              <td>user_123</td>
+              <td>search_docs</td>
+              <td>authorized</td>
+            </tr>
+            <tr>
+              <td><span class="badge allow">allow</span></td>
+              <td>user_123</td>
+              <td>fetch_customer_record</td>
+              <td>authorized</td>
+            </tr>
+            <tr>
+              <td><span class="badge deny">deny</span></td>
+              <td>user_123</td>
+              <td>delete_customer_record</td>
+              <td>missing roles: admin</td>
+            </tr>
+            <tr>
+              <td><span class="badge allow">allow</span></td>
+              <td>user_123</td>
+              <td>not_authorized</td>
+              <td>fallback injected</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

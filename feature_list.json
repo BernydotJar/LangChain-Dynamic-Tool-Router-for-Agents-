@@ -1,0 +1,22 @@
+{
+  "repository": "LangChain-Dynamic-Tool-Router-for-Agents-",
+  "tagline": "Policy-driven runtime tool routing for LangChain and LangGraph agents.",
+  "allowed_statuses": [
+    "pending",
+    "spec_ready",
+    "approved",
+    "in_progress",
+    "review",
+    "done",
+    "blocked"
+  ],
+  "features": [
+    {
+      "id": "001-dynamic-tool-router",
+      "title": "Dynamic Tool Router for Agents",
+      "mode": "MVP",
+      "status": "review",
+      "summary": "Runtime tool selection, injection, permissions, fallback, audit logging, adapters, and a simple admin dashboard."
+    }
+  ]
+}

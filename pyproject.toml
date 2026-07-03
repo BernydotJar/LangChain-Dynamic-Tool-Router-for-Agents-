@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langchain-dynamic-tool-router"
+version = "0.1.0"
+description = "Policy-driven runtime tool routing for LangChain and LangGraph agents."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "BernydotJar" }]
+license = { text = "MIT" }
+keywords = ["langchain", "langgraph", "agents", "tools", "rbac", "mcp"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
