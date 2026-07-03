@@ -10,9 +10,23 @@ Expose the right tool.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Dynamic Tool Router is a runtime governance layer for LangChain and LangGraph agents. It decides which tools an agent may see, inject, invoke, deny, and audit per user, tenant, plan, role, permission, request context, and available MCP-style tool surface.
+Dynamic Tool Router is a request-time authorization layer for LangChain and LangGraph agents. It decides which tools an agent may see, inject, invoke, deny, and audit per user, tenant, plan, role, permission, request context, and available MCP-style tool surface.
 
-This repository is a **developer preview** for teams building multi-tenant AI products. It proves the product pattern locally before a hosted policy service, authenticated dashboard, enterprise audit backend, or production IAM integration exists.
+> Developer preview: local policy files, local audit evidence, framework adapter shapes, and dependency-gated LangChain/LangGraph integration tests. Not a hosted IAM product yet.
+
+## Why This Exists
+
+Everyone is building AI agents. Fewer teams are building the infrastructure that controls which tools those agents are allowed to use.
+
+Most agent frameworks make tool access feel static: define tools, create the agent, run the agent. That works for demos. It breaks down in multi-tenant products where users, tenants, plans, roles, and available MCP servers change per request.
+
+```text
+The old question:
+Which tools are relevant?
+
+The product question:
+Which tools is this user, tenant, plan, role, and request allowed to use right now?
+```
 
 ## The Missing Layer
 
@@ -28,40 +42,18 @@ Tools
 Your Infrastructure
 ```
 
-Most agent frameworks make tool access feel static: define tools, create the agent, run the agent. That works for demos.
+## What It Gives You
 
-It breaks down in multi-tenant products:
-
-- different tenants buy different plans,
-- different users have different roles,
-- different requests expose different MCP servers,
-- tools may be unsafe outside a specific context,
-- security reviewers need evidence of allow/deny/fallback behavior.
-
-The product question is not only:
-
-```text
-Which tools are relevant?
-```
-
-It is also:
-
-```text
-Which tools is this user, tenant, plan, role, and request allowed to use right now?
-```
-
-## What It Does
-
-- Evaluates tool policy at request time.
-- Injects only authorized tools into an agent/tool surface.
-- Routes denied tools to a fallback tool.
-- Supports per-user, per-tenant, plan, role, permission, context, and MCP-server policy dimensions.
-- Loads JSON policy configuration from disk.
-- Persists audit events to JSONL.
-- Exports audit events to JSON.
-- Provides LangChain-style and LangGraph-style adapter shapes.
-- Includes dependency-gated real-framework integration tests.
-- Includes a static admin dashboard example for visibility.
+| Capability | Developer-preview behavior |
+|---|---|
+| Runtime authorization | Evaluates tool policy per request context. |
+| Tool injection | Exposes only the authorized tool surface. |
+| Fallback routing | Maps unavailable tools to a safe fallback tool. |
+| Multi-tenant policy | Supports user, tenant, plan, role, permission, context, and MCP-server dimensions. |
+| Policy persistence | Loads JSON policy configuration from disk. |
+| Audit evidence | Persists JSONL audit events and exports JSON. |
+| LangChain/LangGraph compatibility | Provides adapter shapes and dependency-gated real-framework tests. |
+| Dashboard visibility | Includes static dashboard documentation and sample-data direction. |
 
 ## Killer Contrast
 
@@ -157,7 +149,7 @@ sequenceDiagram
     Agent->>Audit: Record audited tool invocations
 ```
 
-## Install For Local Development
+## Install
 
 ```sh
 python -m pip install -e .
@@ -165,31 +157,30 @@ python -m pip install -e .
 
 The core package has no required LangChain or LangGraph runtime dependency. Integration tests are dependency-gated so the router can stay lightweight.
 
-## Quickstart
-
-Run the local demo:
+## Run The Demo
 
 ```sh
 python examples/basic_agent/run_example.py
 ```
 
-The demo shows:
+Expected output shape:
+
+```text
+Injected tools: search_docs, fetch_customer_record, not_authorized
+search_docs: [{'title': 'Plan limits', 'snippet': 'Search result for retention policy'}]
+LangGraph state tools: search_docs, not_authorized
+Audit export: /tmp/.../runtime_audit_export.json
+```
+
+The demo proves:
 
 - JSON policy loading,
 - runtime tool injection,
 - authorized tool exposure,
-- denied tool fallback,
+- unavailable tool fallback,
 - LangGraph-style state middleware,
 - JSONL audit persistence,
 - JSON audit export.
-
-Expected shape:
-
-```text
-Injected tools: search_docs, fetch_customer_record, not_authorized
-LangGraph state tools: search_docs, not_authorized
-Audit export: /tmp/.../runtime_audit_export.json
-```
 
 ## Policy Example
 
@@ -219,11 +210,15 @@ See `docs/policy-format.md` for the full developer-preview policy format.
 
 ```json
 {
-  "event_type": "deny",
+  "action": "authorize",
+  "allowed": false,
   "tool_name": "delete_customer_record",
   "user_id": "user_123",
   "tenant_id": "tenant_acme",
-  "reason": "missing required permission: records:delete"
+  "reason": "plan is not allowed",
+  "metadata": {
+    "fallback_tool_name": "not_authorized"
+  }
 }
 ```
 
@@ -246,6 +241,16 @@ PYTHONPATH=src python -m unittest discover -s tests/integration
 
 See `docs/langchain-langgraph-integration.md`.
 
+## Who This Is For
+
+| Reader | Why they care |
+|---|---|
+| CTO | Shows disciplined AI infrastructure, product judgment, and security restraint. |
+| AI platform engineer | Provides a reusable policy layer for agent tool surfaces. |
+| SaaS product team | Enables plan, tenant, role, and permission-aware agent behavior. |
+| Security reviewer | Produces explicit allow, deny, fallback, and invoke evidence. |
+| Design partner | Offers a concrete starting point for agent-tool governance pilots. |
+
 ## Documentation
 
 - `docs/product-positioning.md` — buyer narrative and wedge use cases.
@@ -253,11 +258,12 @@ See `docs/langchain-langgraph-integration.md`.
 - `docs/policy-format.md` — JSON policy format.
 - `docs/audit-log-format.md` — persisted audit event format.
 - `docs/security-model.md` — security boundaries and non-goals.
+- `docs/admin-dashboard.md` — dashboard purpose and limitations.
 - `docs/persistent-policy-and-audit-store.md` — file-backed store notes.
 - `docs/langchain-langgraph-integration.md` — optional framework integration behavior.
 - `docs/release-notes.md` — developer-preview release notes.
 
-## Security Model Summary
+## Security Boundary
 
 Dynamic Tool Router is an authorization and routing layer for tool visibility. It is not a sandbox, secret manager, IAM provider, compliance product, or tamper-proof audit system.
 
@@ -297,14 +303,25 @@ SHIP-001  Developer Preview Release                  active
 001       Dynamic Tool Router MVP                    done
 002       Persistent policy and audit store          done
 003       Real LangChain/LangGraph integration       done
-004       Sellable developer preview                 in progress
-005       README 3.0 landing page                    candidate
+004       Sellable developer preview                 done
+005       README 3.0 landing page                    in progress
 006       Architecture & Mermaid diagrams            candidate
 007       Demo experience                            candidate
 008       GitHub trust signals                       candidate
 009       Packaging & release                        candidate
 010       Security whitepaper                        candidate
 ```
+
+## Design Partner Signal
+
+This project is ready for design-partner conversations around:
+
+- agent tool authorization,
+- multi-tenant agent governance,
+- LangChain/LangGraph tool routing,
+- MCP-style tool surface filtering,
+- audit evidence for agent actions,
+- productizing internal agent infrastructure.
 
 ## Harness SDLC Evidence
 
