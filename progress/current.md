@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`004-sellable-developer-preview`
+`005-readme-3-landing-page`
 
 ## Current State
 
@@ -12,15 +12,15 @@ Feature 002 status: `done`
 
 Feature 003 status: `done`
 
-Feature 004 status: `in_progress`
+Feature 004 status: `done`
 
-Feature 005 status: `spec_ready`
+Feature 005 status: `in_progress`
 
-Feature 004 remains the active implementation feature. Feature 005 has been specified as the next SHIP landing-page increment but must not move to implementation until Feature 004 verification and review handling are complete.
+Feature 004 was approved for closure. Feature 005 is now the active SHIP implementation feature.
 
 ## Product Direction
 
-The product is now being framed as:
+The product is framed as:
 
 > Runtime Tool Authorization for AI Agents.
 >
@@ -36,41 +36,30 @@ Created:
 
 SHIP-001 owns the commercial developer-preview release across GitHub, LinkedIn, and early design partner conversations.
 
-## Feature 004 Implementation Pass
+## Feature 004 Closure
+
+Feature 004 is closed as `done` after local verification and SHIP review artifact creation.
+
+Review artifact:
+
+- `progress/review_004-sellable-developer-preview.md`
+
+## Feature 005 Implementation Pass
 
 Completed:
 
-- README rewritten for buyer-facing developer-preview positioning.
-- Runtime Tool Authorization hero added.
-- Futuristic terminal-native architecture diagrams added.
-- Mermaid request lifecycle added.
-- Quickstart and demo flow added.
-- Policy example added.
-- Audit example added.
-- Security model summary added.
-- Verification commands added.
-- SHIP roadmap added.
-- `docs/product-positioning.md` added.
-- `docs/security-model.md` expanded.
-- `docs/policy-format.md` added.
-- `docs/audit-log-format.md` added.
-- `docs/demo-guide.md` added.
-- `docs/admin-dashboard.md` added.
-- `docs/release-notes.md` added.
+- Feature 005 moved from `spec_ready` to `in_progress`.
+- README hero retained the Runtime Tool Authorization identity.
+- README sharpened the Why This Exists section.
+- README added a capability grid.
+- README tightened install and demo sections.
+- README updated the audit example to match observed local output shape.
+- README added a Who This Is For section.
+- README linked admin dashboard documentation.
+- README added a design partner signal section.
+- README roadmap now reflects Feature 004 done and Feature 005 in progress.
 
-## Feature 005 Spec Gate
-
-Created:
-
-- `specs/005-readme-3-landing-page/requirements.md`
-- `specs/005-readme-3-landing-page/design.md`
-- `specs/005-readme-3-landing-page/tasks.md`
-- `adr/005-readme-as-product-landing-page.md`
-- `progress/005-readme-3-landing-page.md`
-
-Feature 005 is registered as `spec_ready`.
-
-## Feature 004 Required Local Verification
+## Feature 005 Required Local Verification
 
 Run:
 
@@ -81,14 +70,20 @@ python examples/basic_agent/run_example.py
 PYTHONPATH=src python -m unittest discover -s tests/integration
 ```
 
-Feature 004 remains `in_progress` until local verification evidence is reported.
+Manual checks:
+
+- README renders cleanly on GitHub.
+- Mermaid renders cleanly.
+- Quickstart is accurate.
+- Product claims match implementation.
+- No unsupported benchmark, security, customer, or revenue claims.
 
 ## Next Valid Lifecycle Action
 
 After local verification passes:
 
 ```text
-FEATURE: 004-sellable-developer-preview
+FEATURE: 005-readme-3-landing-page
 MODE: SHIP
 STATE CHANGE: in_progress -> review
 ```
@@ -96,15 +91,5 @@ STATE CHANGE: in_progress -> review
 Then create:
 
 ```text
-progress/review_004-sellable-developer-preview.md
+progress/review_005-readme-3-landing-page.md
 ```
-
-Feature 005 remains at `spec_ready` until Feature 004 review handling is complete.
-
-## Current SHIP-Mode Risks
-
-- Static dashboard remains unauthenticated.
-- Local audit files are not tamper-proof.
-- Optional LangChain/LangGraph dependencies may be absent during integration verification.
-- No hosted API, auth-provider integration, database, billing, or compliance guarantees.
-- Feature 004 has not yet been locally verified after the README/docs implementation pass.
