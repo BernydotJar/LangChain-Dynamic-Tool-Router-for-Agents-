@@ -1,12 +1,32 @@
-# Dynamic Tool Router for Agents
+# Runtime Tool Authorization for AI Agents
 
-**Auth0-style authorization for AI agent tools.**
+```text
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Runtime Tool Authorization
+for AI Agents
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Never expose every tool.
+Expose the right tool.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
 Dynamic Tool Router is a runtime governance layer for LangChain and LangGraph agents. It decides which tools an agent may see, inject, invoke, deny, and audit per user, tenant, plan, role, permission, request context, and available MCP-style tool surface.
 
-This repository is a **developer preview**. It is designed to prove the product pattern locally before a hosted policy service, authenticated dashboard, enterprise audit backend, or production IAM integration exists.
+This repository is a **developer preview** for teams building multi-tenant AI products. It proves the product pattern locally before a hosted policy service, authenticated dashboard, enterprise audit backend, or production IAM integration exists.
 
-## The Problem
+## The Missing Layer
+
+```text
+LLMs
+  ↓
+Agents
+  ↓
+Runtime Tool Authorization   ← this project
+  ↓
+Tools
+  ↓
+Your Infrastructure
+```
 
 Most agent frameworks make tool access feel static: define tools, create the agent, run the agent. That works for demos.
 
@@ -43,39 +63,98 @@ Which tools is this user, tenant, plan, role, and request allowed to use right n
 - Includes dependency-gated real-framework integration tests.
 - Includes a static admin dashboard example for visibility.
 
-## System Shape
+## Killer Contrast
 
 ```text
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       DYNAMIC TOOL ROUTER                                   │
-│               runtime authorization for AI agent tools                      │
-└─────────────────────────────────────────────────────────────────────────────┘
+WITHOUT
 
-          request context
-  user ─ tenant ─ plan ─ roles ─ permissions ─ MCP servers ─ metadata
-            │
-            ▼
-┌──────────────────────┐        ┌───────────────────────────────┐
-│  ToolPolicyRouter    │───────▶│  authorized tool surface      │
-│  policy evaluation   │        │  injected at request time     │
-└──────────────────────┘        └───────────────────────────────┘
-            │
-            ├─ allow    → expose tool to agent
-            ├─ deny     → withhold tool
-            ├─ fallback → route to safe substitute
-            ├─ invoke   → record tool usage
-            └─ audit    → persist governance evidence
+Agent
+ ├── SQL
+ ├── CRM
+ ├── GitHub
+ ├── Stripe
+ ├── AWS
+ ├── Slack
+ ├── Jira
+ └── ...
+
+Every tool is potentially visible unless the app manually filters it.
 ```
 
 ```text
-Before
-======
-Agent sees every tool it was created with.
+WITH
 
-After
-=====
-Agent sees only the tools this user, tenant, plan, permission set,
-and request context may use.
+Tenant A
+Agent
+ ├── SQL     ✓
+ └── CRM     ✓
+
+Tenant B
+Agent
+ ├── GitHub  ✓
+ └── Slack   ✓
+
+Tenant C
+Agent
+ └── AWS     ✓
+
+Each request receives only the tool surface it is allowed to use.
+```
+
+## Architecture
+
+```text
+                AI Product
+                     │
+                     ▼
+         Authentication Layer
+                     │
+                     ▼
+        Principal Resolution
+                     │
+                     ▼
+ user • tenant • plan • roles • permissions • MCP servers
+                     │
+                     ▼
+╔══════════════════════════════════════════════════════════════════════╗
+║                    Runtime Tool Authorization                       ║
+║──────────────────────────────────────────────────────────────────────║
+║  ✓ Policy evaluation                                                ║
+║  ✓ Runtime tool injection                                           ║
+║  ✓ RBAC-style gating                                                ║
+║  ✓ MCP tool surface filtering                                       ║
+║  ✓ Fallback routing                                                 ║
+║  ✓ Audit persistence                                                ║
+╚══════════════════════════════════════════════════════════════════════╝
+                     │
+                     ▼
+            Authorized Tool Surface
+                     │
+       ┌─────────────┼─────────────┐
+       ▼             ▼             ▼
+  Search Tool    CRM Tool      SQL Tool
+```
+
+## Request Lifecycle
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant Router as ToolPolicyRouter
+    participant Registry as ToolRegistry
+    participant Agent
+    participant Audit as Audit Store
+
+    User->>App: Send request
+    App->>App: Resolve Principal(user, tenant, plan, permissions)
+    App->>Router: Evaluate request context
+    Router->>Registry: Select candidate tools
+    Router->>Router: Apply policy
+    Router->>Audit: Record allow/deny/fallback events
+    Router-->>App: Authorized tool surface
+    App->>Agent: Run agent with routed tools
+    Agent->>Audit: Record audited tool invocations
 ```
 
 ## Install For Local Development
@@ -213,14 +292,18 @@ If optional framework dependencies are absent, integration tests should skip exp
 ## Roadmap
 
 ```text
-001  Dynamic Tool Router MVP                         done
-002  Persistent policy and audit store               done
-003  Real LangChain/LangGraph integration tests      done
-004  Sellable developer preview                      in progress
-005  MCP server discovery adapter                    candidate
-006  Admin policy editor                             candidate
-007  Hosted policy API                               candidate
-008  Tamper-resistant audit sink                     candidate
+SHIP-001  Developer Preview Release                  active
+
+001       Dynamic Tool Router MVP                    done
+002       Persistent policy and audit store          done
+003       Real LangChain/LangGraph integration       done
+004       Sellable developer preview                 in progress
+005       README 3.0 landing page                    candidate
+006       Architecture & Mermaid diagrams            candidate
+007       Demo experience                            candidate
+008       GitHub trust signals                       candidate
+009       Packaging & release                        candidate
+010       Security whitepaper                        candidate
 ```
 
 ## Harness SDLC Evidence
@@ -228,7 +311,7 @@ If optional framework dependencies are absent, integration tests should skip exp
 This repository follows a harness-style SDLC:
 
 ```text
-[SPEC] → [APPROVAL] → [IMPLEMENT] → [VERIFY] → [REVIEW] → [CLOSE]
+[SPEC] -> [APPROVAL] -> [IMPLEMENT] -> [VERIFY] -> [REVIEW] -> [CLOSE]
 ```
 
 Feature artifacts live under:
@@ -239,6 +322,7 @@ specs/
 adr/
 docs/
 progress/
+epics/
 tests/
 examples/
 ```
