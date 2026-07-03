@@ -50,13 +50,20 @@
 - Verified with `python -m json.tool feature_list.json`.
 - Verified with `PYTHONPATH=src python -m unittest discover -s tests/integration`.
 - Moved Feature 003 to `review`.
+- Human closure approval received.
+- Moved Feature 003 from `review` to `done`.
 
 ## 004-sellable-developer-preview
 
 - Reframed the next increment from MVP-only work into SHIP-mode productization.
 - Registered Feature 004 as `spec_ready`.
 - Preserved Feature 001 and Feature 002 as `done`.
-- Preserved Feature 003 as `review`; Feature 004 implementation must wait for explicit lifecycle handling.
+- Preserved Feature 003 as `review`; Feature 004 implementation waited for explicit lifecycle handling.
 - Created requirements, design, tasks, ADR, and progress artifacts.
 - Embedded developer-tool product principles: one-screen clarity, copy-paste quickstart, immediate demo path, futuristic text diagrams, realistic examples, security honesty, verification evidence, integration proof, and roadmap.
-- Recommended next lifecycle action: close Feature 003 if accepted, then approve Feature 004 for SHIP-mode implementation.
+- Human approval received to close Feature 003 and approve Feature 004.
+- Moved Feature 004 from `spec_ready` to `in_progress`.
+- Rewrote README for sellable developer-preview positioning.
+- Added futuristic terminal-native architecture diagrams to README.
+- Added/updated product docs: product positioning, security model, policy format, audit log format, demo guide, admin dashboard notes, and release notes.
+- Local verification is still required before moving Feature 004 to `review`.
