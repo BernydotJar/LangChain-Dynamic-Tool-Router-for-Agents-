@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`006-github-trust-signals`
+`009-packaging-and-release`
 
 ## Current State
 
@@ -16,9 +16,11 @@ Feature 004 status: `done`
 
 Feature 005 status: `done`
 
-Feature 006 status: `in_progress`
+Feature 006 status: `done`
 
-Feature 005 was approved for closure. Feature 006 is now the active SHIP implementation feature.
+Feature 009 status: `in_progress`
+
+Feature 006 was approved for closure. Feature 009 is now the active SHIP implementation feature.
 
 ## Product Direction
 
@@ -44,25 +46,29 @@ Feature 004 is closed as `done` after local verification and SHIP review artifac
 
 Feature 005 is closed as `done` after README 3.0 verification and SHIP review artifact creation.
 
+Feature 006 is closed as `done` after trust signal verification and SHIP review artifact creation.
+
 Review artifacts:
 
 - `progress/review_004-sellable-developer-preview.md`
 - `progress/review_005-readme-3-landing-page.md`
+- `progress/review_006-github-trust-signals.md`
 
-## Feature 006 Implementation Pass
+## Feature 009 Implementation Pass
 
 Completed:
 
-- Feature 006 registered as `in_progress`.
-- `SECURITY.md` added.
-- `CONTRIBUTING.md` added.
-- `CHANGELOG.md` added.
-- `CODE_OF_CONDUCT.md` added.
-- `LICENSE` added.
-- README Trust & Project Governance section added.
-- `progress/006-github-trust-signals.md` updated.
+- Feature 009 registered as `in_progress`.
+- `pyproject.toml` updated for developer-preview packaging.
+- Package version set to `0.1.0.dev0`.
+- Optional `integrations` and `dev` extras added.
+- `docs/release-checklist.md` added.
+- `docs/v0.1.0-dev-release-notes.md` added.
+- README Packaging & Release section added.
+- CHANGELOG updated.
+- `progress/009-packaging-and-release.md` added.
 
-## Feature 006 Required Local Verification
+## Feature 009 Required Local Verification
 
 Run:
 
@@ -71,22 +77,24 @@ python -m json.tool feature_list.json
 PYTHONPATH=src python -m unittest discover -s tests
 python examples/basic_agent/run_example.py
 PYTHONPATH=src python -m unittest discover -s tests/integration
+python -m pip install -e .
+python -m pip install -e .[dev]
+python -m build
 ```
 
 Manual checks:
 
-- README links to trust files.
-- Security policy does not claim production security certification.
-- CONTRIBUTING references harness workflow.
-- CHANGELOG accurately reflects developer-preview milestones.
-- LICENSE exists and is visible.
+- Package metadata is accurate.
+- README release section does not claim PyPI publication.
+- Release checklist does not create tags without maintainer approval.
+- `v0.1.0-dev` notes clearly state developer-preview limitations.
 
 ## Next Valid Lifecycle Action
 
 After local verification passes:
 
 ```text
-FEATURE: 006-github-trust-signals
+FEATURE: 009-packaging-and-release
 MODE: SHIP
 STATE CHANGE: in_progress -> review
 ```
@@ -94,5 +102,5 @@ STATE CHANGE: in_progress -> review
 Then create:
 
 ```text
-progress/review_006-github-trust-signals.md
+progress/review_009-packaging-and-release.md
 ```
