@@ -11,17 +11,17 @@ Epic: `SHIP-001-developer-preview-release`
 - [x] Create requirements.
 - [x] Create design.
 - [x] Create tasks.
-- [ ] Create progress artifact.
-- [ ] Update current progress.
+- [x] Create progress artifact.
+- [x] Update current progress.
 
 ## Implementation
 
-- [ ] Add `pyproject.toml`.
-- [ ] Add package version metadata.
-- [ ] Add release checklist.
-- [ ] Add developer-preview release notes.
-- [ ] Update README packaging/release section.
-- [ ] Update changelog.
+- [x] Add `pyproject.toml`.
+- [x] Add package version metadata.
+- [x] Add release checklist.
+- [x] Add developer-preview release notes.
+- [x] Update README packaging/release section.
+- [x] Update changelog.
 
 ## Verification
 
@@ -36,3 +36,7 @@ Epic: `SHIP-001-developer-preview-release`
 
 - [ ] Create `progress/review_009-packaging-and-release.md`.
 - [ ] Move Feature 009 to `review` only after verification.
+
+## Current Assessment
+
+Implementation artifacts are present, but Feature 009 must remain `in_progress` until local verification output is captured.
