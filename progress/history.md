@@ -101,7 +101,7 @@
 - Created SHIP-001 Wave 1 spec-gate artifacts for architecture visuals.
 - Registered Feature 007 as `spec_ready`.
 - Created ADR 007 for architecture visual language.
-- Implementation not started; `docs/architecture.md` and README diagrams are deferred until approval.
+- Implementation not started; `docs/architecture.md` and README diagrams were deferred until approval.
 - Human approval received for SHIP-mode implementation.
 - Moved Feature 007 to `in_progress`.
 - Created `docs/architecture.md` as the canonical architecture document.
@@ -113,3 +113,7 @@
 - Completed manual Markdown link, Mermaid compatibility, claim grounding, and no-runtime-code-change checks.
 - Created `progress/review_007-architecture-mermaid-diagrams.md`.
 - Moved Feature 007 from `in_progress` to `review`.
+- Human closure approval received.
+- Moved Feature 007 from `review` to `done`.
+- Accepted limitations: no runtime code changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, and no runtime capability change.
+- Recommended next feature: `008-demo-experience` as a spec gate only.
