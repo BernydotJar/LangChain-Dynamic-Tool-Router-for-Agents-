@@ -263,6 +263,15 @@ See `docs/langchain-langgraph-integration.md`.
 - `docs/langchain-langgraph-integration.md` — optional framework integration behavior.
 - `docs/release-notes.md` — developer-preview release notes.
 
+## Trust & Project Governance
+
+- `SECURITY.md` — security policy, reporting path, and developer-preview security boundary.
+- `CONTRIBUTING.md` — local setup, verification, and harness workflow.
+- `CHANGELOG.md` — developer-preview release history.
+- `CODE_OF_CONDUCT.md` — collaboration expectations.
+- `LICENSE` — MIT license.
+- `feature_list.json`, `specs/`, `progress/`, and `adr/` — harness SDLC evidence.
+
 ## Security Boundary
 
 Dynamic Tool Router is an authorization and routing layer for tool visibility. It is not a sandbox, secret manager, IAM provider, compliance product, or tamper-proof audit system.
@@ -304,10 +313,10 @@ SHIP-001  Developer Preview Release                  active
 002       Persistent policy and audit store          done
 003       Real LangChain/LangGraph integration       done
 004       Sellable developer preview                 done
-005       README 3.0 landing page                    in progress
-006       Architecture & Mermaid diagrams            candidate
-007       Demo experience                            candidate
-008       GitHub trust signals                       candidate
+005       README 3.0 landing page                    done
+006       GitHub trust signals                       in progress
+007       Architecture & Mermaid diagrams            candidate
+008       Demo experience                            candidate
 009       Packaging & release                        candidate
 010       Security whitepaper                        candidate
 ```
