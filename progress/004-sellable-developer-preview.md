@@ -6,7 +6,7 @@ Mode: SHIP
 
 ## State
 
-Status: `in_progress`
+Status: `review`
 
 ## Summary
 
@@ -38,6 +38,7 @@ Human approval was received to close Feature 003 and approve Feature 004 for SHI
 - [x] `docs/demo-guide.md` added.
 - [x] `docs/admin-dashboard.md` added.
 - [x] `docs/release-notes.md` added.
+- [x] `progress/review_004-sellable-developer-preview.md` created.
 
 ## SHIP Scope
 
@@ -50,8 +51,28 @@ Human approval was received to close Feature 003 and approve Feature 004 for SHI
 - [x] demo guide
 - [x] admin dashboard docs
 - [x] release notes
-- [ ] local verification evidence
-- [ ] SHIP-mode review artifact
+- [x] local verification evidence
+- [x] SHIP-mode review artifact
+
+## Verification Evidence
+
+Human-provided local verification passed:
+
+```sh
+python -m json.tool feature_list.json
+# passed; valid JSON printed
+
+PYTHONPATH=src python -m unittest discover -s tests
+# Ran 23 tests in 0.008s
+# OK (skipped=2)
+
+python examples/basic_agent/run_example.py
+# passed; demonstrated injected tools, fallback routing, LangGraph-style state tools, audit events, and audit export
+
+PYTHONPATH=src python -m unittest discover -s tests/integration
+# Ran 2 tests in 0.000s
+# OK (skipped=2)
+```
 
 ## Non-Goals
 
@@ -98,19 +119,12 @@ Feature 004 applies developer-tool product principles:
 - `docs/admin-dashboard.md`
 - `docs/release-notes.md`
 
-## Required Local Verification
+## Review Artifact
 
-Run:
-
-```sh
-python -m json.tool feature_list.json
-PYTHONPATH=src python -m unittest discover -s tests
-python examples/basic_agent/run_example.py
-PYTHONPATH=src python -m unittest discover -s tests/integration
-```
-
-Feature 004 must remain `in_progress` until local verification evidence is reported.
+- `progress/review_004-sellable-developer-preview.md`
 
 ## Next Valid Lifecycle Action
 
-After verification passes, create `progress/review_004-sellable-developer-preview.md` and move Feature 004 to `review`.
+Human closure approval may move Feature 004 from `review` to `done`.
+
+Recommended next implementation feature after closure: `005-readme-3-landing-page`.
