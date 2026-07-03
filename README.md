@@ -262,6 +262,33 @@ See `docs/langchain-langgraph-integration.md`.
 - `docs/persistent-policy-and-audit-store.md` — file-backed store notes.
 - `docs/langchain-langgraph-integration.md` — optional framework integration behavior.
 - `docs/release-notes.md` — developer-preview release notes.
+- `docs/release-checklist.md` — release verification and tagging checklist.
+- `docs/v0.1.0-dev-release-notes.md` — first developer-preview release notes.
+
+## Packaging & Release
+
+Package metadata is defined in `pyproject.toml`.
+
+Current developer-preview package version:
+
+```text
+0.1.0.dev0
+```
+
+Editable install:
+
+```sh
+python -m pip install -e .
+```
+
+Build, if the `build` module is available:
+
+```sh
+python -m pip install -e .[dev]
+python -m build
+```
+
+This feature prepares packaging and release documentation only. It does not publish to PyPI, create a GitHub Release, or create a git tag.
 
 ## Trust & Project Governance
 
@@ -314,10 +341,10 @@ SHIP-001  Developer Preview Release                  active
 003       Real LangChain/LangGraph integration       done
 004       Sellable developer preview                 done
 005       README 3.0 landing page                    done
-006       GitHub trust signals                       in progress
+006       GitHub trust signals                       done
+009       Packaging & release                        in progress
 007       Architecture & Mermaid diagrams            candidate
 008       Demo experience                            candidate
-009       Packaging & release                        candidate
 010       Security whitepaper                        candidate
 ```
 
