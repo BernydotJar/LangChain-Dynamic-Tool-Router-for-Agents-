@@ -35,11 +35,24 @@ Feature 009 prepares the repository for a credible developer-preview package and
 - [x] `v0.1.0-dev` release notes added
 - [x] README packaging/release section added
 - [x] CHANGELOG updated
+- [x] release candidate verifier script added
 - [ ] local verification evidence
 - [ ] package build verification evidence
 - [ ] review artifact
 
+## Release Candidate Verifier
+
+Run:
+
+```sh
+python scripts/verify_release_candidate.py
+```
+
+The script runs the local release-candidate checks without publishing packages, creating tags, or creating GitHub releases.
+
 ## Required Verification
+
+Manual command sequence:
 
 ```sh
 python -m json.tool feature_list.json
@@ -59,3 +72,13 @@ If `python -m build` cannot run because the build package is unavailable, instal
 - README release section does not claim PyPI publication.
 - Release checklist does not create tags without maintainer approval.
 - `v0.1.0-dev` notes clearly state developer-preview limitations.
+
+## Next Valid Lifecycle Action
+
+After local verification passes, create:
+
+```text
+progress/review_009-packaging-and-release.md
+```
+
+Then move Feature 009 from `in_progress` to `review`.
