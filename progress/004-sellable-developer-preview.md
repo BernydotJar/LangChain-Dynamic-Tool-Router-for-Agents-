@@ -6,11 +6,11 @@ Mode: SHIP
 
 ## State
 
-Status: `spec_ready`
+Status: `in_progress`
 
 ## Summary
 
-Feature 004 reframes the next product increment from another MVP-only implementation feature into a SHIP-mode developer-preview release track.
+Feature 004 reframes the product from MVP validation into a SHIP-mode developer-preview release track.
 
 The goal is to make the Dynamic Tool Router sellable as:
 
@@ -20,22 +20,38 @@ The goal is to make the Dynamic Tool Router sellable as:
 
 - Feature 001: `done`
 - Feature 002: `done`
-- Feature 003: currently `review` in the live repository at the time this feature was created
+- Feature 003: `done`
 
-Feature 004 may be specified while Feature 003 is in review, but implementation should not begin until lifecycle handling is explicit.
+Human approval was received to close Feature 003 and approve Feature 004 for SHIP-mode implementation.
 
-## Scope
+## Implemented In This Pass
 
-- [x] buyer-facing README plan
-- [x] futuristic text diagram requirement
+- [x] Feature 003 moved from `review` to `done` in `feature_list.json`.
+- [x] Feature 004 moved from `spec_ready` to `in_progress` in `feature_list.json`.
+- [x] README rewritten for buyer-facing developer-preview positioning.
+- [x] README includes futuristic terminal-native diagrams.
+- [x] README includes install, quickstart, demo, policy, audit, integration, security, verification, roadmap, and harness evidence sections.
+- [x] `docs/product-positioning.md` added.
+- [x] `docs/security-model.md` expanded.
+- [x] `docs/policy-format.md` added.
+- [x] `docs/audit-log-format.md` added.
+- [x] `docs/demo-guide.md` added.
+- [x] `docs/admin-dashboard.md` added.
+- [x] `docs/release-notes.md` added.
+
+## SHIP Scope
+
+- [x] buyer-facing README
+- [x] futuristic text diagrams
 - [x] product positioning docs
 - [x] security model docs
 - [x] policy format docs
 - [x] audit format docs
 - [x] demo guide
+- [x] admin dashboard docs
 - [x] release notes
-- [x] SHIP-mode review requirements
-- [x] verification plan
+- [ ] local verification evidence
+- [ ] SHIP-mode review artifact
 
 ## Non-Goals
 
@@ -71,17 +87,20 @@ Feature 004 applies developer-tool product principles:
 - `specs/004-sellable-developer-preview/tasks.md`
 - `adr/004-ship-mode-sellable-developer-preview.md`
 
-## Next Valid Lifecycle Action
+## Implementation Artifacts
 
-Human approval may move Feature 004 from `spec_ready` to `approved` after the team explicitly resolves Feature 003 lifecycle handling.
+- `README.md`
+- `docs/product-positioning.md`
+- `docs/security-model.md`
+- `docs/policy-format.md`
+- `docs/audit-log-format.md`
+- `docs/demo-guide.md`
+- `docs/admin-dashboard.md`
+- `docs/release-notes.md`
 
-Recommended handling:
+## Required Local Verification
 
-1. Close Feature 003 as `done` if review evidence is accepted.
-2. Approve Feature 004.
-3. Implement Feature 004 in SHIP mode.
-
-## Required Verification During Implementation
+Run:
 
 ```sh
 python -m json.tool feature_list.json
@@ -89,3 +108,9 @@ PYTHONPATH=src python -m unittest discover -s tests
 python examples/basic_agent/run_example.py
 PYTHONPATH=src python -m unittest discover -s tests/integration
 ```
+
+Feature 004 must remain `in_progress` until local verification evidence is reported.
+
+## Next Valid Lifecycle Action
+
+After verification passes, create `progress/review_004-sellable-developer-preview.md` and move Feature 004 to `review`.
