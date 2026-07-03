@@ -2,21 +2,19 @@
 
 ## Active Feature
 
-`003-langchain-langgraph-real-integration-tests`
+`004-sellable-developer-preview`
 
 ## Current State
 
-Feature 003 status: `review`
+Feature 001 status: `done`
 
-Feature 004 status: `spec_ready`
+Feature 002 status: `done`
 
-`001-dynamic-tool-router` is closed as an MVP.
+Feature 003 status: `done`
 
-`002-persistent-policy-and-audit-store` is closed as an MVP.
+Feature 004 status: `in_progress`
 
-`003-langchain-langgraph-real-integration-tests` is implemented, verified, and ready for review/closure approval.
-
-`004-sellable-developer-preview` has been created as the first SHIP-mode productization feature. It is a spec gate only and must not be implemented until explicit approval.
+Feature 003 was closed after human approval. Feature 004 was approved and implementation has started in SHIP mode.
 
 ## Product Direction
 
@@ -26,82 +24,59 @@ The product is now being reframed from MVP validation toward a sellable develope
 
 The intended buyer is a team building multi-tenant LangChain/LangGraph agents that needs runtime tool authorization, tenant-aware policy control, fallback behavior, and audit evidence.
 
-## Feature 003 Verification
+## Feature 004 Implementation Pass
 
-Passed:
+Completed:
+
+- README rewritten for buyer-facing developer-preview positioning.
+- Futuristic terminal-native architecture diagrams added.
+- Quickstart and demo flow added.
+- Policy example added.
+- Audit example added.
+- Security model summary added.
+- Verification commands added.
+- Roadmap added.
+- `docs/product-positioning.md` added.
+- `docs/security-model.md` expanded.
+- `docs/policy-format.md` added.
+- `docs/audit-log-format.md` added.
+- `docs/demo-guide.md` added.
+- `docs/admin-dashboard.md` added.
+- `docs/release-notes.md` added.
+
+## Feature 004 Required Local Verification
+
+Run:
 
 ```sh
-PYTHONPATH=src python -m unittest discover -s tests
-# Ran 23 tests in 0.006s
-# OK (skipped=2)
-
-python examples/basic_agent/run_example.py
-# Injected tools: search_docs, fetch_customer_record, not_authorized
-# LangGraph state tools: search_docs, not_authorized
-# Audit export: /var/folders/vv/v8kws2hj0gbc976b69bbccrc0000gn/T/tool_policy_router_example/runtime_audit_export.json
-
 python -m json.tool feature_list.json
-# valid JSON
-
+PYTHONPATH=src python -m unittest discover -s tests
+python examples/basic_agent/run_example.py
 PYTHONPATH=src python -m unittest discover -s tests/integration
-# Ran 2 tests in 0.000s
-# OK (skipped=2)
 ```
 
-Review artifact:
+Feature 004 remains `in_progress` until local verification evidence is reported.
 
-- `progress/review_003-langchain-langgraph-real-integration-tests.md`
+## Next Valid Lifecycle Action
 
-Next valid lifecycle action for Feature 003:
+After local verification passes:
 
 ```text
-FEATURE: 003-langchain-langgraph-real-integration-tests
-MODE: MVP
-STATE CHANGE: review -> done
+FEATURE: 004-sellable-developer-preview
+MODE: SHIP
+STATE CHANGE: in_progress -> review
 ```
 
-## Feature 004 Spec Gate
+Then create:
 
-Created:
-
-- `specs/004-sellable-developer-preview/requirements.md`
-- `specs/004-sellable-developer-preview/design.md`
-- `specs/004-sellable-developer-preview/tasks.md`
-- `adr/004-ship-mode-sellable-developer-preview.md`
-- `progress/004-sellable-developer-preview.md`
-
-Feature 004 applies SHIP-mode developer-tool principles:
-
-- one-screen clarity,
-- copy-paste quickstart,
-- immediate demo path,
-- futuristic text diagrams,
-- realistic multi-tenant examples,
-- policy/audit documentation,
-- security honesty,
-- visible verification evidence,
-- integration proof or explicit dependency gates,
-- release notes.
-
-Recommended lifecycle handling:
-
-1. Close Feature 003 as `done` if its review evidence is accepted.
-2. Approve Feature 004: `spec_ready -> approved`.
-3. Implement Feature 004 in SHIP mode.
-
-## Feature 004 Required Verification During Implementation
-
-```sh
-python -m json.tool feature_list.json
-PYTHONPATH=src python -m unittest discover -s tests
-python examples/basic_agent/run_example.py
-PYTHONPATH=src python -m unittest discover -s tests/integration
+```text
+progress/review_004-sellable-developer-preview.md
 ```
 
 ## Current SHIP-Mode Risks
 
-- README still reads like an MVP rather than a sellable developer-preview product.
 - Static dashboard remains unauthenticated.
 - Local audit files are not tamper-proof.
-- Optional LangChain/LangGraph dependencies were not installed during Feature 003 verification.
+- Optional LangChain/LangGraph dependencies may be absent during integration verification.
 - No hosted API, auth-provider integration, database, billing, or compliance guarantees.
+- Feature 004 has not yet been locally verified after the README/docs implementation pass.
