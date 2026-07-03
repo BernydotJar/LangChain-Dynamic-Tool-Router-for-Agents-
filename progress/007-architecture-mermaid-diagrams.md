@@ -10,15 +10,15 @@ Wave: SHIP-001 Wave 1
 
 ## State
 
-Status: `review`
+Status: `done`
 
 ## Summary
 
-Spec gate approved by the user. Implementation and verification are complete; the feature is ready for review.
+Feature 007 is closed as done after human approval. It produced the canonical architecture documentation and diagram package for Runtime Tool Authorization for AI Agents.
 
-## Scope
+## Scope Completed
 
-- dedicated architecture document in implementation phase: `docs/architecture.md`
+- dedicated architecture document: `docs/architecture.md`
 - terminal-native plain Markdown diagrams
 - GitHub-rendered Mermaid diagrams
 - system architecture
@@ -26,14 +26,17 @@ Spec gate approved by the user. Implementation and verification are complete; th
 - policy decision flow
 - before/after tool exposure
 - audit event lifecycle
+- MCP-style tool surface filtering
+- LangChain/LangGraph adapter boundary
 - grounded developer-preview claims
 
-## Non-Goals
+## Non-Goals Preserved
 
-- no `docs/architecture.md` implementation during this spec gate
-- no README diagram changes during this spec gate
 - no runtime code changes
 - no packaging changes
+- no PyPI publish
+- no git tag
+- no GitHub Release
 - no production-readiness claims
 - no hosted IAM, compliance, or managed SaaS claims
 
@@ -54,9 +57,22 @@ Spec gate approved by the user. Implementation and verification are complete; th
 - `specs/007-architecture-mermaid-diagrams/tasks.md`
 - `adr/007-architecture-visual-language.md`
 
+## Implementation Artifacts
+
+- `docs/architecture.md`
+- `progress/review_007-architecture-mermaid-diagrams.md`
+
 ## Approval Gate
 
 Human approval received for SHIP-mode implementation.
+
+Human closure approval received:
+
+```text
+FEATURE: 007-architecture-mermaid-diagrams
+MODE: SHIP
+STATE CHANGE: review -> done
+```
 
 ## Validation
 
@@ -64,10 +80,10 @@ Passed:
 
 ```sh
 python -m json.tool feature_list.json
-# valid JSON; Feature 009 is done and Feature 007 is review
+# valid JSON
 
 PYTHONPATH=src python -m unittest discover -s tests
-# Ran 23 tests in 0.011s
+# Ran 23 tests
 # OK (skipped=2)
 
 python examples/basic_agent/run_example.py
@@ -91,12 +107,6 @@ Created:
 progress/review_007-architecture-mermaid-diagrams.md
 ```
 
-## Next Valid Lifecycle Action
+## Closure
 
-Human closure approval:
-
-```text
-FEATURE: 007-architecture-mermaid-diagrams
-MODE: SHIP
-STATE CHANGE: review -> done
-```
+Feature 007 moved from `review` to `done` after explicit human approval.
