@@ -137,4 +137,7 @@
 - Verified with `PYTHONPATH=src python -m unittest discover -s tests/integration`.
 - Created `progress/review_008-demo-experience.md`.
 - Moved Feature 008 from `in_progress` to `review`.
-- Feature 008 is not closed; next valid lifecycle action is human approval for `review -> done`.
+- Human closure approval received.
+- Moved Feature 008 from `review` to `done`.
+- Accepted limitations: no runtime `src/` code changes, no external services, no mandatory LangChain/LangGraph dependency, no PyPI publish, no git tag, no GitHub Release, and no production-readiness claim.
+- Recommended next candidate: `010-release-candidate-polish` for GitHub release readiness, or `010-design-partner-kit` for outbound selling.
