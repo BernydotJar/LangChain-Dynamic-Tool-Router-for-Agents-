@@ -28,14 +28,26 @@ Feature 006 adds GitHub-native trust signals needed for a serious developer-prev
 - [x] design
 - [x] tasks
 - [x] feature registry update
-- [ ] `SECURITY.md`
-- [ ] `CONTRIBUTING.md`
-- [ ] `CHANGELOG.md`
-- [ ] `CODE_OF_CONDUCT.md`
-- [ ] `LICENSE` if absent
-- [ ] README trust/governance links
+- [x] `SECURITY.md`
+- [x] `CONTRIBUTING.md`
+- [x] `CHANGELOG.md`
+- [x] `CODE_OF_CONDUCT.md`
+- [x] `LICENSE`
+- [x] README trust/governance links
 - [ ] local verification evidence
 - [ ] review artifact
+
+## Implementation Notes
+
+Added repo-root trust files:
+
+- `SECURITY.md`
+- `CONTRIBUTING.md`
+- `CHANGELOG.md`
+- `CODE_OF_CONDUCT.md`
+- `LICENSE`
+
+Updated README with Trust & Project Governance links.
 
 ## Required Verification
 
@@ -45,3 +57,11 @@ PYTHONPATH=src python -m unittest discover -s tests
 python examples/basic_agent/run_example.py
 PYTHONPATH=src python -m unittest discover -s tests/integration
 ```
+
+## Manual Checks
+
+- README links to trust files.
+- Security policy does not claim production security certification.
+- CONTRIBUTING references harness workflow.
+- CHANGELOG accurately reflects developer-preview milestones.
+- LICENSE exists and is visible.
