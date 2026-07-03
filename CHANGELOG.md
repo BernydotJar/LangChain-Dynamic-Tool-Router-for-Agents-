@@ -15,8 +15,28 @@ This project is currently in developer preview.
 - Contributing guide.
 - Code of conduct.
 - Developer-preview changelog.
+- MIT license.
+- Python packaging metadata.
+- `v0.1.0-dev` release notes.
+- Release checklist.
 
 ## Developer Preview Milestones
+
+### Feature 009: Packaging and Release
+
+- Updated `pyproject.toml` for developer-preview packaging.
+- Set package version to `0.1.0.dev0`.
+- Added optional `integrations` and `dev` extras.
+- Added release checklist.
+- Added `v0.1.0-dev` release notes.
+
+### Feature 006: GitHub Trust Signals
+
+- Added `SECURITY.md`.
+- Added `CONTRIBUTING.md`.
+- Added `CODE_OF_CONDUCT.md`.
+- Added `LICENSE`.
+- Added Trust & Project Governance README links.
 
 ### Feature 005: README 3.0 Landing Page
 
