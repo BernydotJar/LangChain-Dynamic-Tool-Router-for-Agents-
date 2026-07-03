@@ -281,6 +281,12 @@ Editable install:
 python -m pip install -e .
 ```
 
+One-command local release-candidate verification:
+
+```sh
+python scripts/verify_release_candidate.py
+```
+
 Build, if the `build` module is available:
 
 ```sh
@@ -330,6 +336,12 @@ PYTHONPATH=src python -m unittest discover -s tests/integration
 ```
 
 If optional framework dependencies are absent, integration tests should skip explicitly rather than failing core verification.
+
+Release-candidate verification:
+
+```sh
+python scripts/verify_release_candidate.py
+```
 
 ## Roadmap
 
