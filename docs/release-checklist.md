@@ -26,9 +26,21 @@ Package version:
 - License is present.
 - Contributing and security policy files are present.
 
+## One-Command Local Verification
+
+Run the local release-candidate verifier:
+
+```sh
+python scripts/verify_release_candidate.py
+```
+
+The script runs JSON validation, unit tests, the basic demo, integration tests, editable install, and a package build check when the `build` module is available.
+
+The script does not publish packages, create tags, or create GitHub releases.
+
 ## Required Verification
 
-Run:
+Run manually if you want command-by-command evidence:
 
 ```sh
 python -m json.tool feature_list.json
