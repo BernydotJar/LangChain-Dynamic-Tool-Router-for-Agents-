@@ -1,50 +1,12 @@
 {
   "repository": "LangChain-Dynamic-Tool-Router-for-Agents-",
   "tagline": "Runtime tool authorization for AI agents.",
-  "allowed_statuses": [
-    "pending",
-    "spec_ready",
-    "approved",
-    "in_progress",
-    "review",
-    "done",
-    "blocked"
-  ],
+  "allowed_statuses": ["pending", "spec_ready", "approved", "in_progress", "review", "done", "blocked"],
   "features": [
-    {
-      "id": "001-dynamic-tool-router",
-      "title": "Dynamic Tool Router for Agents",
-      "mode": "MVP",
-      "status": "done",
-      "summary": "Runtime tool selection, injection, permissions, fallback, audit logging, adapters, and a simple admin dashboard."
-    },
-    {
-      "id": "002-persistent-policy-and-audit-store",
-      "title": "Persistent Policy and Audit Store",
-      "mode": "MVP",
-      "status": "done",
-      "summary": "File-backed policy configuration and audit persistence for durable tool governance evidence."
-    },
-    {
-      "id": "003-langchain-langgraph-real-integration-tests",
-      "title": "LangChain/LangGraph Real Integration Tests",
-      "mode": "MVP",
-      "status": "done",
-      "summary": "Optional real-framework compatibility tests or executable examples for LangChain and LangGraph tool injection."
-    },
-    {
-      "id": "004-sellable-developer-preview",
-      "title": "Sellable Developer Preview",
-      "mode": "SHIP",
-      "status": "in_progress",
-      "summary": "Productize the Dynamic Tool Router as a sellable developer-preview package with buyer-facing README, demo flow, docs, security model, release notes, and SHIP-mode review gates."
-    },
-    {
-      "id": "005-readme-3-landing-page",
-      "title": "README 3.0 Landing Page",
-      "mode": "SHIP",
-      "status": "spec_ready",
-      "summary": "Refine the README into a GitHub-native product landing page with stronger positioning, diagrams, demo path, trust signals, and CTO-ready narrative."
-    }
+    {"id": "001-dynamic-tool-router", "title": "Dynamic Tool Router for Agents", "mode": "MVP", "status": "done", "summary": "Runtime tool selection, injection, permissions, fallback, audit logging, adapters, and a simple admin dashboard."},
+    {"id": "002-persistent-policy-and-audit-store", "title": "Persistent Policy and Audit Store", "mode": "MVP", "status": "done", "summary": "File-backed policy configuration and audit persistence for durable tool governance evidence."},
+    {"id": "003-langchain-langgraph-real-integration-tests", "title": "LangChain/LangGraph Real Integration Tests", "mode": "MVP", "status": "done", "summary": "Optional real-framework compatibility tests or executable examples for LangChain and LangGraph tool injection."},
+    {"id": "004-sellable-developer-preview", "title": "Sellable Developer Preview", "mode": "SHIP", "status": "review", "summary": "Productize the Dynamic Tool Router as a sellable developer-preview package with buyer-facing README, demo flow, docs, security model, release notes, and SHIP-mode review gates."},
+    {"id": "005-readme-3-landing-page", "title": "README 3.0 Landing Page", "mode": "SHIP", "status": "spec_ready", "summary": "Refine the README into a GitHub-native product landing page with stronger positioning, diagrams, demo path, trust signals, and CTO-ready narrative."}
   ]
 }
