@@ -29,14 +29,14 @@
       "id": "003-langchain-langgraph-real-integration-tests",
       "title": "LangChain/LangGraph Real Integration Tests",
       "mode": "MVP",
-      "status": "review",
+      "status": "done",
       "summary": "Optional real-framework compatibility tests or executable examples for LangChain and LangGraph tool injection."
     },
     {
       "id": "004-sellable-developer-preview",
       "title": "Sellable Developer Preview",
       "mode": "SHIP",
-      "status": "spec_ready",
+      "status": "in_progress",
       "summary": "Productize the Dynamic Tool Router as a sellable developer-preview package with buyer-facing README, demo flow, docs, security model, release notes, and SHIP-mode review gates."
     }
   ]
