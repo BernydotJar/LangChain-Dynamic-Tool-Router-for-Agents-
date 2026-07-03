@@ -67,10 +67,18 @@ Completed:
 - README Packaging & Release section added.
 - CHANGELOG updated.
 - `progress/009-packaging-and-release.md` added.
+- `scripts/verify_release_candidate.py` added.
+- Feature 009 task checklist updated to reflect implementation complete and verification pending.
 
 ## Feature 009 Required Local Verification
 
-Run:
+Run the one-command verifier:
+
+```sh
+python scripts/verify_release_candidate.py
+```
+
+Manual equivalent:
 
 ```sh
 python -m json.tool feature_list.json
