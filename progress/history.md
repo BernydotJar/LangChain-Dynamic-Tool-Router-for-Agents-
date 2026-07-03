@@ -64,6 +64,21 @@
 - Human approval received to close Feature 003 and approve Feature 004.
 - Moved Feature 004 from `spec_ready` to `in_progress`.
 - Rewrote README for sellable developer-preview positioning.
-- Added futuristic terminal-native architecture diagrams to README.
+- Added Runtime Tool Authorization product identity to README.
+- Added futuristic terminal-native architecture diagrams and Mermaid request lifecycle to README.
 - Added/updated product docs: product positioning, security model, policy format, audit log format, demo guide, admin dashboard notes, and release notes.
 - Local verification is still required before moving Feature 004 to `review`.
+
+## SHIP-001-developer-preview-release
+
+- Created the SHIP epic for the commercial developer-preview release.
+- Defined Wave 1, Wave 2, and Wave 3 release tracks.
+- Captured the product identity: Runtime Tool Authorization for AI Agents.
+- Captured the commercial message: Never expose every tool. Expose the right tool.
+
+## 005-readme-3-landing-page
+
+- Created requirements, design, tasks, ADR, and progress artifacts.
+- Registered Feature 005 as `spec_ready`.
+- Preserved Feature 004 as the active `in_progress` feature.
+- Feature 005 must not enter implementation until Feature 004 verification and review handling are complete.
