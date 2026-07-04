@@ -81,14 +81,14 @@ Verification status:
 - [x] `python examples/basic_agent/run_example.py`
 - [x] `python examples/demo_experience/run_demo.py`
 - [x] `PYTHONPATH=src python -m unittest discover -s tests/integration`
-- [ ] `python scripts/verify_release_candidate.py`
+- [x] `python scripts/verify_release_candidate.py`
 
-`python scripts/verify_release_candidate.py` passed local checks but failed install/build steps in the sandbox because network access was blocked while resolving build dependencies. Escalation was rejected by the environment because the workspace is out of credits.
+`python scripts/verify_release_candidate.py` initially passed local checks but failed install/build steps in the sandbox because network access was blocked while resolving build dependencies. The verifier was then rerun locally and passed all stages, including editable install, editable install with dev extra, and package build.
 
 ## Phase 5: Review
 
-Create:
+Created:
 
-- [ ] `progress/review_011-security-whitepaper.md`
+- [x] `progress/review_011-security-whitepaper.md`
 
-Move Feature 011 to `review`, not `done`, after verification.
+Feature 011 moved to `review`, not `done`, after verification.
