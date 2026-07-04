@@ -10,11 +10,11 @@ Wave: 2 - Make CTOs Trust It
 
 ## State
 
-Status: `in_progress`
+Status: `review`
 
 ## Summary
 
-Feature 011 is in progress after the approved security whitepaper implementation pass.
+Feature 011 is in review after the approved security whitepaper implementation pass and successful release-candidate verification.
 
 The implementation created `docs/security-whitepaper.md` to explain the security posture, boundaries, non-goals, threat assumptions, and review posture for Runtime Tool Authorization for AI Agents.
 
@@ -67,7 +67,7 @@ Completed implementation scope:
 
 ## Verification
 
-Partial automated verification has passed. Final release-candidate verification is pending because the sandboxed verifier could not resolve build dependencies and escalation was rejected by the environment.
+Automated verification passed after the required local release-candidate verifier was rerun outside the sandbox network restriction.
 
 Passed:
 
@@ -76,17 +76,40 @@ Passed:
 - `python examples/basic_agent/run_example.py`
 - `python examples/demo_experience/run_demo.py`
 - `PYTHONPATH=src python -m unittest discover -s tests/integration`
-
-Pending:
-
 - `python scripts/verify_release_candidate.py`
 
-## Next Valid Lifecycle Action
+Release-candidate verifier evidence:
 
-Complete required verification, then create:
+- feature registry JSON: PASS
+- unit tests: PASS, ran 23 tests, skipped 2
+- basic demo: PASS
+- guided demo: PASS
+- integration tests: PASS, ran 2 tests, skipped 2
+- editable install: PASS
+- editable install with dev extra: PASS
+- package build: PASS
+
+Known non-blocking warning:
+
+- Setuptools emitted license metadata deprecation warnings during package build. These remain a documented follow-up and did not block the build.
+
+## Review Artifact
+
+Created:
 
 ```text
 progress/review_011-security-whitepaper.md
 ```
 
-After successful verification, move Feature 011 to `review`, not `done`.
+## Next Valid Lifecycle Action
+
+Human closure approval:
+
+```text
+APPROVAL TO CLOSE
+FEATURE: 011-security-whitepaper
+MODE: SHIP
+STATE CHANGE: review -> done
+```
+
+Do not close Feature 011 until explicit human closure approval is received.
