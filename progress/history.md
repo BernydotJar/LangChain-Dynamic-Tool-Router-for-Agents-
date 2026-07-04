@@ -236,4 +236,7 @@
 - Setuptools license metadata deprecation warnings remain a documented non-blocking follow-up.
 - Created `progress/review_012-design-partner-kit.md`.
 - Moved Feature 012 from `in_progress` to `review`.
-- Feature 012 is not closed; next valid lifecycle action is explicit human approval for `review -> done`.
+- Closure approval received.
+- Moved Feature 012 from `review` to `done`.
+- Accepted limitations: no runtime code changes, no dependency changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no enterprise-readiness claim, no compliance certification claim, no guaranteed security outcome claim, and setuptools license metadata warnings remain a documented follow-up.
+- No next feature was opened during the closure pass.
