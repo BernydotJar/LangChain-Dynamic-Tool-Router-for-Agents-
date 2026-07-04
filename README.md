@@ -363,7 +363,7 @@ SHIP-001  Developer Preview Release                  active
 009       Packaging & release                        done
 010       Release candidate polish                   done
 011       Security whitepaper                        done
-012       Design partner kit                         in progress
+012       Design partner kit                         done
 ```
 
 ## Design Partner Signal
@@ -400,4 +400,4 @@ tests/
 examples/
 ```
 
-Developer preview status: design partner kit is in progress. Do not treat the package as production IAM or compliance infrastructure yet.
+Developer preview status: design partner kit is closed as done. Do not treat the package as production IAM or compliance infrastructure yet.
