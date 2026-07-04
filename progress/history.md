@@ -202,4 +202,7 @@
 - Setuptools license metadata deprecation warnings remain a documented non-blocking follow-up.
 - Created `progress/review_011-security-whitepaper.md`.
 - Moved Feature 011 from `in_progress` to `review`.
-- Feature 011 is not closed; next valid lifecycle action is explicit human approval for `review -> done`.
+- Human closure approval received.
+- Moved Feature 011 from `review` to `done`.
+- Accepted limitations: no runtime code changes, no dependency changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no IAM replacement claim, no compliance certification claim, no tamper-proof audit claim, no sandboxing claim, no hosted enterprise control-plane claim, and setuptools license metadata warnings remain a documented follow-up.
+- No next feature was opened during the closure pass.
