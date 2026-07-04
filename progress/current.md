@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-None. Feature 008 is closed as `done`; the next SHIP feature should be opened only after explicit human approval.
+`010-release-candidate-polish`
 
 ## Current State
 
@@ -24,7 +24,9 @@ Feature 008 status: `done`
 
 Feature 009 status: `done`
 
-Feature 008 was approved for closure and closed after implementation, verification, and review evidence were accepted.
+Feature 010 status: `spec_ready`
+
+Feature 010 is opened as a SHIP-mode spec gate only. Implementation has not started.
 
 ## Product Direction
 
@@ -67,71 +69,31 @@ Review artifacts:
 - `progress/review_007-architecture-mermaid-diagrams.md`
 - `progress/review_008-demo-experience.md`
 
-## Feature 008 Closure Evidence
+## Feature 010 Spec Gate
 
-Human approval received:
+Created:
 
-```text
-APPROVAL
-FEATURE: 008-demo-experience
-MODE: SHIP
-STATE CHANGE: review -> done
-```
+- `specs/010-release-candidate-polish/requirements.md`
+- `specs/010-release-candidate-polish/design.md`
+- `specs/010-release-candidate-polish/tasks.md`
+- `adr/010-release-candidate-polish.md`
+- `progress/010-release-candidate-polish.md`
 
-Accepted implementation:
+Purpose:
 
-- Added guided demo: `examples/demo_experience/run_demo.py`.
-- Updated demo documentation: `docs/demo-guide.md`.
-- Updated lifecycle artifacts: `feature_list.json`, `specs/008-demo-experience/tasks.md`, `progress/008-demo-experience.md`, `progress/current.md`, `progress/history.md`, and `progress/review_008-demo-experience.md`.
+Feature 010 prepares a later release-candidate polish pass focused on repository readiness, documentation consistency, metadata consistency, and verification evidence.
 
-Accepted verification:
-
-- `python -m json.tool feature_list.json` passed.
-- `PYTHONPATH=src python -m unittest discover -s tests` passed: Ran 23 tests; OK; skipped 2 optional integration-gated tests.
-- `python examples/basic_agent/run_example.py` passed.
-- `python examples/demo_experience/run_demo.py` passed.
-- `PYTHONPATH=src python -m unittest discover -s tests/integration` passed: Ran 2 tests; OK; skipped 2 optional dependency-gated tests.
-
-Accepted behavior:
-
-- request context
-- JSON policy loading
-- allowed tool exposure
-- denied tool behavior
-- fallback behavior
-- LangChain-style adapter boundary
-- LangGraph-style adapter boundary
-- audit events
-- audit export
-
-Accepted limitations:
-
-- No runtime `src/` code changes.
-- No external services added.
-- No mandatory LangChain/LangGraph dependency added.
-- No PyPI publish.
-- No git tag.
-- No GitHub Release.
-- No production-readiness claim.
+No implementation changes were made during this spec gate.
 
 ## Next Valid Lifecycle Action
 
-Open the next SHIP-001 feature as a spec gate only after explicit approval.
-
-Recommended next candidates:
+Human approval:
 
 ```text
+APPROVAL
 FEATURE: 010-release-candidate-polish
 MODE: SHIP
-STATE CHANGE: candidate -> spec_ready
+STATE CHANGE: spec_ready -> approved
 ```
 
-or:
-
-```text
-FEATURE: 010-design-partner-kit
-MODE: SHIP
-STATE CHANGE: candidate -> spec_ready
-```
-
-Recommendation: choose `010-release-candidate-polish` first if the goal is GitHub release readiness; choose `010-design-partner-kit` first if the goal is outbound selling.
+Do not implement Feature 010 until explicit approval is received.
