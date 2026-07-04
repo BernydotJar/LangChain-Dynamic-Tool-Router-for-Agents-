@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`012-design-partner-kit`
+None. Feature 012 is closed as `done`; the next feature should be opened only after explicit approval.
 
 ## Current State
 
@@ -28,9 +28,9 @@ Feature 010 status: `done`
 
 Feature 011 status: `done`
 
-Feature 012 status: `review`
+Feature 012 status: `done`
 
-Feature 012 is in review after design partner kit implementation and required release-candidate verification completed successfully.
+Feature 012 is closed as `done` after closure approval.
 
 ## Product Direction
 
@@ -68,6 +68,8 @@ Feature 010 is closed as `done` after release-candidate polish verification and 
 
 Feature 011 is closed as `done` after security whitepaper verification and SHIP review artifact creation.
 
+Feature 012 is closed as `done` after design partner kit verification and SHIP review artifact creation.
+
 Review artifacts:
 
 - `progress/review_004-sellable-developer-preview.md`
@@ -80,80 +82,56 @@ Review artifacts:
 - `progress/review_011-security-whitepaper.md`
 - `progress/review_012-design-partner-kit.md`
 
-## Feature 012 Spec Gate
+## Feature 012 Closure Evidence
 
-Created:
-
-- `specs/012-design-partner-kit/requirements.md`
-- `specs/012-design-partner-kit/design.md`
-- `specs/012-design-partner-kit/tasks.md`
-- `adr/012-design-partner-kit-strategy.md`
-- `progress/012-design-partner-kit.md`
-
-Purpose:
-
-Feature 012 prepares a design partner kit for Runtime Tool Authorization for AI Agents. It is tied to SHIP-001 Wave 3: design partner readiness.
-
-No implementation changes were made during the spec gate.
-
-## Feature 012 Review
-
-Human approval received to continue Feature 012 from `spec_ready` into implementation.
-
-Implemented:
-
-- `docs/design-partner-kit.md`
-- README discoverability for `docs/design-partner-kit.md`
-- README roadmap update showing 012 as `in progress`
-- progress and task bookkeeping
-- review artifact at `progress/review_012-design-partner-kit.md`
-
-The design partner kit covers:
-
-- ideal design partner profile,
-- buyer personas and evaluator roles,
-- target pain points,
-- qualification criteria,
-- discovery questions,
-- pilot scope template,
-- safe non-production evaluation scenarios,
-- 20-30 minute demo call script,
-- success metrics,
-- feedback checklist,
-- suggested outbound message,
-- security discussion guide,
-- explicit non-goals and boundaries.
-
-Verification passed:
-
-- `python -m json.tool feature_list.json`
-- `PYTHONPATH=src python -m unittest discover -s tests`
-- `python examples/basic_agent/run_example.py`
-- `python examples/demo_experience/run_demo.py`
-- `PYTHONPATH=src python -m unittest discover -s tests/integration`
-- `python scripts/verify_release_candidate.py`
-
-Preserved constraints:
-
-- No runtime behavior changed.
-- No dependencies changed.
-- No package was published.
-- No git tag was created.
-- No GitHub Release was created.
-- No production-readiness claim was introduced.
-- No enterprise-readiness claim was introduced.
-- No compliance certification claim was introduced.
-- No guaranteed security outcome claim was introduced.
-
-## Next Valid Lifecycle Action
-
-Human closure approval:
+Closure approval received:
 
 ```text
-APPROVAL TO CLOSE
 FEATURE: 012-design-partner-kit
 MODE: SHIP
 STATE CHANGE: review -> done
 ```
 
-Do not close Feature 012 until explicit closure approval is received.
+Accepted implementation:
+
+- `docs/design-partner-kit.md`
+- README discoverability for `docs/design-partner-kit.md`
+- README roadmap update showing 012 as `in progress` during review
+- progress and task bookkeeping
+- review artifact at `progress/review_012-design-partner-kit.md`
+
+Accepted verification:
+
+- `python -m json.tool feature_list.json` passed.
+- `PYTHONPATH=src python -m unittest discover -s tests` passed.
+- `python examples/basic_agent/run_example.py` passed.
+- `python examples/demo_experience/run_demo.py` passed.
+- `PYTHONPATH=src python -m unittest discover -s tests/integration` passed.
+- `python scripts/verify_release_candidate.py` passed.
+
+Accepted limitations:
+
+- No runtime behavior changed.
+- No dependencies changed.
+- No PyPI publish.
+- No git tag.
+- No GitHub Release.
+- No production-readiness claim.
+- No enterprise-readiness claim.
+- No compliance certification claim.
+- No guaranteed security outcome claim.
+- Setuptools license metadata warnings remain a documented non-blocking follow-up.
+
+## Next Valid Lifecycle Action
+
+Open the next feature as a spec gate only after explicit approval.
+
+Recommended next candidate:
+
+```text
+FEATURE: 013-ci-release-verification
+MODE: SHIP
+STATE CHANGE: candidate -> spec_ready
+```
+
+Purpose: make release verification independent from local machines by adding CI-based release-candidate verification evidence.
