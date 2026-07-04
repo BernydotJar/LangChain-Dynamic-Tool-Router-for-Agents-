@@ -254,6 +254,7 @@ See `docs/langchain-langgraph-integration.md`.
 ## Documentation
 
 - `docs/product-positioning.md` — buyer narrative and wedge use cases.
+- `docs/design-partner-kit.md` — design partner qualification, discovery, pilot scoping, demo flow, and feedback collection.
 - `docs/architecture.md` — architecture, request lifecycle, policy flow, and adapter boundaries.
 - `docs/demo-guide.md` — local evaluation flow.
 - `docs/policy-format.md` — JSON policy format.
@@ -360,7 +361,9 @@ SHIP-001  Developer Preview Release                  active
 007       Architecture & Mermaid diagrams            done
 008       Demo experience                            done
 009       Packaging & release                        done
-010       Release candidate polish                   review
+010       Release candidate polish                   done
+011       Security whitepaper                        done
+012       Design partner kit                         in progress
 ```
 
 ## Design Partner Signal
@@ -373,6 +376,8 @@ This project is ready for design-partner conversations around:
 - MCP-style tool surface filtering,
 - audit evidence for agent actions,
 - productizing internal agent infrastructure.
+
+See `docs/design-partner-kit.md` for qualification, discovery, pilot scoping, demo flow, and feedback collection.
 
 ## Harness SDLC Evidence
 
@@ -395,4 +400,4 @@ tests/
 examples/
 ```
 
-Developer preview status: release-candidate polish is in review. Do not treat the package as production IAM or compliance infrastructure yet.
+Developer preview status: design partner kit is in progress. Do not treat the package as production IAM or compliance infrastructure yet.
