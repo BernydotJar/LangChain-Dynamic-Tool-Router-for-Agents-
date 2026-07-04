@@ -28,9 +28,9 @@ Feature 010 status: `done`
 
 Feature 010 is closed as `done` after human closure approval.
 
-Feature 011 status: `in_progress`
+Feature 011 status: `review`
 
-Feature 011 is in progress. The security whitepaper implementation is complete, but final release-candidate verification is pending because the sandboxed verifier could not resolve build dependencies and escalation was rejected by the environment.
+Feature 011 is in review after the security whitepaper implementation and required release-candidate verification completed successfully.
 
 ## Product Direction
 
@@ -129,7 +129,7 @@ Feature 011 prepared a security whitepaper for Runtime Tool Authorization for AI
 
 No implementation changes were made during the spec gate. Implementation started only after explicit approval.
 
-## Feature 011 Implementation
+## Feature 011 Review
 
 Feature 011 received explicit SHIP-mode approval for `spec_ready -> approved`.
 
@@ -149,18 +149,28 @@ Implementation completed as a security whitepaper pass focused on:
 Created:
 
 - `docs/security-whitepaper.md`
+- `progress/review_011-security-whitepaper.md`
+
+Verification passed:
+
+- `python -m json.tool feature_list.json`
+- `PYTHONPATH=src python -m unittest discover -s tests`
+- `python examples/basic_agent/run_example.py`
+- `python examples/demo_experience/run_demo.py`
+- `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- `python scripts/verify_release_candidate.py`
 
 No runtime behavior changed. No dependency changed. No package was published. No git tag or GitHub Release was created.
 
 ## Next Valid Lifecycle Action
 
-Complete required verification, then create the review artifact and move Feature 011 to `review`:
+Human closure approval:
 
 ```text
-VERIFY
+APPROVAL TO CLOSE
 FEATURE: 011-security-whitepaper
 MODE: SHIP
-STATE CHANGE: in_progress -> review
+STATE CHANGE: review -> done
 ```
 
-Do not close Feature 011 until verification completes and explicit closure approval is received.
+Do not close Feature 011 until explicit closure approval is received.
