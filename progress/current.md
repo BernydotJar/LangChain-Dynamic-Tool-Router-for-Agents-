@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-None. Feature 012 is closed as `done`; the next feature should be opened only after explicit approval.
+`013-pricing-and-landing-copy`
 
 ## Current State
 
@@ -30,7 +30,9 @@ Feature 011 status: `done`
 
 Feature 012 status: `done`
 
-Feature 012 is closed as `done` after closure approval.
+Feature 013 status: `spec_ready`
+
+Feature 013 is opened as a SHIP-mode spec gate for pricing and landing copy placement.
 
 ## Product Direction
 
@@ -82,56 +84,47 @@ Review artifacts:
 - `progress/review_011-security-whitepaper.md`
 - `progress/review_012-design-partner-kit.md`
 
-## Feature 012 Closure Evidence
+## Feature 013 Spec Gate
 
-Closure approval received:
+Created:
 
-```text
-FEATURE: 012-design-partner-kit
-MODE: SHIP
-STATE CHANGE: review -> done
-```
+- `specs/013-pricing-and-landing-copy/requirements.md`
+- `specs/013-pricing-and-landing-copy/design.md`
+- `specs/013-pricing-and-landing-copy/tasks.md`
+- `adr/013-pricing-and-landing-copy-strategy.md`
+- `progress/013-pricing-and-landing-copy.md`
 
-Accepted implementation:
+Purpose:
 
-- `docs/design-partner-kit.md`
-- README discoverability for `docs/design-partner-kit.md`
-- README roadmap update showing 012 as `in progress` during review
-- progress and task bookkeeping
-- review artifact at `progress/review_012-design-partner-kit.md`
+Feature 013 adds commercial pricing and landing-page copy for Runtime Tool Authorization for AI Agents.
 
-Accepted verification:
+Proposed placement:
 
-- `python -m json.tool feature_list.json` passed.
-- `PYTHONPATH=src python -m unittest discover -s tests` passed.
-- `python examples/basic_agent/run_example.py` passed.
-- `python examples/demo_experience/run_demo.py` passed.
-- `PYTHONPATH=src python -m unittest discover -s tests/integration` passed.
-- `python scripts/verify_release_candidate.py` passed.
+1. `README.md` - concise conversion section after `Design Partner Signal` and before `Harness SDLC Evidence`.
+2. `docs/pricing.md` - canonical pricing page.
+3. `docs/design-partner-kit.md` - design partner sales offer.
 
-Accepted limitations:
+Proposed pricing:
 
-- No runtime behavior changed.
-- No dependencies changed.
-- No PyPI publish.
-- No git tag.
-- No GitHub Release.
-- No production-readiness claim.
-- No enterprise-readiness claim.
-- No compliance certification claim.
-- No guaranteed security outcome claim.
-- Setuptools license metadata warnings remain a documented non-blocking follow-up.
+- 30-day free trial.
+- Solo: `$9/month`.
+- Team: `$19/user/month`.
+- Design Partner: `$49/month` flat for up to 5 users.
+- First 20 design partners only.
+- Founding price locked for 12 months.
+- Enterprise: custom future/custom scope.
+
+No implementation changes were made during the spec gate.
 
 ## Next Valid Lifecycle Action
 
-Open the next feature as a spec gate only after explicit approval.
-
-Recommended next candidate:
+Explicit implementation approval:
 
 ```text
-FEATURE: 013-ci-release-verification
+APPROVAL TO IMPLEMENT
+FEATURE: 013-pricing-and-landing-copy
 MODE: SHIP
-STATE CHANGE: candidate -> spec_ready
+STATE CHANGE: spec_ready -> in_progress
 ```
 
-Purpose: make release verification independent from local machines by adding CI-based release-candidate verification evidence.
+Do not implement pricing copy until approval is received.
