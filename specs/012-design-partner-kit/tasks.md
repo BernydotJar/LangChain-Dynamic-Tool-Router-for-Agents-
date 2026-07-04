@@ -60,8 +60,8 @@ python scripts/verify_release_candidate.py
 
 Manual checks:
 
-- [ ] Design partner kit links resolve.
-- [ ] README link, if added, resolves.
+- [x] Design partner kit links resolve.
+- [x] README link, if added, resolves.
 - [x] Kit does not claim production readiness.
 - [x] Kit does not claim enterprise readiness.
 - [x] Kit does not claim compliance certification.
@@ -74,17 +74,17 @@ Manual checks:
 
 Verification status:
 
-- [ ] `python -m json.tool feature_list.json`
-- [ ] `PYTHONPATH=src python -m unittest discover -s tests`
-- [ ] `python examples/basic_agent/run_example.py`
-- [ ] `python examples/demo_experience/run_demo.py`
-- [ ] `PYTHONPATH=src python -m unittest discover -s tests/integration`
-- [ ] `python scripts/verify_release_candidate.py`
+- [x] `python -m json.tool feature_list.json`
+- [x] `PYTHONPATH=src python -m unittest discover -s tests`
+- [x] `python examples/basic_agent/run_example.py`
+- [x] `python examples/demo_experience/run_demo.py`
+- [x] `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- [x] `python scripts/verify_release_candidate.py`
 
 ## Phase 5: Review
 
-Create:
+Created:
 
-- [ ] `progress/review_012-design-partner-kit.md`
+- [x] `progress/review_012-design-partner-kit.md`
 
-Move Feature 012 to `review`, not `done`, after verification.
+Feature 012 moved to `review`, not `done`, after verification.
