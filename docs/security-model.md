@@ -2,13 +2,13 @@
 
 ## Summary
 
-Dynamic Tool Router is a request-time authorization and routing layer for agent tools.
+Runtime Tool Authorization for AI Agents is a request-time authorization and routing layer for agent tools.
 
 It controls which tools are exposed to an agent/tool surface for a given user, tenant, plan, role, permission set, context, and MCP-style server availability.
 
 It is not a complete security boundary by itself.
 
-For the canonical architecture and request-flow diagrams, see [`architecture.md`](architecture.md).
+For the canonical architecture and request-flow diagrams, see [`architecture.md`](architecture.md). For the consolidated security posture, threat assumptions, non-goals, and reviewer checklist, see [`security-whitepaper.md`](security-whitepaper.md).
 
 ## Trust Boundaries
 
@@ -57,7 +57,7 @@ Audit metadata intentionally avoids raw tool arguments by default. Applications 
 
 ## What The Router Does Not Protect
 
-Dynamic Tool Router does not provide:
+Runtime Tool Authorization does not provide:
 
 - process sandboxing,
 - network isolation,

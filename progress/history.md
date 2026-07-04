@@ -150,3 +150,51 @@
 - Preserved Features 001 through 009 as `done`.
 - No implementation changes were made.
 - Next valid lifecycle action is explicit human approval for `spec_ready -> approved`.
+- Human approval received for SHIP-mode implementation.
+- Moved Feature 010 from `spec_ready` through approved implementation to `review`.
+- Aligned README roadmap, documentation index, release checklist, release notes, and CHANGELOG with current developer-preview state.
+- Added guided demo execution to release-candidate verification.
+- Aligned architecture, security-model, product-positioning, and demo-guide language around Runtime Tool Authorization for AI Agents.
+- Preserved no-release-action constraints: no PyPI publish, no git tag, and no GitHub Release.
+- Preserved runtime behavior; no `src/` runtime code changes were made.
+- Verified with `python -m json.tool feature_list.json`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests`.
+- Verified with `python examples/basic_agent/run_example.py`.
+- Verified with `python examples/demo_experience/run_demo.py`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests/integration`.
+- Verified with `python scripts/verify_release_candidate.py` after rerunning with network escalation for pip/build dependency resolution.
+- Created `progress/review_010-release-candidate-polish.md`.
+- Human closure approval received.
+- Moved Feature 010 from `review` to `done`.
+- Accepted limitations: no runtime code changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, and setuptools license metadata warnings remain a documented follow-up.
+- No next feature was opened during the closure pass.
+
+## 011-security-whitepaper
+
+- Opened Feature 011 as a SHIP-mode spec gate.
+- Registered Feature 011 as `spec_ready`.
+- Tied Feature 011 to SHIP-001 Wave 2: make CTOs and technical reviewers trust the project.
+- Created requirements, design, tasks, ADR, and progress artifacts.
+- Preserved Features 001 through 010 as `done`.
+- Captured future implementation scope for `docs/security-whitepaper.md`.
+- Captured required coverage for security posture, runtime authorization boundary, request context, policy evaluation, allowed and denied tool surfaces, fallback behavior, audit evidence, local audit limitations, JSON policy limitations, LangChain/LangGraph adapter boundary, MCP-style filtering, and tenant/user/role/plan/permission constraints.
+- Captured threat-model topics: overexposed tools, tenant leakage, role or permission mismatch, unsafe invocation, prompt-only control weakness, audit evidence gaps, and local file tampering.
+- Captured explicit non-claims: no production readiness, IAM replacement, compliance certification, tamper-proof audit, sandboxing, or hosted enterprise control plane.
+- No implementation changes were made.
+- `docs/security-whitepaper.md` was not created.
+- Next valid lifecycle action is explicit human approval for `spec_ready -> approved`.
+- Human approval received for SHIP-mode implementation.
+- Moved Feature 011 from `spec_ready` to approved implementation.
+- Created `docs/security-whitepaper.md`.
+- Added README discoverability for the security whitepaper.
+- Updated `docs/security-model.md` to cross-link the consolidated whitepaper.
+- Documented security posture, trust boundary, request context model, policy evaluation model, allowed and denied tool behavior, fallback behavior, audit evidence, local audit limitations, JSON policy limitations, adapter boundaries, MCP-style filtering, tenant/user/role/plan/permission constraints, threat model, non-goals, developer-preview limitations, future hardening, and reviewer checklist.
+- Preserved hard constraints: no runtime code changes, no dependency changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no IAM replacement claim, no compliance certification claim, no tamper-proof audit claim, no sandboxing claim, no hosted enterprise control-plane claim, no prompt-injection prevention claim, and no claim that individual tool implementations are secured.
+- Verified with `python -m json.tool feature_list.json`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests`.
+- Verified with `python examples/basic_agent/run_example.py`.
+- Verified with `python examples/demo_experience/run_demo.py`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests/integration`.
+- `python scripts/verify_release_candidate.py` passed local checks but failed install/build steps in the sandbox because network access was blocked while resolving `setuptools` and `wheel`.
+- Escalation for the release-candidate verifier was rejected by the environment because the workspace is out of credits.
+- Feature 011 remains `in_progress`; do not move it to `review` until required verification completes.

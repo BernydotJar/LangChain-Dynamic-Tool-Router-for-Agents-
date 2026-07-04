@@ -254,10 +254,12 @@ See `docs/langchain-langgraph-integration.md`.
 ## Documentation
 
 - `docs/product-positioning.md` — buyer narrative and wedge use cases.
+- `docs/architecture.md` — architecture, request lifecycle, policy flow, and adapter boundaries.
 - `docs/demo-guide.md` — local evaluation flow.
 - `docs/policy-format.md` — JSON policy format.
 - `docs/audit-log-format.md` — persisted audit event format.
 - `docs/security-model.md` — security boundaries and non-goals.
+- `docs/security-whitepaper.md` — security posture, threat assumptions, non-goals, and reviewer checklist.
 - `docs/admin-dashboard.md` — dashboard purpose and limitations.
 - `docs/persistent-policy-and-audit-store.md` — file-backed store notes.
 - `docs/langchain-langgraph-integration.md` — optional framework integration behavior.
@@ -294,7 +296,7 @@ python -m pip install -e .[dev]
 python -m build
 ```
 
-This feature prepares packaging and release documentation only. It does not publish to PyPI, create a GitHub Release, or create a git tag.
+This repository currently prepares packaging and release documentation only. It does not publish to PyPI, create a GitHub Release, or create a git tag.
 
 ## Trust & Project Governance
 
@@ -327,6 +329,7 @@ Core verification:
 python -m json.tool feature_list.json
 PYTHONPATH=src python -m unittest discover -s tests
 python examples/basic_agent/run_example.py
+python examples/demo_experience/run_demo.py
 ```
 
 Optional integration verification:
@@ -354,10 +357,10 @@ SHIP-001  Developer Preview Release                  active
 004       Sellable developer preview                 done
 005       README 3.0 landing page                    done
 006       GitHub trust signals                       done
-009       Packaging & release                        in progress
-007       Architecture & Mermaid diagrams            candidate
-008       Demo experience                            candidate
-010       Security whitepaper                        candidate
+007       Architecture & Mermaid diagrams            done
+008       Demo experience                            done
+009       Packaging & release                        done
+010       Release candidate polish                   review
 ```
 
 ## Design Partner Signal
@@ -392,4 +395,4 @@ tests/
 examples/
 ```
 
-Developer preview status: SHIP-mode hardening is underway. Do not treat the package as production IAM or compliance infrastructure yet.
+Developer preview status: release-candidate polish is in review. Do not treat the package as production IAM or compliance infrastructure yet.

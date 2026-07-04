@@ -1,6 +1,6 @@
 # Demo Guide
 
-This guide is the fastest local path to evaluate Dynamic Tool Router as a developer-preview product.
+This guide is the fastest local path to evaluate Runtime Tool Authorization for AI Agents as a developer-preview product.
 
 ## Goal
 

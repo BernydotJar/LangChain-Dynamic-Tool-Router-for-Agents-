@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`010-release-candidate-polish`
+`011-security-whitepaper`
 
 ## Current State
 
@@ -24,9 +24,13 @@ Feature 008 status: `done`
 
 Feature 009 status: `done`
 
-Feature 010 status: `spec_ready`
+Feature 010 status: `done`
 
-Feature 010 is opened as a SHIP-mode spec gate only. Implementation has not started.
+Feature 010 is closed as `done` after human closure approval.
+
+Feature 011 status: `in_progress`
+
+Feature 011 is in progress. The security whitepaper implementation is complete, but final release-candidate verification is pending because the sandboxed verifier could not resolve build dependencies and escalation was rejected by the environment.
 
 ## Product Direction
 
@@ -60,6 +64,8 @@ Feature 007 is closed as `done` after architecture documentation verification an
 
 Feature 008 is closed as `done` after guided demo verification and SHIP review artifact creation.
 
+Feature 010 is closed as `done` after release-candidate polish verification and SHIP review artifact creation.
+
 Review artifacts:
 
 - `progress/review_004-sellable-developer-preview.md`
@@ -68,6 +74,7 @@ Review artifacts:
 - `progress/review_009-packaging-and-release.md`
 - `progress/review_007-architecture-mermaid-diagrams.md`
 - `progress/review_008-demo-experience.md`
+- `progress/review_010-release-candidate-polish.md`
 
 ## Feature 010 Spec Gate
 
@@ -81,19 +88,79 @@ Created:
 
 Purpose:
 
-Feature 010 prepares a later release-candidate polish pass focused on repository readiness, documentation consistency, metadata consistency, and verification evidence.
+Feature 010 prepared the approved release-candidate polish pass focused on repository readiness, documentation consistency, metadata consistency, and verification evidence.
 
-No implementation changes were made during this spec gate.
+No implementation changes were made during the spec gate. Implementation started only after explicit approval.
+
+## Feature 010 Review
+
+Feature 010 received explicit SHIP-mode approval for `spec_ready -> approved`.
+
+Implementation completed as a release-candidate polish pass focused on:
+
+- README release-readiness consistency.
+- docs cross-link consistency.
+- release checklist consistency.
+- CHANGELOG consistency for `0.1.0.dev0`.
+- demo command consistency.
+- architecture, security-model, and product-positioning consistency.
+- known limitation consistency.
+- verification command consistency.
+
+Review artifact:
+
+- `progress/review_010-release-candidate-polish.md`
+
+No runtime behavior changed. No package was published. No git tag or GitHub Release was created.
+
+## Feature 011 Spec Gate
+
+Created:
+
+- `specs/011-security-whitepaper/requirements.md`
+- `specs/011-security-whitepaper/design.md`
+- `specs/011-security-whitepaper/tasks.md`
+- `adr/011-security-whitepaper-strategy.md`
+- `progress/011-security-whitepaper.md`
+
+Purpose:
+
+Feature 011 prepared a security whitepaper for Runtime Tool Authorization for AI Agents. It is tied to SHIP-001 Wave 2: make CTOs and technical reviewers trust the project.
+
+No implementation changes were made during the spec gate. Implementation started only after explicit approval.
+
+## Feature 011 Implementation
+
+Feature 011 received explicit SHIP-mode approval for `spec_ready -> approved`.
+
+Implementation completed as a security whitepaper pass focused on:
+
+- Runtime Tool Authorization security posture.
+- Trust boundary and request context model.
+- Policy evaluation and allowed tool surface.
+- Denied tool and fallback behavior.
+- Audit evidence and local audit limitations.
+- JSON policy limitations.
+- LangChain/LangGraph adapter boundary.
+- MCP-style tool surface filtering.
+- Tenant, user, role, plan, and permission constraints.
+- Threat model, non-goals, developer-preview limitations, future hardening, and reviewer checklist.
+
+Created:
+
+- `docs/security-whitepaper.md`
+
+No runtime behavior changed. No dependency changed. No package was published. No git tag or GitHub Release was created.
 
 ## Next Valid Lifecycle Action
 
-Human approval:
+Complete required verification, then create the review artifact and move Feature 011 to `review`:
 
 ```text
-APPROVAL
-FEATURE: 010-release-candidate-polish
+VERIFY
+FEATURE: 011-security-whitepaper
 MODE: SHIP
-STATE CHANGE: spec_ready -> approved
+STATE CHANGE: in_progress -> review
 ```
 
-Do not implement Feature 010 until explicit approval is received.
+Do not close Feature 011 until verification completes and explicit closure approval is received.

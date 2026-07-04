@@ -35,6 +35,10 @@ CHECKS = [
         command=[sys.executable, "examples/basic_agent/run_example.py"],
     ),
     Check(
+        name="guided demo",
+        command=[sys.executable, "examples/demo_experience/run_demo.py"],
+    ),
+    Check(
         name="integration tests",
         command=[sys.executable, "-m", "unittest", "discover", "-s", "tests/integration"],
         pythonpath_src=True,
@@ -75,7 +79,7 @@ def run_check(check: Check) -> bool:
 
 
 def main() -> int:
-    print("Dynamic Tool Router developer-preview verification")
+    print("Runtime Tool Authorization developer-preview verification")
     print("No publish, tag, or release actions will be performed.")
 
     passed = True

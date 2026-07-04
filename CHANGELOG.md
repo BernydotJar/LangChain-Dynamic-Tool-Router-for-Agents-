@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Dynamic Tool Router will be documented here.
+All notable changes to Runtime Tool Authorization for AI Agents will be documented here.
 
 This project is currently in developer preview.
 
@@ -19,8 +19,22 @@ This project is currently in developer preview.
 - Python packaging metadata.
 - `v0.1.0-dev` release notes.
 - Release checklist.
+- Release-candidate polish for README, release notes, demo commands, and verification consistency.
+
+### Changed
+
+- Aligned release-candidate verification commands with the guided demo experience.
+- Aligned roadmap status with completed Features 007, 008, and 009.
+- Clarified developer-preview boundaries without claiming production readiness.
 
 ## Developer Preview Milestones
+
+### Feature 010: Release Candidate Polish
+
+- Aligned README roadmap and verification guidance with current feature status.
+- Added guided demo execution to release-candidate verification.
+- Updated release notes and release checklist for command consistency.
+- Preserved developer-preview limitations and no-release-action constraints.
 
 ### Feature 009: Packaging and Release
 

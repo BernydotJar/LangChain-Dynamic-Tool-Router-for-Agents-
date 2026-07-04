@@ -1,6 +1,6 @@
 # Release Checklist
 
-This checklist is for developer-preview releases of Dynamic Tool Router.
+This checklist is for developer-preview releases of Runtime Tool Authorization for AI Agents.
 
 ## Release Candidate
 
@@ -34,7 +34,7 @@ Run the local release-candidate verifier:
 python scripts/verify_release_candidate.py
 ```
 
-The script runs JSON validation, unit tests, the basic demo, integration tests, editable install, editable install with the `dev` extra, and a local package build.
+The script runs JSON validation, unit tests, the basic demo, the guided demo, integration tests, editable install, editable install with the `dev` extra, and a local package build.
 
 The script does not publish packages, create tags, or create GitHub releases.
 
@@ -46,6 +46,7 @@ Run manually if you want command-by-command evidence:
 python -m json.tool feature_list.json
 PYTHONPATH=src python -m unittest discover -s tests
 python examples/basic_agent/run_example.py
+python examples/demo_experience/run_demo.py
 PYTHONPATH=src python -m unittest discover -s tests/integration
 ```
 
@@ -74,6 +75,7 @@ python -m build
 
 - README first screen communicates the product category.
 - Quickstart still matches actual demo output.
+- Guided demo output still matches `docs/demo-guide.md`.
 - Security docs do not overclaim production readiness.
 - Changelog accurately reflects shipped work.
 - `pyproject.toml` package metadata is accurate.

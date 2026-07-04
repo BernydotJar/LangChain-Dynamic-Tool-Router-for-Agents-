@@ -2,7 +2,7 @@
 
 ## Product Name
 
-Dynamic Tool Router for Agents
+Runtime Tool Authorization for AI Agents
 
 ## One-Liner
 
@@ -20,7 +20,7 @@ Without a routing layer, an agent may be created with tools that should not be v
 
 ## Wedge
 
-Dynamic Tool Router provides the missing authorization layer between:
+Runtime Tool Authorization provides the missing authorization layer between:
 
 ```text
 agent runtime  ←→  tool catalog
@@ -50,9 +50,9 @@ Need LangChain/LangGraph-compatible middleware patterns without adding a heavy d
 
 ## Positioning Statement
 
-For teams shipping multi-tenant agents, Dynamic Tool Router is a runtime tool authorization layer that selects, injects, denies, and audits agent tools by user, tenant, plan, permission, context, and available MCP-style tool surface.
+For teams shipping multi-tenant agents, Runtime Tool Authorization is a tool authorization layer that selects, injects, denies, and audits agent tools by user, tenant, plan, permission, context, and available MCP-style tool surface.
 
-Unlike static agent tool registration, Dynamic Tool Router evaluates policy at request time and persists governance evidence.
+Unlike static agent tool registration, it evaluates policy at request time and persists governance evidence.
 
 ## What This Is
 
@@ -76,8 +76,8 @@ Unlike static agent tool registration, Dynamic Tool Router evaluates policy at r
 ## Core Message
 
 ```text
-Do not give every agent every tool.
-Give each request the tool surface it is allowed to use.
+Never expose every tool.
+Expose the right tool.
 ```
 
 ## Demo Promise

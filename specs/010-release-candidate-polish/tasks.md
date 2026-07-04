@@ -11,31 +11,31 @@ Epic: `SHIP-001-developer-preview-release`
 - [x] Create requirements.
 - [x] Create design.
 - [x] Create tasks.
-- [ ] Create ADR.
-- [ ] Create progress artifact.
-- [ ] Register Feature 010 as `spec_ready`.
-- [ ] Update `progress/current.md`.
-- [ ] Update `progress/history.md`.
+- [x] Create ADR.
+- [x] Create progress artifact.
+- [x] Register Feature 010 as `spec_ready`.
+- [x] Update `progress/current.md`.
+- [x] Update `progress/history.md`.
 
 ## Phase 2: Approval Gate
 
-- [ ] Wait for explicit human approval.
-- [ ] Move Feature 010 from `spec_ready` to `approved` only after approval.
-- [ ] Do not implement before approval.
+- [x] Wait for explicit human approval.
+- [x] Move Feature 010 from `spec_ready` to `approved` only after approval.
+- [x] Do not implement before approval.
 
 ## Phase 3: Implementation Candidates
 
 Implementation scope should be confirmed after approval. Candidate tasks:
 
-- [ ] Inspect README for release-candidate consistency.
-- [ ] Inspect CHANGELOG for `0.1.0.dev0` readiness.
-- [ ] Inspect package metadata.
-- [ ] Inspect release checklist.
-- [ ] Inspect developer-preview release notes.
-- [ ] Inspect demo guide command consistency.
-- [ ] Inspect architecture and security-model cross-links.
-- [ ] Inspect verification script documentation.
-- [ ] Apply small documentation or metadata fixes only where necessary.
+- [x] Inspect README for release-candidate consistency.
+- [x] Inspect CHANGELOG for `0.1.0.dev0` readiness.
+- [x] Inspect package metadata.
+- [x] Inspect release checklist.
+- [x] Inspect developer-preview release notes.
+- [x] Inspect demo guide command consistency.
+- [x] Inspect architecture and security-model cross-links.
+- [x] Inspect verification script documentation.
+- [x] Apply small documentation or metadata fixes only where necessary.
 
 ## Phase 4: Verification Candidates
 
@@ -52,17 +52,17 @@ python scripts/verify_release_candidate.py
 
 Manual checks:
 
-- [ ] README commands are consistent.
-- [ ] Demo guide commands are consistent.
-- [ ] Release notes and checklist are consistent.
-- [ ] Known boundaries are stated consistently.
-- [ ] No accidental release action was performed.
-- [ ] No runtime behavior changed unless explicitly approved.
+- [x] README commands are consistent.
+- [x] Demo guide commands are consistent.
+- [x] Release notes and checklist are consistent.
+- [x] Known boundaries are stated consistently.
+- [x] No accidental release action was performed.
+- [x] No runtime behavior changed unless explicitly approved.
 
 ## Phase 5: Review
 
 Create:
 
-- [ ] `progress/review_010-release-candidate-polish.md`
+- [x] `progress/review_010-release-candidate-polish.md`
 
 Move Feature 010 to `review`, not `done`, after verification.

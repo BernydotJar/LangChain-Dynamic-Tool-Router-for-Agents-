@@ -8,7 +8,7 @@ Never expose every tool.
 Expose the right tool.
 ```
 
-Dynamic Tool Router is the missing authorization layer between:
+Runtime Tool Authorization is the missing authorization layer between:
 
 ```text
 LLMs -> Agents -> Tools -> Your Infrastructure
@@ -353,7 +353,7 @@ Optional integration tests exercise real framework import paths when packages ar
 
 ## Current Developer-Preview Boundary
 
-Dynamic Tool Router currently provides:
+Runtime Tool Authorization currently provides:
 
 - request-time policy evaluation
 - JSON policy loading

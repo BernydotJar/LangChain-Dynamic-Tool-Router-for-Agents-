@@ -8,13 +8,13 @@ Epic: `SHIP-001-developer-preview-release`
 
 ## State
 
-Status: `spec_ready`
+Status: `done`
 
 ## Summary
 
-Feature 010 is opened as a SHIP-mode spec gate for release-candidate polish.
+Feature 010 is closed as `done` after human closure approval.
 
-This feature should make the repository cleaner and more consistent for a later developer-preview release decision, without implementation work during the spec gate.
+This feature made the repository cleaner and more consistent for a later developer-preview release decision without changing runtime behavior or performing release actions.
 
 ## Preconditions
 
@@ -35,23 +35,23 @@ This feature should make the repository cleaner and more consistent for a later 
 - `specs/010-release-candidate-polish/tasks.md`
 - `adr/010-release-candidate-polish.md`
 
-## Scope For Later Approval
+## Approved Implementation Scope
 
-Candidate implementation scope:
+Completed implementation scope:
 
 - README release-readiness consistency.
 - docs index and cross-link consistency.
 - release checklist consistency.
-- version and packaging metadata consistency.
+- version and packaging metadata consistency review.
 - CHANGELOG readiness for `0.1.0.dev0`.
 - demo command consistency across README and docs.
 - architecture and security-model language consistency.
 - known limitations and non-goals consistency.
 - verification command consistency.
 
-## Non-Goals During Spec Gate
+## Non-Goals Preserved
 
-- no implementation changes
+- no runtime implementation changes
 - no runtime code changes
 - no package publishing
 - no tag creation
@@ -59,13 +59,14 @@ Candidate implementation scope:
 - no external services
 - no mandatory LangChain or LangGraph dependency changes
 
+## Verification
+
+Required automated verification is recorded in:
+
+- `progress/review_010-release-candidate-polish.md`
+
 ## Next Valid Lifecycle Action
 
-Human approval:
+No lifecycle action remains for Feature 010.
 
-```text
-APPROVAL
-FEATURE: 010-release-candidate-polish
-MODE: SHIP
-STATE CHANGE: spec_ready -> approved
-```
+Do not reopen this feature or start the next feature without a new explicit lifecycle request.
