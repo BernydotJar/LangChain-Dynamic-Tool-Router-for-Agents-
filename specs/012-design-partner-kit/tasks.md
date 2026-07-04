@@ -88,3 +88,13 @@ Created:
 - [x] `progress/review_012-design-partner-kit.md`
 
 Feature 012 moved to `review`, not `done`, after verification.
+
+## Phase 6: Closure
+
+- [x] Receive explicit closure approval.
+- [x] Move Feature 012 from `review` to `done`.
+- [x] Update `feature_list.json`.
+- [x] Update `progress/012-design-partner-kit.md`.
+- [x] Update `progress/current.md`.
+- [x] Update `progress/history.md`.
+- [x] Do not open a next feature during closure.
