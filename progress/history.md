@@ -226,4 +226,14 @@
 - Updated README roadmap to show Feature 010 and Feature 011 as `done` and Feature 012 as `in progress`.
 - Documented ideal design partner profile, buyer personas, target pain points, qualification criteria, discovery questions, pilot scope, safe non-production evaluation scenarios, demo call script, success metrics, feedback checklist, suggested outbound message, security discussion guide, and explicit non-goals.
 - Preserved hard constraints: no runtime code changes, no dependency changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no enterprise-readiness claim, no compliance certification claim, and no guaranteed security outcome claim.
-- Feature 012 remains `in_progress`; do not move it to `review` until required verification completes.
+- Verified with `python -m json.tool feature_list.json`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests`.
+- Verified with `python examples/basic_agent/run_example.py`.
+- Verified with `python examples/demo_experience/run_demo.py`.
+- Verified with `PYTHONPATH=src python -m unittest discover -s tests/integration`.
+- Verified with `python scripts/verify_release_candidate.py`.
+- Release-candidate verification passed for unit tests, basic demo, guided demo, integration tests, editable install, editable install with dev extra, and package build.
+- Setuptools license metadata deprecation warnings remain a documented non-blocking follow-up.
+- Created `progress/review_012-design-partner-kit.md`.
+- Moved Feature 012 from `in_progress` to `review`.
+- Feature 012 is not closed; next valid lifecycle action is explicit human approval for `review -> done`.
