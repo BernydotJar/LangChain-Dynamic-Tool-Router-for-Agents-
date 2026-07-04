@@ -10,13 +10,13 @@ Wave: 3 - Design Partner Readiness
 
 ## State
 
-Status: `spec_ready`
+Status: `in_progress`
 
 ## Summary
 
-Feature 012 is opened as a SHIP-mode spec gate for a design partner kit.
+Feature 012 is in progress after explicit human approval to continue from `spec_ready` into implementation.
 
-This feature should prepare the repository for structured outbound design partner conversations without implementing the kit during the spec gate.
+The implementation created `docs/design-partner-kit.md` and added README discoverability for the design partner kit.
 
 ## Preconditions
 
@@ -39,27 +39,28 @@ This feature should prepare the repository for structured outbound design partne
 - `specs/012-design-partner-kit/tasks.md`
 - `adr/012-design-partner-kit-strategy.md`
 
-## Scope For Later Approval
+## Approved Implementation Scope
 
-Candidate implementation scope:
+Completed implementation scope:
 
-- `docs/design-partner-kit.md`
-- ideal design partner profile
-- buyer personas and evaluator roles
-- target pain points
-- design partner qualification criteria
-- discovery questions
-- pilot scope template
-- safe non-production evaluation scenarios
-- demo call script
-- success metrics
-- feedback checklist
-- suggested outbound message
-- explicit non-goals and boundaries
+- Create `docs/design-partner-kit.md`.
+- Define ideal design partner profile.
+- Define buyer personas and evaluator roles.
+- Define target pain points.
+- Define design partner qualification criteria.
+- Define discovery questions.
+- Define pilot scope template.
+- Define safe non-production evaluation scenarios.
+- Define demo call script.
+- Define success metrics.
+- Define feedback checklist.
+- Include suggested outbound message.
+- Include explicit non-goals and boundaries.
+- Avoid unsupported production, enterprise, compliance, and security claims.
+- Add README discoverability and update roadmap state.
 
-## Non-Goals During Spec Gate
+## Non-Goals Preserved
 
-- no implementation changes
 - no runtime code changes
 - no dependency changes
 - no package publishing
@@ -70,13 +71,25 @@ Candidate implementation scope:
 - no compliance certification claim
 - no guaranteed security outcome claim
 
+## Verification
+
+Implementation is complete, but automated verification has not yet been run in this environment.
+
+Pending required verification:
+
+- `python -m json.tool feature_list.json`
+- `PYTHONPATH=src python -m unittest discover -s tests`
+- `python examples/basic_agent/run_example.py`
+- `python examples/demo_experience/run_demo.py`
+- `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- `python scripts/verify_release_candidate.py`
+
 ## Next Valid Lifecycle Action
 
-Human approval:
+Run verification, then create:
 
 ```text
-APPROVAL
-FEATURE: 012-design-partner-kit
-MODE: SHIP
-STATE CHANGE: spec_ready -> approved
+progress/review_012-design-partner-kit.md
 ```
+
+After successful verification, move Feature 012 to `review`, not `done`.
