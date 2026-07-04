@@ -28,9 +28,9 @@ Feature 010 status: `done`
 
 Feature 011 status: `done`
 
-Feature 012 status: `spec_ready`
+Feature 012 status: `in_progress`
 
-Feature 012 is open as a SHIP-mode spec gate only. Implementation has not started.
+Feature 012 implementation is complete, but required verification has not yet been run in this environment. Do not move Feature 012 to `review` until verification passes.
 
 ## Product Direction
 
@@ -95,17 +95,65 @@ Feature 012 prepares a design partner kit for Runtime Tool Authorization for AI 
 
 No implementation changes were made during the spec gate.
 
-`docs/design-partner-kit.md` has not been created.
+## Feature 012 Implementation
+
+Human approval received to continue Feature 012 from `spec_ready` into implementation.
+
+Implemented:
+
+- `docs/design-partner-kit.md`
+- README discoverability for `docs/design-partner-kit.md`
+- README roadmap update showing 012 as `in progress`
+- progress and task bookkeeping
+
+The design partner kit covers:
+
+- ideal design partner profile,
+- buyer personas and evaluator roles,
+- target pain points,
+- qualification criteria,
+- discovery questions,
+- pilot scope template,
+- safe non-production evaluation scenarios,
+- 20-30 minute demo call script,
+- success metrics,
+- feedback checklist,
+- suggested outbound message,
+- security discussion guide,
+- explicit non-goals and boundaries.
+
+Preserved constraints:
+
+- No runtime behavior changed.
+- No dependencies changed.
+- No package was published.
+- No git tag was created.
+- No GitHub Release was created.
+- No production-readiness claim was introduced.
+- No enterprise-readiness claim was introduced.
+- No compliance certification claim was introduced.
+- No guaranteed security outcome claim was introduced.
 
 ## Next Valid Lifecycle Action
 
-Human approval:
+Run verification, then move Feature 012 to `review` only if verification passes:
 
 ```text
-APPROVAL
+VERIFY
 FEATURE: 012-design-partner-kit
 MODE: SHIP
-STATE CHANGE: spec_ready -> approved
+STATE CHANGE: in_progress -> review
 ```
 
-Do not implement Feature 012 until explicit approval is received.
+Required verification:
+
+```sh
+python -m json.tool feature_list.json
+PYTHONPATH=src python -m unittest discover -s tests
+python examples/basic_agent/run_example.py
+python examples/demo_experience/run_demo.py
+PYTHONPATH=src python -m unittest discover -s tests/integration
+python scripts/verify_release_candidate.py
+```
+
+Do not close Feature 012 until it reaches `review` and explicit closure approval is received.
