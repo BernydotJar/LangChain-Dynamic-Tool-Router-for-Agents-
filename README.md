@@ -255,6 +255,7 @@ See `docs/langchain-langgraph-integration.md`.
 
 - `docs/product-positioning.md` — buyer narrative and wedge use cases.
 - `docs/design-partner-kit.md` — design partner qualification, discovery, pilot scoping, demo flow, and feedback collection.
+- `docs/pricing.md` — pricing, trial, design partner offer, and monetization architecture.
 - `docs/architecture.md` — architecture, request lifecycle, policy flow, and adapter boundaries.
 - `docs/demo-guide.md` — local evaluation flow.
 - `docs/policy-format.md` — JSON policy format.
@@ -364,6 +365,7 @@ SHIP-001  Developer Preview Release                  active
 010       Release candidate polish                   done
 011       Security whitepaper                        done
 012       Design partner kit                         done
+013       Pricing and landing copy                   in progress
 ```
 
 ## Design Partner Signal
@@ -378,6 +380,14 @@ This project is ready for design-partner conversations around:
 - productizing internal agent infrastructure.
 
 See `docs/design-partner-kit.md` for qualification, discovery, pilot scoping, demo flow, and feedback collection.
+
+## Pricing
+
+Start free for 30 days. Then `$9/month` for solo builders or `$19/user/month` for teams.
+
+We are accepting 20 design partners to shape the runtime authorization layer for AI agents. Founding design partners get a `$49/month` flat plan for up to 5 users, locked for 12 months.
+
+Payment should be enforced through a billing-backed entitlement layer, not through marketplace install gating. See `docs/pricing.md`.
 
 ## Harness SDLC Evidence
 
@@ -400,4 +410,4 @@ tests/
 examples/
 ```
 
-Developer preview status: design partner kit is closed as done. Do not treat the package as production IAM or compliance infrastructure yet.
+Developer preview status: pricing and landing copy are in progress. Do not treat the package as production IAM or compliance infrastructure yet.
