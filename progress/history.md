@@ -197,4 +197,9 @@
 - Verified with `PYTHONPATH=src python -m unittest discover -s tests/integration`.
 - `python scripts/verify_release_candidate.py` passed local checks but failed install/build steps in the sandbox because network access was blocked while resolving `setuptools` and `wheel`.
 - Escalation for the release-candidate verifier was rejected by the environment because the workspace is out of credits.
-- Feature 011 remains `in_progress`; do not move it to `review` until required verification completes.
+- Local rerun of `python scripts/verify_release_candidate.py` completed successfully.
+- Release-candidate verification passed for registry JSON, unit tests, basic demo, guided demo, integration tests, editable install, editable install with dev extra, and package build.
+- Setuptools license metadata deprecation warnings remain a documented non-blocking follow-up.
+- Created `progress/review_011-security-whitepaper.md`.
+- Moved Feature 011 from `in_progress` to `review`.
+- Feature 011 is not closed; next valid lifecycle action is explicit human approval for `review -> done`.
