@@ -28,9 +28,9 @@ Feature 010 status: `done`
 
 Feature 011 status: `done`
 
-Feature 012 status: `in_progress`
+Feature 012 status: `review`
 
-Feature 012 implementation is complete, but required verification has not yet been run in this environment. Do not move Feature 012 to `review` until verification passes.
+Feature 012 is in review after design partner kit implementation and required release-candidate verification completed successfully.
 
 ## Product Direction
 
@@ -78,6 +78,7 @@ Review artifacts:
 - `progress/review_008-demo-experience.md`
 - `progress/review_010-release-candidate-polish.md`
 - `progress/review_011-security-whitepaper.md`
+- `progress/review_012-design-partner-kit.md`
 
 ## Feature 012 Spec Gate
 
@@ -95,7 +96,7 @@ Feature 012 prepares a design partner kit for Runtime Tool Authorization for AI 
 
 No implementation changes were made during the spec gate.
 
-## Feature 012 Implementation
+## Feature 012 Review
 
 Human approval received to continue Feature 012 from `spec_ready` into implementation.
 
@@ -105,6 +106,7 @@ Implemented:
 - README discoverability for `docs/design-partner-kit.md`
 - README roadmap update showing 012 as `in progress`
 - progress and task bookkeeping
+- review artifact at `progress/review_012-design-partner-kit.md`
 
 The design partner kit covers:
 
@@ -122,6 +124,15 @@ The design partner kit covers:
 - security discussion guide,
 - explicit non-goals and boundaries.
 
+Verification passed:
+
+- `python -m json.tool feature_list.json`
+- `PYTHONPATH=src python -m unittest discover -s tests`
+- `python examples/basic_agent/run_example.py`
+- `python examples/demo_experience/run_demo.py`
+- `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- `python scripts/verify_release_candidate.py`
+
 Preserved constraints:
 
 - No runtime behavior changed.
@@ -136,24 +147,13 @@ Preserved constraints:
 
 ## Next Valid Lifecycle Action
 
-Run verification, then move Feature 012 to `review` only if verification passes:
+Human closure approval:
 
 ```text
-VERIFY
+APPROVAL TO CLOSE
 FEATURE: 012-design-partner-kit
 MODE: SHIP
-STATE CHANGE: in_progress -> review
+STATE CHANGE: review -> done
 ```
 
-Required verification:
-
-```sh
-python -m json.tool feature_list.json
-PYTHONPATH=src python -m unittest discover -s tests
-python examples/basic_agent/run_example.py
-python examples/demo_experience/run_demo.py
-PYTHONPATH=src python -m unittest discover -s tests/integration
-python scripts/verify_release_candidate.py
-```
-
-Do not close Feature 012 until it reaches `review` and explicit closure approval is received.
+Do not close Feature 012 until explicit closure approval is received.
