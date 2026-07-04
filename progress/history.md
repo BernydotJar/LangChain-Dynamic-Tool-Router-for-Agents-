@@ -240,3 +240,19 @@
 - Moved Feature 012 from `review` to `done`.
 - Accepted limitations: no runtime code changes, no dependency changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no enterprise-readiness claim, no compliance certification claim, no guaranteed security outcome claim, and setuptools license metadata warnings remain a documented follow-up.
 - No next feature was opened during the closure pass.
+
+## 013-pricing-and-landing-copy
+
+- Opened Feature 013 as a SHIP-mode spec gate.
+- Registered Feature 013 as `spec_ready`.
+- Tied Feature 013 to SHIP-001 Wave 3: commercial readiness.
+- Created requirements, design, tasks, ADR, and progress artifacts.
+- Preserved Features 001 through 012 as `done`.
+- Captured placement strategy: README conversion section, canonical `docs/pricing.md`, and design partner offer inside `docs/design-partner-kit.md`.
+- Captured pricing strategy: 30-day free trial, `$9/month` Solo, `$19/user/month` Team, `$49/month` design partner flat plan for up to 5 users, first 20 design partners, and 12-month founding price lock.
+- Captured required copy blocks for category contrast, hero, pricing CTA, design partner CTA, and premium AI developer-tool seat value anchor.
+- No implementation changes were made.
+- `docs/pricing.md` was not created.
+- README pricing copy was not changed.
+- `docs/design-partner-kit.md` was not changed.
+- Next valid lifecycle action is explicit human approval for `spec_ready -> approved`.
