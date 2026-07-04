@@ -10,11 +10,11 @@ Wave: 2 - Make CTOs Trust It
 
 ## State
 
-Status: `review`
+Status: `done`
 
 ## Summary
 
-Feature 011 is in review after the approved security whitepaper implementation pass and successful release-candidate verification.
+Feature 011 is closed as `done` after human closure approval.
 
 The implementation created `docs/security-whitepaper.md` to explain the security posture, boundaries, non-goals, threat assumptions, and review posture for Runtime Tool Authorization for AI Agents.
 
@@ -101,9 +101,9 @@ Created:
 progress/review_011-security-whitepaper.md
 ```
 
-## Next Valid Lifecycle Action
+## Closure Approval
 
-Human closure approval:
+Human closure approval received:
 
 ```text
 APPROVAL TO CLOSE
@@ -112,4 +112,10 @@ MODE: SHIP
 STATE CHANGE: review -> done
 ```
 
-Do not close Feature 011 until explicit human closure approval is received.
+Feature 011 was moved from `review` to `done`.
+
+## Next Valid Lifecycle Action
+
+Open the next feature as a new spec gate only after explicit human approval.
+
+No active feature remains after this closure.
