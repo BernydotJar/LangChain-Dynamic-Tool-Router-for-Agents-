@@ -10,11 +10,11 @@ Wave: 3 - Design Partner Readiness
 
 ## State
 
-Status: `review`
+Status: `done`
 
 ## Summary
 
-Feature 012 is in review after explicit human approval, implementation, and successful release-candidate verification.
+Feature 012 is closed as `done` after closure approval.
 
 The implementation created `docs/design-partner-kit.md` and added README discoverability for the design partner kit.
 
@@ -106,15 +106,20 @@ Created:
 progress/review_012-design-partner-kit.md
 ```
 
-## Next Valid Lifecycle Action
+## Closure
 
-Human closure approval:
+Closure approval was received for:
 
 ```text
-APPROVAL TO CLOSE
 FEATURE: 012-design-partner-kit
 MODE: SHIP
 STATE CHANGE: review -> done
 ```
 
-Do not close Feature 012 until explicit human closure approval is received.
+Feature 012 was moved from `review` to `done`.
+
+## Next Valid Lifecycle Action
+
+Open the next feature as a new spec gate only after explicit approval.
+
+No active feature remains after this closure.
