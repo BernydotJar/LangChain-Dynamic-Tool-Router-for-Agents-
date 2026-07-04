@@ -13,12 +13,12 @@ Wave: 3 - Design Partner Readiness
 - [x] Create requirements.
 - [x] Create design.
 - [x] Create tasks.
-- [ ] Create ADR.
-- [ ] Create progress artifact.
-- [ ] Register Feature 012 as `spec_ready`.
-- [ ] Update `progress/current.md`.
-- [ ] Update `progress/history.md`.
-- [ ] Confirm `docs/design-partner-kit.md` was not created.
+- [x] Create ADR.
+- [x] Create progress artifact.
+- [x] Register Feature 012 as `spec_ready`.
+- [x] Update `progress/current.md`.
+- [x] Update `progress/history.md`.
+- [x] Confirm `docs/design-partner-kit.md` was not created.
 
 ## Phase 2: Approval Gate
 
