@@ -141,3 +141,12 @@
 - Moved Feature 008 from `review` to `done`.
 - Accepted limitations: no runtime `src/` code changes, no external services, no mandatory LangChain/LangGraph dependency, no PyPI publish, no git tag, no GitHub Release, and no production-readiness claim.
 - Recommended next candidate: `010-release-candidate-polish` for GitHub release readiness, or `010-design-partner-kit` for outbound selling.
+
+## 010-release-candidate-polish
+
+- Opened Feature 010 as a SHIP-mode spec gate.
+- Registered Feature 010 as `spec_ready`.
+- Created requirements, design, tasks, ADR, and progress artifacts.
+- Preserved Features 001 through 009 as `done`.
+- No implementation changes were made.
+- Next valid lifecycle action is explicit human approval for `spec_ready -> approved`.
