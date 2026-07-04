@@ -206,3 +206,16 @@
 - Moved Feature 011 from `review` to `done`.
 - Accepted limitations: no runtime code changes, no dependency changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no IAM replacement claim, no compliance certification claim, no tamper-proof audit claim, no sandboxing claim, no hosted enterprise control-plane claim, and setuptools license metadata warnings remain a documented follow-up.
 - No next feature was opened during the closure pass.
+
+## 012-design-partner-kit
+
+- Opened Feature 012 as a SHIP-mode spec gate.
+- Registered Feature 012 as `spec_ready`.
+- Tied Feature 012 to SHIP-001 Wave 3: design partner readiness.
+- Created requirements, design, tasks, ADR, and progress artifacts.
+- Preserved Features 001 through 011 as `done`.
+- Captured future implementation scope for `docs/design-partner-kit.md`.
+- Captured required coverage for ideal design partner profile, buyer personas, target pain points, qualification criteria, discovery questions, pilot scope, safe non-production evaluation scenarios, demo call script, success metrics, feedback checklist, outbound message, and boundaries.
+- No implementation changes were made.
+- `docs/design-partner-kit.md` was not created.
+- Next valid lifecycle action is explicit human approval for `spec_ready -> approved`.
