@@ -10,11 +10,11 @@ Wave: 3 - Design Partner Readiness
 
 ## State
 
-Status: `in_progress`
+Status: `review`
 
 ## Summary
 
-Feature 012 is in progress after explicit human approval to continue from `spec_ready` into implementation.
+Feature 012 is in review after explicit human approval, implementation, and successful release-candidate verification.
 
 The implementation created `docs/design-partner-kit.md` and added README discoverability for the design partner kit.
 
@@ -73,9 +73,9 @@ Completed implementation scope:
 
 ## Verification
 
-Implementation is complete, but automated verification has not yet been run in this environment.
+Automated verification passed after implementation.
 
-Pending required verification:
+Passed:
 
 - `python -m json.tool feature_list.json`
 - `PYTHONPATH=src python -m unittest discover -s tests`
@@ -84,12 +84,37 @@ Pending required verification:
 - `PYTHONPATH=src python -m unittest discover -s tests/integration`
 - `python scripts/verify_release_candidate.py`
 
-## Next Valid Lifecycle Action
+Release-candidate verifier evidence:
 
-Run verification, then create:
+- unit tests: PASS, ran 23 tests, skipped 2
+- basic demo: PASS
+- guided demo: PASS
+- integration tests: PASS, ran 2 tests, skipped 2
+- editable install: PASS
+- editable install with dev extra: PASS
+- package build: PASS
+
+Known non-blocking warning:
+
+- Setuptools emitted license metadata deprecation warnings during package build. These remain a documented follow-up and did not block the build.
+
+## Review Artifact
+
+Created:
 
 ```text
 progress/review_012-design-partner-kit.md
 ```
 
-After successful verification, move Feature 012 to `review`, not `done`.
+## Next Valid Lifecycle Action
+
+Human closure approval:
+
+```text
+APPROVAL TO CLOSE
+FEATURE: 012-design-partner-kit
+MODE: SHIP
+STATE CHANGE: review -> done
+```
+
+Do not close Feature 012 until explicit human closure approval is received.
