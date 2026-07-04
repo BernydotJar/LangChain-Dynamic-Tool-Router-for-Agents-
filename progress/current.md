@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`011-security-whitepaper`
+None. Feature 011 is closed as `done`; the next feature should be opened only after explicit human approval.
 
 ## Current State
 
@@ -26,11 +26,9 @@ Feature 009 status: `done`
 
 Feature 010 status: `done`
 
-Feature 010 is closed as `done` after human closure approval.
+Feature 011 status: `done`
 
-Feature 011 status: `review`
-
-Feature 011 is in review after the security whitepaper implementation and required release-candidate verification completed successfully.
+Feature 011 is closed as `done` after human closure approval.
 
 ## Product Direction
 
@@ -66,6 +64,8 @@ Feature 008 is closed as `done` after guided demo verification and SHIP review a
 
 Feature 010 is closed as `done` after release-candidate polish verification and SHIP review artifact creation.
 
+Feature 011 is closed as `done` after security whitepaper verification and SHIP review artifact creation.
+
 Review artifacts:
 
 - `progress/review_004-sellable-developer-preview.md`
@@ -75,96 +75,11 @@ Review artifacts:
 - `progress/review_007-architecture-mermaid-diagrams.md`
 - `progress/review_008-demo-experience.md`
 - `progress/review_010-release-candidate-polish.md`
-
-## Feature 010 Spec Gate
-
-Created:
-
-- `specs/010-release-candidate-polish/requirements.md`
-- `specs/010-release-candidate-polish/design.md`
-- `specs/010-release-candidate-polish/tasks.md`
-- `adr/010-release-candidate-polish.md`
-- `progress/010-release-candidate-polish.md`
-
-Purpose:
-
-Feature 010 prepared the approved release-candidate polish pass focused on repository readiness, documentation consistency, metadata consistency, and verification evidence.
-
-No implementation changes were made during the spec gate. Implementation started only after explicit approval.
-
-## Feature 010 Review
-
-Feature 010 received explicit SHIP-mode approval for `spec_ready -> approved`.
-
-Implementation completed as a release-candidate polish pass focused on:
-
-- README release-readiness consistency.
-- docs cross-link consistency.
-- release checklist consistency.
-- CHANGELOG consistency for `0.1.0.dev0`.
-- demo command consistency.
-- architecture, security-model, and product-positioning consistency.
-- known limitation consistency.
-- verification command consistency.
-
-Review artifact:
-
-- `progress/review_010-release-candidate-polish.md`
-
-No runtime behavior changed. No package was published. No git tag or GitHub Release was created.
-
-## Feature 011 Spec Gate
-
-Created:
-
-- `specs/011-security-whitepaper/requirements.md`
-- `specs/011-security-whitepaper/design.md`
-- `specs/011-security-whitepaper/tasks.md`
-- `adr/011-security-whitepaper-strategy.md`
-- `progress/011-security-whitepaper.md`
-
-Purpose:
-
-Feature 011 prepared a security whitepaper for Runtime Tool Authorization for AI Agents. It is tied to SHIP-001 Wave 2: make CTOs and technical reviewers trust the project.
-
-No implementation changes were made during the spec gate. Implementation started only after explicit approval.
-
-## Feature 011 Review
-
-Feature 011 received explicit SHIP-mode approval for `spec_ready -> approved`.
-
-Implementation completed as a security whitepaper pass focused on:
-
-- Runtime Tool Authorization security posture.
-- Trust boundary and request context model.
-- Policy evaluation and allowed tool surface.
-- Denied tool and fallback behavior.
-- Audit evidence and local audit limitations.
-- JSON policy limitations.
-- LangChain/LangGraph adapter boundary.
-- MCP-style tool surface filtering.
-- Tenant, user, role, plan, and permission constraints.
-- Threat model, non-goals, developer-preview limitations, future hardening, and reviewer checklist.
-
-Created:
-
-- `docs/security-whitepaper.md`
 - `progress/review_011-security-whitepaper.md`
 
-Verification passed:
+## Feature 011 Closure Evidence
 
-- `python -m json.tool feature_list.json`
-- `PYTHONPATH=src python -m unittest discover -s tests`
-- `python examples/basic_agent/run_example.py`
-- `python examples/demo_experience/run_demo.py`
-- `PYTHONPATH=src python -m unittest discover -s tests/integration`
-- `python scripts/verify_release_candidate.py`
-
-No runtime behavior changed. No dependency changed. No package was published. No git tag or GitHub Release was created.
-
-## Next Valid Lifecycle Action
-
-Human closure approval:
+Human approval received:
 
 ```text
 APPROVAL TO CLOSE
@@ -173,4 +88,55 @@ MODE: SHIP
 STATE CHANGE: review -> done
 ```
 
-Do not close Feature 011 until explicit closure approval is received.
+Accepted implementation:
+
+- Created `docs/security-whitepaper.md`.
+- Added README discoverability for the security whitepaper.
+- Updated `docs/security-model.md` to cross-link the consolidated whitepaper.
+- Documented security posture, trust boundary, request context model, policy evaluation model, allowed and denied tool behavior, fallback behavior, audit evidence, local audit limitations, JSON policy limitations, adapter boundaries, MCP-style filtering, tenant/user/role/plan/permission constraints, threat model, non-goals, developer-preview limitations, future hardening, and reviewer checklist.
+
+Accepted verification:
+
+- `python -m json.tool feature_list.json` passed.
+- `PYTHONPATH=src python -m unittest discover -s tests` passed.
+- `python examples/basic_agent/run_example.py` passed.
+- `python examples/demo_experience/run_demo.py` passed.
+- `PYTHONPATH=src python -m unittest discover -s tests/integration` passed.
+- `python scripts/verify_release_candidate.py` passed.
+
+Accepted limitations:
+
+- No runtime code changes.
+- No dependency changes.
+- No PyPI publish.
+- No git tag.
+- No GitHub Release.
+- No production-readiness claim.
+- No IAM replacement claim.
+- No compliance certification claim.
+- No tamper-proof audit claim.
+- No sandboxing claim.
+- No hosted enterprise control-plane claim.
+- Setuptools license metadata warnings remain a documented non-blocking follow-up.
+
+## Next Valid Lifecycle Action
+
+Open the next feature as a spec gate only after explicit human approval.
+
+Recommended next candidates:
+
+```text
+FEATURE: 012-design-partner-kit
+MODE: SHIP
+STATE CHANGE: candidate -> spec_ready
+```
+
+or:
+
+```text
+FEATURE: 012-ci-release-verification
+MODE: SHIP
+STATE CHANGE: candidate -> spec_ready
+```
+
+Recommendation: choose `012-design-partner-kit` first if the goal is outbound selling; choose `012-ci-release-verification` first if the goal is making release verification independent from local machines.
