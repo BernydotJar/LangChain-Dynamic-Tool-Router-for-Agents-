@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-None. Feature 011 is closed as `done`; the next feature should be opened only after explicit human approval.
+`012-design-partner-kit`
 
 ## Current State
 
@@ -28,7 +28,9 @@ Feature 010 status: `done`
 
 Feature 011 status: `done`
 
-Feature 011 is closed as `done` after human closure approval.
+Feature 012 status: `spec_ready`
+
+Feature 012 is open as a SHIP-mode spec gate only. Implementation has not started.
 
 ## Product Direction
 
@@ -77,66 +79,33 @@ Review artifacts:
 - `progress/review_010-release-candidate-polish.md`
 - `progress/review_011-security-whitepaper.md`
 
-## Feature 011 Closure Evidence
+## Feature 012 Spec Gate
 
-Human approval received:
+Created:
 
-```text
-APPROVAL TO CLOSE
-FEATURE: 011-security-whitepaper
-MODE: SHIP
-STATE CHANGE: review -> done
-```
+- `specs/012-design-partner-kit/requirements.md`
+- `specs/012-design-partner-kit/design.md`
+- `specs/012-design-partner-kit/tasks.md`
+- `adr/012-design-partner-kit-strategy.md`
+- `progress/012-design-partner-kit.md`
 
-Accepted implementation:
+Purpose:
 
-- Created `docs/security-whitepaper.md`.
-- Added README discoverability for the security whitepaper.
-- Updated `docs/security-model.md` to cross-link the consolidated whitepaper.
-- Documented security posture, trust boundary, request context model, policy evaluation model, allowed and denied tool behavior, fallback behavior, audit evidence, local audit limitations, JSON policy limitations, adapter boundaries, MCP-style filtering, tenant/user/role/plan/permission constraints, threat model, non-goals, developer-preview limitations, future hardening, and reviewer checklist.
+Feature 012 prepares a design partner kit for Runtime Tool Authorization for AI Agents. It is tied to SHIP-001 Wave 3: design partner readiness.
 
-Accepted verification:
+No implementation changes were made during the spec gate.
 
-- `python -m json.tool feature_list.json` passed.
-- `PYTHONPATH=src python -m unittest discover -s tests` passed.
-- `python examples/basic_agent/run_example.py` passed.
-- `python examples/demo_experience/run_demo.py` passed.
-- `PYTHONPATH=src python -m unittest discover -s tests/integration` passed.
-- `python scripts/verify_release_candidate.py` passed.
-
-Accepted limitations:
-
-- No runtime code changes.
-- No dependency changes.
-- No PyPI publish.
-- No git tag.
-- No GitHub Release.
-- No production-readiness claim.
-- No IAM replacement claim.
-- No compliance certification claim.
-- No tamper-proof audit claim.
-- No sandboxing claim.
-- No hosted enterprise control-plane claim.
-- Setuptools license metadata warnings remain a documented non-blocking follow-up.
+`docs/design-partner-kit.md` has not been created.
 
 ## Next Valid Lifecycle Action
 
-Open the next feature as a spec gate only after explicit human approval.
-
-Recommended next candidates:
+Human approval:
 
 ```text
+APPROVAL
 FEATURE: 012-design-partner-kit
 MODE: SHIP
-STATE CHANGE: candidate -> spec_ready
+STATE CHANGE: spec_ready -> approved
 ```
 
-or:
-
-```text
-FEATURE: 012-ci-release-verification
-MODE: SHIP
-STATE CHANGE: candidate -> spec_ready
-```
-
-Recommendation: choose `012-design-partner-kit` first if the goal is outbound selling; choose `012-ci-release-verification` first if the goal is making release verification independent from local machines.
+Do not implement Feature 012 until explicit approval is received.
