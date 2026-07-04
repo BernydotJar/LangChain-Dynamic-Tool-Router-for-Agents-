@@ -219,3 +219,11 @@
 - No implementation changes were made.
 - `docs/design-partner-kit.md` was not created.
 - Next valid lifecycle action is explicit human approval for `spec_ready -> approved`.
+- Human approval received to continue from `spec_ready` into implementation.
+- Moved Feature 012 to `in_progress`.
+- Created `docs/design-partner-kit.md`.
+- Added README discoverability for the design partner kit.
+- Updated README roadmap to show Feature 010 and Feature 011 as `done` and Feature 012 as `in progress`.
+- Documented ideal design partner profile, buyer personas, target pain points, qualification criteria, discovery questions, pilot scope, safe non-production evaluation scenarios, demo call script, success metrics, feedback checklist, suggested outbound message, security discussion guide, and explicit non-goals.
+- Preserved hard constraints: no runtime code changes, no dependency changes, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no enterprise-readiness claim, no compliance certification claim, and no guaranteed security outcome claim.
+- Feature 012 remains `in_progress`; do not move it to `review` until required verification completes.
