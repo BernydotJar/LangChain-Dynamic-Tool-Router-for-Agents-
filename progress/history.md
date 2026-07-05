@@ -204,4 +204,6 @@
 - Verified with registry JSON validation, unit tests, basic demo, guided demo, integration tests, editable install, editable install with dev extra, package build, and release-candidate verifier.
 - Created `progress/review_014-stripe-entitlement-billing.md`.
 - Moved Feature 014 from `in_progress` to `review` after verification.
+- Closure approval received.
+- Moved Feature 014 from `review` to `done`.
 - Accepted limitations: no real Stripe SDK dependency, no dependency changes, no Stripe live secrets, no webhook signing secret, no customer data, no live payment operation, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no enterprise-readiness claim, no compliance certification claim, no guaranteed security outcome claim, and setuptools license metadata warnings remain a documented follow-up.
