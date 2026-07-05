@@ -22,31 +22,32 @@ Wave: 3 - Commercial Readiness
 
 ## Phase 2: Approval Gate
 
-- [ ] Wait for explicit human approval.
-- [ ] Move Feature 013 from `spec_ready` to approved implementation only after approval.
-- [ ] Do not implement before approval.
+- [x] Wait for explicit human approval.
+- [x] Move Feature 013 from `spec_ready` to approved implementation only after approval.
+- [x] Do not implement before approval.
 
 ## Phase 3: Implementation Candidates
 
 Implementation scope after approval:
 
-- [ ] Create `docs/pricing.md`.
-- [ ] Add concise README pricing section after `Design Partner Signal` and before `Harness SDLC Evidence`.
-- [ ] Add README link to `docs/pricing.md`.
-- [ ] Update README roadmap if needed.
-- [ ] Update `docs/design-partner-kit.md` with the first-20 design partner offer.
-- [ ] Include 30-day free trial.
-- [ ] Include Solo `$9/month`.
-- [ ] Include Team `$19/user/month`.
-- [ ] Include Design Partner `$49/month` flat for up to 5 users.
-- [ ] Include 12-month founding price lock.
-- [ ] Include Custom Enterprise future/custom scope.
-- [ ] Include the category contrast copy.
-- [ ] Include the hero copy.
-- [ ] Include the pricing CTA.
-- [ ] Include the design partner CTA.
-- [ ] Include the premium AI developer-tool seat value anchor.
-- [ ] Avoid unsupported production, enterprise, compliance, and security claims.
+- [x] Create `docs/pricing.md`.
+- [x] Add concise README pricing section after `Design Partner Signal` and before `Harness SDLC Evidence`.
+- [x] Add README link to `docs/pricing.md`.
+- [x] Update README roadmap if needed.
+- [x] Update `docs/design-partner-kit.md` with the first-20 design partner offer.
+- [x] Include 30-day free trial.
+- [x] Include Solo `$9/month`.
+- [x] Include Team `$19/user/month`.
+- [x] Include Design Partner `$49/month` flat for up to 5 users.
+- [x] Include 12-month founding price lock.
+- [x] Include Custom Enterprise future/custom scope.
+- [x] Include the category contrast copy.
+- [x] Include the hero copy.
+- [x] Include the pricing CTA.
+- [x] Include the design partner CTA.
+- [x] Include the premium AI developer-tool seat value anchor.
+- [x] Add monetization architecture for trial, billing, entitlement, license/API validation, and grace-period behavior.
+- [x] Avoid unsupported production, enterprise, compliance, and security claims.
 
 ## Phase 4: Verification Candidates
 
