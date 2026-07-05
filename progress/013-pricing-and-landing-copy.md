@@ -10,13 +10,13 @@ Wave: 3 - Commercial Readiness
 
 ## State
 
-Status: `spec_ready`
+Status: `in_progress`
 
 ## Summary
 
-Feature 013 is opened as a spec gate for commercial pricing and landing-page placement.
+Feature 013 is in implementation after explicit approval.
 
-No implementation changes have been made.
+Implementation added pricing, trial, design partner offer, and monetization architecture documentation.
 
 ## Preconditions
 
@@ -42,33 +42,32 @@ Created:
 - `specs/013-pricing-and-landing-copy/tasks.md`
 - `adr/013-pricing-and-landing-copy-strategy.md`
 
-## Proposed Placement
+## Implemented
 
-Pricing should be added in three layers after approval:
+- Registered Feature 013 as `in_progress`.
+- Created `docs/pricing.md`.
+- Added README pricing section after `Design Partner Signal` and before `Harness SDLC Evidence`.
+- Added README link to `docs/pricing.md`.
+- Updated README roadmap to show Feature 013 as `in progress`.
+- Updated `docs/design-partner-kit.md` with the first-20 design partner offer.
+- Added the `$49/month` flat design partner offer for up to 5 users.
+- Added 12-month founding price lock language.
+- Added 30-day free trial, `$9/month` Solo, and `$19/user/month` Team pricing.
+- Added monetization architecture: public install, Stripe billing, entitlement backend, license validation, and grace-period behavior.
 
-1. `README.md` - concise conversion section after `Design Partner Signal` and before `Harness SDLC Evidence`.
-2. `docs/pricing.md` - canonical pricing page.
-3. `docs/design-partner-kit.md` - design partner sales offer.
+## Monetization Decision
 
-## Proposed Pricing
+Do not rely on marketplace install gating for payment enforcement.
 
-Public launch:
+Use this model:
 
-- 30-day free trial.
-- Solo: `$9/month`.
-- Team: `$19/user/month`.
+```text
+public install -> 30-day trial -> Stripe billing -> entitlement backend -> license/API validation -> premium features enabled or disabled
+```
 
-Design partner offer:
+Developer-preview local examples can remain free. Commercial or team capabilities should require an active entitlement.
 
-- First 20 design partners.
-- `$49/month` flat for up to 5 users.
-- Founding price locked for 12 months.
-
-Enterprise:
-
-- Custom future/custom scope.
-
-## Hard Constraints
+## Hard Constraints Preserved
 
 - No runtime code changes.
 - No dependency changes.
@@ -80,15 +79,23 @@ Enterprise:
 - No compliance certification claim.
 - No guaranteed security outcome claim.
 
-## Next Valid Lifecycle Action
+## Verification
 
-Explicit implementation approval:
+Verification is still required before moving Feature 013 to `review`.
 
-```text
-APPROVAL TO IMPLEMENT
-FEATURE: 013-pricing-and-landing-copy
-MODE: SHIP
-STATE CHANGE: spec_ready -> in_progress
+Required:
+
+```sh
+python -m json.tool feature_list.json
+PYTHONPATH=src python -m unittest discover -s tests
+python examples/basic_agent/run_example.py
+python examples/demo_experience/run_demo.py
+PYTHONPATH=src python -m unittest discover -s tests/integration
+python scripts/verify_release_candidate.py
 ```
 
-Do not implement pricing copy until approval is received.
+## Next Valid Lifecycle Action
+
+Run verification and manual checks. If successful, create `progress/review_013-pricing-and-landing-copy.md` and move Feature 013 to `review`.
+
+Do not close Feature 013 until explicit closure approval is received.
