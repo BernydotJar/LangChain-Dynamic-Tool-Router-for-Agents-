@@ -30,9 +30,9 @@ Feature 011 status: `done`
 
 Feature 012 status: `done`
 
-Feature 013 status: `in_progress`
+Feature 013 status: `review`
 
-Feature 013 is in implementation after approval. Pricing and monetization copy has been added, but verification is still required before review.
+Feature 013 is in review after successful verification and review artifact creation. Do not close until explicit closure approval is received.
 
 ## Product Direction
 
@@ -83,8 +83,9 @@ Review artifacts:
 - `progress/review_010-release-candidate-polish.md`
 - `progress/review_011-security-whitepaper.md`
 - `progress/review_012-design-partner-kit.md`
+- `progress/review_013-pricing-and-landing-copy.md`
 
-## Feature 013 Implementation
+## Feature 013 Review
 
 Created and updated:
 
@@ -93,6 +94,7 @@ Created and updated:
 - `docs/design-partner-kit.md`
 - `specs/013-pricing-and-landing-copy/tasks.md`
 - `progress/013-pricing-and-landing-copy.md`
+- `progress/review_013-pricing-and-landing-copy.md`
 
 Implemented pricing:
 
@@ -110,12 +112,14 @@ Implemented monetization architecture:
 public install -> 30-day trial -> Stripe billing -> entitlement backend -> license/API validation -> premium features enabled or disabled
 ```
 
-Decision:
+Verification passed:
 
-- Do not rely on marketplace install gating for payment enforcement.
-- Keep developer-preview local examples useful for evaluation.
-- Gate commercial and team capabilities through active entitlement.
-- Use a short grace period for offline developer experience.
+- `python -m json.tool feature_list.json`
+- `PYTHONPATH=src python -m unittest discover -s tests`
+- `python examples/basic_agent/run_example.py`
+- `python examples/demo_experience/run_demo.py`
+- `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- `python scripts/verify_release_candidate.py`
 
 Hard constraints preserved:
 
@@ -129,19 +133,17 @@ Hard constraints preserved:
 - No compliance certification claim.
 - No guaranteed security outcome claim.
 
+Known non-blocking follow-up:
+
+- Setuptools license metadata deprecation warnings remain.
+
 ## Next Valid Lifecycle Action
 
-Run verification:
+Human closure approval:
 
-```sh
-python -m json.tool feature_list.json
-PYTHONPATH=src python -m unittest discover -s tests
-python examples/basic_agent/run_example.py
-python examples/demo_experience/run_demo.py
-PYTHONPATH=src python -m unittest discover -s tests/integration
-python scripts/verify_release_candidate.py
+```text
+APPROVAL TO CLOSE
+FEATURE: 013-pricing-and-landing-copy
+MODE: SHIP
+STATE CHANGE: review -> done
 ```
-
-After verification passes, create `progress/review_013-pricing-and-landing-copy.md` and move Feature 013 to `review`.
-
-Do not close Feature 013 until explicit closure approval is received.
