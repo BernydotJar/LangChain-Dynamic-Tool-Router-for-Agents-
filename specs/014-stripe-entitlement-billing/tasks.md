@@ -17,8 +17,8 @@ Wave: 3 - Commercial Readiness
 - [x] Create tasks.
 - [x] Create ADR.
 - [x] Create progress artifact.
-- [ ] Update `progress/current.md`.
-- [ ] Update `progress/history.md`.
+- [x] Update `progress/current.md`.
+- [x] Update `progress/history.md`.
 - [x] Do not implement billing code before approval.
 
 ## Phase 2: Approval Gate
