@@ -15,10 +15,10 @@ Wave: 3 - Commercial Readiness
 - [x] Create requirements.
 - [x] Create design.
 - [x] Create tasks.
-- [ ] Create ADR.
-- [ ] Create progress artifact.
-- [ ] Update README roadmap and billing language.
-- [ ] Update `progress/current.md`.
+- [x] Create ADR.
+- [x] Create progress artifact.
+- [x] Update README roadmap and billing language.
+- [x] Update `progress/current.md`.
 - [ ] Update `progress/history.md`.
 - [x] Do not implement runtime provider abstraction before approval.
 
@@ -43,8 +43,8 @@ Candidate implementation scope after approval:
 - [ ] Add tests for manual license provider behavior.
 - [ ] Add tests for unsupported provider behavior.
 - [ ] Add tests proving Stripe remains mock-safe.
-- [ ] Update docs to distinguish entitlement core from payment provider adapters.
-- [ ] Preserve no live payment operation.
+- [ ] Update docs to distinguish entitlement core from billing provider adapters.
+- [ ] Preserve no live charge operation.
 - [ ] Preserve no production billing claim.
 
 ## Phase 4: Verification Candidates
@@ -62,13 +62,13 @@ python scripts/verify_release_candidate.py
 
 Manual checks:
 
-- [ ] No live payment credential material is committed.
+- [ ] No private billing configuration is committed.
 - [ ] No customer data is committed.
 - [ ] No production-readiness claim is introduced.
 - [ ] No enterprise-readiness claim is introduced.
 - [ ] No compliance certification claim is introduced.
 - [ ] No tax or legal advice claim is introduced.
-- [ ] No unsupported country or region payment support claim is introduced.
+- [ ] No unsupported country or region support claim is introduced.
 - [ ] No PyPI publish is performed.
 - [ ] No git tag is created.
 - [ ] No GitHub Release is created.
