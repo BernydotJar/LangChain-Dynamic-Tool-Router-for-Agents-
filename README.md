@@ -12,7 +12,7 @@ Expose the right tool.
 
 Dynamic Tool Router is a request-time authorization layer for LangChain and LangGraph agents. It decides which tools an agent may see, inject, invoke, deny, and audit per user, tenant, plan, role, permission, request context, and available MCP-style tool surface.
 
-> Developer preview: local policy files, local audit evidence, framework adapter shapes, and dependency-gated LangChain/LangGraph integration tests. Not a hosted IAM product yet.
+> Developer preview: local policy files, local audit evidence, framework adapter shapes, dependency-gated LangChain/LangGraph integration tests, and mock-safe billing entitlement contracts. Not a hosted IAM product, billing service, or compliance product yet.
 
 ## Why This Exists
 
@@ -53,6 +53,7 @@ Your Infrastructure
 | Policy persistence | Loads JSON policy configuration from disk. |
 | Audit evidence | Persists JSONL audit events and exports JSON. |
 | LangChain/LangGraph compatibility | Provides adapter shapes and dependency-gated real-framework tests. |
+| Billing entitlement contracts | Includes mock-safe Checkout, entitlement, license activation, webhook idempotency, and premium gating contracts. |
 | Dashboard visibility | Includes static dashboard documentation and sample-data direction. |
 
 ## Killer Contrast
@@ -155,7 +156,7 @@ sequenceDiagram
 python -m pip install -e .
 ```
 
-The core package has no required LangChain or LangGraph runtime dependency. Integration tests are dependency-gated so the router can stay lightweight.
+The core package has no required LangChain, LangGraph, or Stripe runtime dependency. Integration and billing contracts are dependency-light so the router can stay lightweight.
 
 ## Run The Demo
 
@@ -256,6 +257,7 @@ See `docs/langchain-langgraph-integration.md`.
 - `docs/product-positioning.md` — buyer narrative and wedge use cases.
 - `docs/design-partner-kit.md` — design partner qualification, discovery, pilot scoping, demo flow, and feedback collection.
 - `docs/pricing.md` — pricing, trial, design partner offer, and monetization architecture.
+- `docs/stripe-entitlement-billing.md` — Stripe Checkout, entitlement, license validation, and premium gating contracts.
 - `docs/architecture.md` — architecture, request lifecycle, policy flow, and adapter boundaries.
 - `docs/demo-guide.md` — local evaluation flow.
 - `docs/policy-format.md` — JSON policy format.
@@ -311,13 +313,14 @@ This repository currently prepares packaging and release documentation only. It 
 
 ## Security Boundary
 
-Dynamic Tool Router is an authorization and routing layer for tool visibility. It is not a sandbox, secret manager, IAM provider, compliance product, or tamper-proof audit system.
+Dynamic Tool Router is an authorization and routing layer for tool visibility. It is not a sandbox, secret manager, IAM provider, compliance product, billing processor, hosted IAM product, or tamper-proof audit system.
 
 Developer-preview limitations:
 
 - local audit files can be modified by anyone with filesystem access,
 - JSON policy validation catches common configuration errors but is not formal verification,
 - static admin dashboard is unauthenticated,
+- billing entitlement contracts are mock-safe and do not process live payments,
 - fallback behavior reduces unsafe exposure but does not secure the tool implementation itself,
 - no hosted policy API or production auth-provider integration is included.
 
@@ -365,7 +368,8 @@ SHIP-001  Developer Preview Release                  active
 010       Release candidate polish                   done
 011       Security whitepaper                        done
 012       Design partner kit                         done
-013       Pricing and landing copy                   in progress
+013       Pricing and landing copy                   done
+014       Stripe entitlement billing                 in progress
 ```
 
 ## Design Partner Signal
@@ -387,7 +391,7 @@ Start free for 30 days. Then `$9/month` for solo builders or `$19/user/month` fo
 
 We are accepting 20 design partners to shape the runtime authorization layer for AI agents. Founding design partners get a `$49/month` flat plan for up to 5 users, locked for 12 months.
 
-Payment should be enforced through a billing-backed entitlement layer, not through marketplace install gating. See `docs/pricing.md`.
+Payment should be enforced through a billing-backed entitlement layer, not through marketplace install gating. See `docs/pricing.md` and `docs/stripe-entitlement-billing.md`.
 
 ## Harness SDLC Evidence
 
@@ -410,4 +414,4 @@ tests/
 examples/
 ```
 
-Developer preview status: pricing and landing copy are in progress. Do not treat the package as production IAM or compliance infrastructure yet.
+Developer preview status: Stripe entitlement billing is in progress. Do not treat the package as production IAM, production billing, or compliance infrastructure yet.
