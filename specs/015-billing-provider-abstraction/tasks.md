@@ -19,7 +19,7 @@ Wave: 3 - Commercial Readiness
 - [x] Create progress artifact.
 - [x] Update README roadmap and billing language.
 - [x] Update `progress/current.md`.
-- [ ] Update `progress/history.md`.
+- [x] Update `progress/history.md`.
 - [x] Do not implement runtime provider abstraction before approval.
 
 ## Phase 2: Approval Gate
