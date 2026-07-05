@@ -1,0 +1,88 @@
+{
+  "name": "runtime-tool-authorization",
+  "displayName": "Runtime Tool Authorization",
+  "description": "Policy and audit workflows for AI agent tool authorization inside VS Code.",
+  "version": "0.0.1",
+  "publisher": "bernydotjar",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "agents",
+    "langchain",
+    "langgraph",
+    "mcp",
+    "policy",
+    "authorization",
+    "audit"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:runtimeToolAuth.initializePolicy",
+    "onCommand:runtimeToolAuth.validatePolicy",
+    "onCommand:runtimeToolAuth.previewAuthorizedTools",
+    "onCommand:runtimeToolAuth.runDemo",
+    "onCommand:runtimeToolAuth.openAuditViewer"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "runtimeToolAuth.initializePolicy",
+        "title": "Runtime Tool Auth: Initialize Policy"
+      },
+      {
+        "command": "runtimeToolAuth.validatePolicy",
+        "title": "Runtime Tool Auth: Validate Policy"
+      },
+      {
+        "command": "runtimeToolAuth.previewAuthorizedTools",
+        "title": "Runtime Tool Auth: Preview Authorized Tools"
+      },
+      {
+        "command": "runtimeToolAuth.runDemo",
+        "title": "Runtime Tool Auth: Run Demo"
+      },
+      {
+        "command": "runtimeToolAuth.openAuditViewer",
+        "title": "Runtime Tool Auth: Open Audit Viewer"
+      }
+    ],
+    "configuration": {
+      "title": "Runtime Tool Authorization",
+      "properties": {
+        "runtimeToolAuth.policyPath": {
+          "type": "string",
+          "default": "tool_policies.json",
+          "description": "Workspace-relative path to the Runtime Tool Authorization policy file."
+        },
+        "runtimeToolAuth.auditPath": {
+          "type": "string",
+          "default": "runtime_audit_export.json",
+          "description": "Workspace-relative path to the Runtime Tool Authorization audit export file."
+        },
+        "runtimeToolAuth.pythonCommand": {
+          "type": "string",
+          "default": "python",
+          "description": "Python executable used when running the local demo from VS Code."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.7.2",
+    "@vscode/vsce": "^3.2.1"
+  }
+}
