@@ -14,33 +14,33 @@ Wave: 3 - Distribution Readiness
 - [x] Create requirements.
 - [x] Create design.
 - [x] Create tasks.
-- [ ] Create ADR.
-- [ ] Create progress artifact.
+- [x] Create ADR.
+- [x] Create progress artifact.
 
 ## Phase 2: Extension Scaffold
 
-- [ ] Create `vscode-extension/package.json`.
-- [ ] Create `vscode-extension/tsconfig.json`.
-- [ ] Create `vscode-extension/src/extension.ts`.
-- [ ] Create `vscode-extension/README.md`.
-- [ ] Create `vscode-extension/CHANGELOG.md`.
-- [ ] Create `vscode-extension/.vscodeignore`.
+- [x] Create `vscode-extension/package.json`.
+- [x] Create `vscode-extension/tsconfig.json`.
+- [x] Create `vscode-extension/src/extension.ts`.
+- [x] Create `vscode-extension/README.md`.
+- [x] Create `vscode-extension/CHANGELOG.md`.
+- [x] Create `vscode-extension/.vscodeignore`.
 
 ## Phase 3: Commands
 
-- [ ] Add Initialize Policy command.
-- [ ] Add Validate Policy command.
-- [ ] Add Preview Authorized Tools command.
-- [ ] Add Run Demo command.
-- [ ] Add Open Audit Viewer command.
+- [x] Add Initialize Policy command.
+- [x] Add Validate Policy command.
+- [x] Add Preview Authorized Tools command.
+- [x] Add Run Demo command.
+- [x] Add Open Audit Viewer command.
 
 ## Phase 4: Packaging Readiness
 
-- [ ] Document `npm install`.
-- [ ] Document `npm run compile`.
-- [ ] Document `npx @vscode/vsce package`.
-- [ ] Document local VSIX install command.
-- [ ] Do not publish automatically.
+- [x] Document `npm install`.
+- [x] Document `npm run compile`.
+- [x] Document `npx @vscode/vsce package`.
+- [x] Document local VSIX install command.
+- [x] Do not publish automatically.
 
 ## Phase 5: Local Verification Required
 
