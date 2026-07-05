@@ -12,6 +12,22 @@ This design partner kit is for teams evaluating whether runtime tool authorizati
 
 It is designed for structured, non-production evaluation conversations. It is not a production rollout plan, compliance claim, IAM replacement, sandbox, or hosted enterprise control plane.
 
+## Design Partner Offer
+
+We are accepting 20 design partners to shape the runtime authorization layer for AI agents.
+
+Founding design partner terms:
+
+- `$49/month` flat for up to 5 users.
+- First 20 design partners only.
+- Founding price locked for 12 months.
+- Non-production pilot only.
+- Best fit for teams building real LangChain, LangGraph, MCP-style, or internal agent tooling.
+
+The offer is intentionally simple: install and evaluate the developer-preview package, map one real non-production workflow into request context plus policy, review fallback behavior and audit evidence, then decide whether the model belongs in the partner's agent infrastructure roadmap.
+
+Commercial use should be gated through a billing-backed entitlement layer, not marketplace install gating. See `docs/pricing.md`.
+
 ## Ideal Design Partner Profile
 
 A strong design partner is building or operating agentic workflows where tool access changes by request, user, tenant, role, plan, permission, workflow state, or available MCP-style server surface.
@@ -102,6 +118,8 @@ Use case:
 Agent framework:
 Pilot environment:
 Pilot duration:
+Commercial plan: Design Partner, $49/month flat for up to 5 users
+Founding price lock: 12 months
 
 Request context dimensions:
 - user:
@@ -200,6 +218,16 @@ Agree on:
 - feedback format,
 - next decision point.
 
+### Commercial Close
+
+Use this only after technical fit is clear:
+
+```text
+We are accepting 20 design partners to shape the runtime authorization layer for AI agents.
+The design partner plan is $49/month flat for up to 5 users, locked for 12 months.
+The pilot stays non-production and focuses on proving whether request-time tool authorization belongs in your agent infrastructure roadmap.
+```
+
 ## Success Metrics
 
 A design partner evaluation is successful if it produces clear answers to these questions:
@@ -235,7 +263,9 @@ I am building Runtime Tool Authorization for AI Agents: a developer-preview laye
 
 The problem it targets is simple: most agent frameworks make tool access easy to configure but harder to govern dynamically in multi-tenant products.
 
-I am looking for a small number of design partners to review the architecture, run the local demo, and map one non-production agent workflow into a policy + fallback + audit model.
+I am accepting 20 design partners to review the architecture, run the local demo, and map one non-production agent workflow into a policy + fallback + audit model.
+
+Founding design partners get a $49/month flat plan for up to 5 users, locked for 12 months.
 
 This is not a production IAM product yet. The goal is structured technical feedback on whether this belongs in real agent infrastructure.
 
