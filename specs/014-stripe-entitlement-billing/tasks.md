@@ -82,17 +82,17 @@ Manual checks:
 
 Verification status:
 
-- [ ] `python -m json.tool feature_list.json`
-- [ ] `PYTHONPATH=src python -m unittest discover -s tests`
-- [ ] `python examples/basic_agent/run_example.py`
-- [ ] `python examples/demo_experience/run_demo.py`
-- [ ] `PYTHONPATH=src python -m unittest discover -s tests/integration`
-- [ ] `python scripts/verify_release_candidate.py`
+- [x] `python -m json.tool feature_list.json`
+- [x] `PYTHONPATH=src python -m unittest discover -s tests`
+- [x] `python examples/basic_agent/run_example.py`
+- [x] `python examples/demo_experience/run_demo.py`
+- [x] `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- [x] `python scripts/verify_release_candidate.py`
 
 ## Phase 5: Review
 
-Create after verification:
+Created after verification:
 
-- [ ] `progress/review_014-stripe-entitlement-billing.md`
+- [x] `progress/review_014-stripe-entitlement-billing.md`
 
-Move Feature 014 to `review`, not `done`, after verification.
+Feature 014 moved to `review`, not `done`, after verification.
