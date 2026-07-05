@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`015-billing-provider-abstraction`
+`016-vscode-marketplace-extension`
 
 ## Current State
 
@@ -36,7 +36,9 @@ Feature 014 status: `done`
 
 Feature 015 status: `spec_ready`
 
-Feature 015 is open as a spec gate. Do not implement billing provider abstraction until explicit approval is received.
+Feature 016 status: `in_progress`
+
+Feature 016 has a VS Code extension scaffold prepared. Local compile, VSIX package creation, local VSIX install, and command validation are still required before public publish.
 
 ## Product Direction
 
@@ -48,65 +50,53 @@ The product is framed as:
 
 The intended buyer is a team building multi-tenant LangChain/LangGraph agents that needs runtime tool authorization, tenant-aware policy control, fallback behavior, audit evidence, and entitlement-backed premium access.
 
-## Commercial Architecture Direction
+## Distribution Direction
 
-Feature 014 added mock-safe Stripe entitlement billing contracts.
+Feature 016 adds a VS Code extension wrapper under `vscode-extension/`.
 
-Feature 015 reframes the commercial layer as provider-agnostic:
+The extension is a thin local workflow shell for:
 
-- entitlement is core,
-- Stripe is an optional adapter,
-- manual license activation is a valid developer-preview path,
-- merchant-of-record and local gateway paths remain future adapters,
-- no production billing claim is made.
-
-## SHIP Epic
-
-Created:
-
-- `epics/SHIP-001-developer-preview-release.md`
-
-SHIP-001 owns the commercial developer-preview release across GitHub, LinkedIn, and early design partner conversations.
+- initializing policy files,
+- validating policy shape,
+- previewing configured tool gates,
+- launching the local demo,
+- viewing local audit exports,
+- preparing a local VSIX package.
 
 ## Recently Closed
 
-Feature 013 is closed as `done` after pricing, monetization architecture, release-candidate verification, and SHIP review artifact creation.
+Feature 014 is closed as `done` after entitlement contract implementation, release-candidate verification, SHIP review artifact creation, and closure approval.
 
-Feature 014 is closed as `done` after Stripe entitlement billing implementation, release-candidate verification, SHIP review artifact creation, and closure approval.
+## Parallel Spec Gate
 
-Review artifacts:
+Feature 015 remains `spec_ready` for provider-neutral entitlement architecture.
 
-- `progress/review_013-pricing-and-landing-copy.md`
-- `progress/review_014-stripe-entitlement-billing.md`
+## Feature 016 Created And Updated
 
-## Feature 015 Spec Gate
+- `specs/016-vscode-marketplace-extension/requirements.md`
+- `specs/016-vscode-marketplace-extension/design.md`
+- `specs/016-vscode-marketplace-extension/tasks.md`
+- `adr/016-vscode-marketplace-extension.md`
+- `progress/016-vscode-marketplace-extension.md`
+- `vscode-extension/package.json`
+- `vscode-extension/tsconfig.json`
+- `vscode-extension/src/extension.ts`
+- `vscode-extension/README.md`
+- `vscode-extension/CHANGELOG.md`
+- `vscode-extension/.vscodeignore`
 
-Created and updated:
+## Local Verification Required
 
-- `specs/015-billing-provider-abstraction/requirements.md`
-- `specs/015-billing-provider-abstraction/design.md`
-- `specs/015-billing-provider-abstraction/tasks.md`
-- `adr/015-billing-provider-abstraction.md`
-- `progress/015-billing-provider-abstraction.md`
-- `README.md`
-- `feature_list.json`
+Run locally:
 
-Spec direction:
-
-- define a provider-neutral billing boundary,
-- preserve entitlement and license concepts from Feature 014,
-- reframe Stripe as optional and region-dependent,
-- support manual license activation as a developer-preview path,
-- leave merchant-of-record and local gateway providers as future adapters,
-- avoid production billing, legal, tax, and unsupported-region claims.
-
-## Next Valid Lifecycle Action
-
-Explicit approval:
-
-```text
-APPROVAL TO IMPLEMENT
-FEATURE: 015-billing-provider-abstraction
-MODE: SHIP
-STATE CHANGE: spec_ready -> in_progress
+```sh
+cd vscode-extension
+npm install
+npm run compile
+npx @vscode/vsce package
+code --install-extension runtime-tool-authorization-0.0.1.vsix
 ```
+
+## Publish Gate
+
+Do not run public publish until local verification passes and the publisher id is confirmed.
