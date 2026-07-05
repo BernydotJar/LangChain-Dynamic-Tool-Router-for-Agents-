@@ -103,6 +103,6 @@ Feature 014 moved to `review`, not `done`, after verification.
 - [x] Move Feature 014 from `review` to `done`.
 - [x] Update `feature_list.json`.
 - [x] Update `progress/014-stripe-entitlement-billing.md`.
-- [ ] Update `progress/current.md`.
-- [ ] Update `progress/history.md`.
+- [x] Update `progress/current.md`.
+- [x] Update `progress/history.md`.
 - [x] Do not open a next feature during the closure pass.
