@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`014-stripe-entitlement-billing`
+None. Feature 014 is closed as `done`.
 
 ## Current State
 
@@ -32,9 +32,9 @@ Feature 012 status: `done`
 
 Feature 013 status: `done`
 
-Feature 014 status: `review`
+Feature 014 status: `done`
 
-Feature 014 is in review after successful verification and review artifact creation. Do not close until explicit closure approval is received.
+Feature 014 is closed after successful verification, review artifact creation, and explicit closure approval.
 
 ## Product Direction
 
@@ -76,6 +76,8 @@ Feature 012 is closed as `done` after design partner kit verification and SHIP r
 
 Feature 013 is closed as `done` after pricing, monetization architecture, release-candidate verification, and SHIP review artifact creation.
 
+Feature 014 is closed as `done` after Stripe entitlement billing implementation, release-candidate verification, SHIP review artifact creation, and closure approval.
+
 Review artifacts:
 
 - `progress/review_004-sellable-developer-preview.md`
@@ -90,7 +92,7 @@ Review artifacts:
 - `progress/review_013-pricing-and-landing-copy.md`
 - `progress/review_014-stripe-entitlement-billing.md`
 
-## Feature 014 Review
+## Feature 014 Closed Scope
 
 Created and updated:
 
@@ -150,11 +152,4 @@ Known non-blocking follow-up:
 
 ## Next Valid Lifecycle Action
 
-Human closure approval:
-
-```text
-APPROVAL TO CLOSE
-FEATURE: 014-stripe-entitlement-billing
-MODE: SHIP
-STATE CHANGE: review -> done
-```
+Open the next feature as a new spec gate before implementation.
