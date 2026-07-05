@@ -96,3 +96,13 @@ Created after verification:
 - [x] `progress/review_014-stripe-entitlement-billing.md`
 
 Feature 014 moved to `review`, not `done`, after verification.
+
+## Phase 6: Closure
+
+- [x] Receive explicit closure approval.
+- [x] Move Feature 014 from `review` to `done`.
+- [x] Update `feature_list.json`.
+- [x] Update `progress/014-stripe-entitlement-billing.md`.
+- [ ] Update `progress/current.md`.
+- [ ] Update `progress/history.md`.
+- [x] Do not open a next feature during the closure pass.
