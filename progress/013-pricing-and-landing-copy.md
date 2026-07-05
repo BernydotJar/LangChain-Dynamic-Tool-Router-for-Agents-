@@ -10,11 +10,11 @@ Wave: 3 - Commercial Readiness
 
 ## State
 
-Status: `review`
+Status: `done`
 
 ## Summary
 
-Feature 013 is in review after explicit approval, implementation, and successful release-candidate verification.
+Feature 013 is closed as `done` after explicit approval, implementation, successful release-candidate verification, review artifact creation, and closure approval.
 
 Implementation added pricing, trial, design partner offer, and monetization architecture documentation.
 
@@ -114,15 +114,29 @@ Created:
 progress/review_013-pricing-and-landing-copy.md
 ```
 
-## Next Valid Lifecycle Action
+## Closure
 
-Human closure approval:
+Closure approval received.
+
+Feature 013 moved from `review` to `done`.
+
+Accepted limitations:
+
+- No runtime code changes.
+- No dependency changes.
+- No PyPI publish.
+- No git tag.
+- No GitHub Release.
+- No production-readiness claim.
+- No enterprise-readiness claim.
+- No compliance certification claim.
+- No guaranteed security outcome claim.
+- Setuptools license metadata warnings remain a documented follow-up.
+
+## Next Feature
+
+Feature 014 opened as a spec gate:
 
 ```text
-APPROVAL TO CLOSE
-FEATURE: 013-pricing-and-landing-copy
-MODE: SHIP
-STATE CHANGE: review -> done
+014-stripe-entitlement-billing
 ```
-
-Do not close Feature 013 until explicit human closure approval is received.
