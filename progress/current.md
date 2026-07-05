@@ -30,9 +30,9 @@ Feature 011 status: `done`
 
 Feature 012 status: `done`
 
-Feature 013 status: `spec_ready`
+Feature 013 status: `in_progress`
 
-Feature 013 is opened as a SHIP-mode spec gate for pricing and landing copy placement.
+Feature 013 is in implementation after approval. Pricing and monetization copy has been added, but verification is still required before review.
 
 ## Product Direction
 
@@ -84,27 +84,17 @@ Review artifacts:
 - `progress/review_011-security-whitepaper.md`
 - `progress/review_012-design-partner-kit.md`
 
-## Feature 013 Spec Gate
+## Feature 013 Implementation
 
-Created:
+Created and updated:
 
-- `specs/013-pricing-and-landing-copy/requirements.md`
-- `specs/013-pricing-and-landing-copy/design.md`
+- `docs/pricing.md`
+- `README.md`
+- `docs/design-partner-kit.md`
 - `specs/013-pricing-and-landing-copy/tasks.md`
-- `adr/013-pricing-and-landing-copy-strategy.md`
 - `progress/013-pricing-and-landing-copy.md`
 
-Purpose:
-
-Feature 013 adds commercial pricing and landing-page copy for Runtime Tool Authorization for AI Agents.
-
-Proposed placement:
-
-1. `README.md` - concise conversion section after `Design Partner Signal` and before `Harness SDLC Evidence`.
-2. `docs/pricing.md` - canonical pricing page.
-3. `docs/design-partner-kit.md` - design partner sales offer.
-
-Proposed pricing:
+Implemented pricing:
 
 - 30-day free trial.
 - Solo: `$9/month`.
@@ -114,17 +104,44 @@ Proposed pricing:
 - Founding price locked for 12 months.
 - Enterprise: custom future/custom scope.
 
-No implementation changes were made during the spec gate.
+Implemented monetization architecture:
+
+```text
+public install -> 30-day trial -> Stripe billing -> entitlement backend -> license/API validation -> premium features enabled or disabled
+```
+
+Decision:
+
+- Do not rely on marketplace install gating for payment enforcement.
+- Keep developer-preview local examples useful for evaluation.
+- Gate commercial and team capabilities through active entitlement.
+- Use a short grace period for offline developer experience.
+
+Hard constraints preserved:
+
+- No runtime code changes.
+- No dependency changes.
+- No PyPI publish.
+- No git tag.
+- No GitHub Release.
+- No production-readiness claim.
+- No enterprise-readiness claim.
+- No compliance certification claim.
+- No guaranteed security outcome claim.
 
 ## Next Valid Lifecycle Action
 
-Explicit implementation approval:
+Run verification:
 
-```text
-APPROVAL TO IMPLEMENT
-FEATURE: 013-pricing-and-landing-copy
-MODE: SHIP
-STATE CHANGE: spec_ready -> in_progress
+```sh
+python -m json.tool feature_list.json
+PYTHONPATH=src python -m unittest discover -s tests
+python examples/basic_agent/run_example.py
+python examples/demo_experience/run_demo.py
+PYTHONPATH=src python -m unittest discover -s tests/integration
+python scripts/verify_release_candidate.py
 ```
 
-Do not implement pricing copy until approval is received.
+After verification passes, create `progress/review_013-pricing-and-landing-copy.md` and move Feature 013 to `review`.
+
+Do not close Feature 013 until explicit closure approval is received.
