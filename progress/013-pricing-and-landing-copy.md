@@ -10,11 +10,11 @@ Wave: 3 - Commercial Readiness
 
 ## State
 
-Status: `in_progress`
+Status: `review`
 
 ## Summary
 
-Feature 013 is in implementation after explicit approval.
+Feature 013 is in review after explicit approval, implementation, and successful release-candidate verification.
 
 Implementation added pricing, trial, design partner offer, and monetization architecture documentation.
 
@@ -44,11 +44,11 @@ Created:
 
 ## Implemented
 
-- Registered Feature 013 as `in_progress`.
+- Registered Feature 013 as `in_progress` before implementation.
 - Created `docs/pricing.md`.
 - Added README pricing section after `Design Partner Signal` and before `Harness SDLC Evidence`.
 - Added README link to `docs/pricing.md`.
-- Updated README roadmap to show Feature 013 as `in progress`.
+- Updated README roadmap to show Feature 013 as `in progress` during implementation.
 - Updated `docs/design-partner-kit.md` with the first-20 design partner offer.
 - Added the `$49/month` flat design partner offer for up to 5 users.
 - Added 12-month founding price lock language.
@@ -81,21 +81,48 @@ Developer-preview local examples can remain free. Commercial or team capabilitie
 
 ## Verification
 
-Verification is still required before moving Feature 013 to `review`.
+Automated verification passed after implementation.
 
-Required:
+Passed:
 
-```sh
-python -m json.tool feature_list.json
-PYTHONPATH=src python -m unittest discover -s tests
-python examples/basic_agent/run_example.py
-python examples/demo_experience/run_demo.py
-PYTHONPATH=src python -m unittest discover -s tests/integration
-python scripts/verify_release_candidate.py
+- `python -m json.tool feature_list.json`
+- `PYTHONPATH=src python -m unittest discover -s tests`
+- `python examples/basic_agent/run_example.py`
+- `python examples/demo_experience/run_demo.py`
+- `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- `python scripts/verify_release_candidate.py`
+
+Release-candidate verifier evidence:
+
+- unit tests: PASS, ran 23 tests, skipped 2
+- basic demo: PASS
+- guided demo: PASS
+- integration tests: PASS, ran 2 tests, skipped 2
+- editable install: PASS
+- editable install with dev extra: PASS
+- package build: PASS
+
+Known non-blocking warning:
+
+- Setuptools emitted license metadata deprecation warnings during package build. These remain a documented follow-up and did not block the build.
+
+## Review Artifact
+
+Created:
+
+```text
+progress/review_013-pricing-and-landing-copy.md
 ```
 
 ## Next Valid Lifecycle Action
 
-Run verification and manual checks. If successful, create `progress/review_013-pricing-and-landing-copy.md` and move Feature 013 to `review`.
+Human closure approval:
 
-Do not close Feature 013 until explicit closure approval is received.
+```text
+APPROVAL TO CLOSE
+FEATURE: 013-pricing-and-landing-copy
+MODE: SHIP
+STATE CHANGE: review -> done
+```
+
+Do not close Feature 013 until explicit human closure approval is received.
