@@ -23,34 +23,34 @@ Wave: 3 - Commercial Readiness
 
 ## Phase 2: Approval Gate
 
-- [ ] Wait for explicit approval.
-- [ ] Move Feature 014 from `spec_ready` to approved implementation only after approval.
-- [ ] Do not implement before approval.
+- [x] Wait for explicit approval.
+- [x] Move Feature 014 from `spec_ready` to approved implementation only after approval.
+- [x] Do not implement before approval.
 
 ## Phase 3: Implementation Candidates
 
 Candidate implementation scope after approval:
 
-- [ ] Create `docs/stripe-entitlement-billing.md`.
-- [ ] Create `.env.example` billing variables if appropriate.
-- [ ] Add plan-to-price mapping contract.
-- [ ] Add entitlement state mapping contract.
-- [ ] Add license key hashing contract.
-- [ ] Add license activation/deactivation contract.
-- [ ] Add webhook event idempotency contract.
-- [ ] Add mocked Stripe adapter contract.
-- [ ] Add Checkout session creation contract.
-- [ ] Add Customer Portal session creation contract.
-- [ ] Add webhook handler contract.
-- [ ] Add entitlement API contract.
-- [ ] Add tests for entitlement state mapping.
-- [ ] Add tests for license activation limits.
-- [ ] Add tests for grace-period behavior.
-- [ ] Add tests for webhook idempotency.
-- [ ] Add tests for mocked Stripe checkout and portal creation.
-- [ ] Add tests for subscription status to feature gating.
-- [ ] Preserve no live-secret rule.
-- [ ] Preserve no production-readiness claim.
+- [x] Create `docs/stripe-entitlement-billing.md`.
+- [x] Create `.env.example` billing variables if appropriate.
+- [x] Add plan-to-price mapping contract.
+- [x] Add entitlement state mapping contract.
+- [x] Add license key hashing contract.
+- [x] Add license activation/deactivation contract.
+- [x] Add webhook event idempotency contract.
+- [x] Add mocked Stripe adapter contract.
+- [x] Add Checkout session creation contract.
+- [x] Add Customer Portal session creation contract.
+- [x] Add webhook handler contract.
+- [x] Add entitlement API contract.
+- [x] Add tests for entitlement state mapping.
+- [x] Add tests for license activation limits.
+- [x] Add tests for grace-period behavior.
+- [x] Add tests for webhook idempotency.
+- [x] Add tests for mocked Stripe checkout and portal creation.
+- [x] Add tests for subscription status to feature gating.
+- [x] Preserve no live-secret rule.
+- [x] Preserve no production-readiness claim.
 
 ## Phase 4: Verification Candidates
 
@@ -67,18 +67,18 @@ python scripts/verify_release_candidate.py
 
 Manual checks:
 
-- [ ] No Stripe live secret keys are committed.
-- [ ] No webhook signing secret is committed.
-- [ ] No customer data is committed.
-- [ ] No production-readiness claim is introduced.
-- [ ] No enterprise-readiness claim is introduced.
-- [ ] No compliance certification claim is introduced.
-- [ ] No guaranteed security outcome claim is introduced.
-- [ ] No hosted billing service is claimed unless implemented.
-- [ ] No marketplace-native payment enforcement is claimed.
-- [ ] No PyPI publish is performed.
-- [ ] No git tag is created.
-- [ ] No GitHub Release is created.
+- [x] No Stripe live secret keys are committed.
+- [x] No webhook signing secret is committed.
+- [x] No customer data is committed.
+- [x] No production-readiness claim is introduced.
+- [x] No enterprise-readiness claim is introduced.
+- [x] No compliance certification claim is introduced.
+- [x] No guaranteed security outcome claim is introduced.
+- [x] No hosted billing service is claimed unless implemented.
+- [x] No marketplace-native payment enforcement is claimed.
+- [x] No PyPI publish is performed.
+- [x] No git tag is created.
+- [x] No GitHub Release is created.
 
 Verification status:
 
