@@ -129,3 +129,18 @@
 - No runtime provider abstraction was implemented.
 - No new provider dependency was added.
 - Next valid lifecycle action is explicit approval for `spec_ready -> in_progress`.
+
+## 016-vscode-marketplace-extension
+
+- Opened Feature 016 as a SHIP-mode implementation pass for VS Code distribution.
+- Registered Feature 016 as `in_progress`.
+- Created requirements, design, tasks, ADR, and progress artifacts.
+- Created `vscode-extension/package.json`.
+- Created `vscode-extension/tsconfig.json`.
+- Created `vscode-extension/src/extension.ts`.
+- Created `vscode-extension/README.md`.
+- Created `vscode-extension/CHANGELOG.md`.
+- Created `vscode-extension/.vscodeignore`.
+- Added local commands for policy setup, policy validation, policy preview, demo launch, and audit viewing.
+- Prepared local VSIX packaging path.
+- Local compile, VSIX package creation, local install, and command validation remain pending in the user's environment.
