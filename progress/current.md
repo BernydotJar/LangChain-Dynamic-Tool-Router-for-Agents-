@@ -32,9 +32,9 @@ Feature 012 status: `done`
 
 Feature 013 status: `done`
 
-Feature 014 status: `in_progress`
+Feature 014 status: `review`
 
-Feature 014 is in implementation after approval. Mock-safe Stripe entitlement billing contracts, docs, environment placeholders, exports, and tests have been added. Verification is still required before review.
+Feature 014 is in review after successful verification and review artifact creation. Do not close until explicit closure approval is received.
 
 ## Product Direction
 
@@ -44,7 +44,7 @@ The product is framed as:
 >
 > Never expose every tool. Expose the right tool.
 
-The intended buyer is a team building multi-tenant LangChain/LangGraph agents that needs runtime tool authorization, tenant-aware policy control, fallback behavior, and audit evidence.
+The intended buyer is a team building multi-tenant LangChain/LangGraph agents that needs runtime tool authorization, tenant-aware policy control, fallback behavior, audit evidence, and entitlement-backed premium access.
 
 ## SHIP Epic
 
@@ -88,8 +88,9 @@ Review artifacts:
 - `progress/review_011-security-whitepaper.md`
 - `progress/review_012-design-partner-kit.md`
 - `progress/review_013-pricing-and-landing-copy.md`
+- `progress/review_014-stripe-entitlement-billing.md`
 
-## Feature 014 Implementation
+## Feature 014 Review
 
 Created and updated:
 
@@ -101,6 +102,7 @@ Created and updated:
 - `README.md`
 - `specs/014-stripe-entitlement-billing/tasks.md`
 - `progress/014-stripe-entitlement-billing.md`
+- `progress/review_014-stripe-entitlement-billing.md`
 
 Implemented contracts:
 
@@ -116,6 +118,15 @@ Implemented contracts:
 - activation limit enforcement,
 - webhook event idempotency store,
 - webhook payload hashing.
+
+Verification passed:
+
+- `python -m json.tool feature_list.json`
+- `PYTHONPATH=src python -m unittest discover -s tests`
+- `python examples/basic_agent/run_example.py`
+- `python examples/demo_experience/run_demo.py`
+- `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- `python scripts/verify_release_candidate.py`
 
 Hard constraints preserved:
 
@@ -133,19 +144,17 @@ Hard constraints preserved:
 - No compliance certification claim.
 - No guaranteed security outcome claim.
 
+Known non-blocking follow-up:
+
+- Setuptools license metadata deprecation warnings remain.
+
 ## Next Valid Lifecycle Action
 
-Run verification:
+Human closure approval:
 
-```sh
-python -m json.tool feature_list.json
-PYTHONPATH=src python -m unittest discover -s tests
-python examples/basic_agent/run_example.py
-python examples/demo_experience/run_demo.py
-PYTHONPATH=src python -m unittest discover -s tests/integration
-python scripts/verify_release_candidate.py
+```text
+APPROVAL TO CLOSE
+FEATURE: 014-stripe-entitlement-billing
+MODE: SHIP
+STATE CHANGE: review -> done
 ```
-
-After verification passes, create `progress/review_014-stripe-entitlement-billing.md` and move Feature 014 to `review`.
-
-Do not close Feature 014 until explicit closure approval is received.
