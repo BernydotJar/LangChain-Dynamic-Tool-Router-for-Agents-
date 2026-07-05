@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`013-pricing-and-landing-copy`
+`014-stripe-entitlement-billing`
 
 ## Current State
 
@@ -30,9 +30,13 @@ Feature 011 status: `done`
 
 Feature 012 status: `done`
 
-Feature 013 status: `review`
+Feature 013 status: `done`
 
-Feature 013 is in review after successful verification and review artifact creation. Do not close until explicit closure approval is received.
+Feature 014 status: `spec_ready`
+
+Feature 013 is closed as `done` after review evidence and closure approval.
+
+Feature 014 is opened as a SHIP-mode spec gate for Stripe Checkout, subscription webhooks, entitlement storage, license validation, and premium feature gating.
 
 ## Product Direction
 
@@ -72,6 +76,8 @@ Feature 011 is closed as `done` after security whitepaper verification and SHIP 
 
 Feature 012 is closed as `done` after design partner kit verification and SHIP review artifact creation.
 
+Feature 013 is closed as `done` after pricing, monetization architecture, release-candidate verification, and SHIP review artifact creation.
+
 Review artifacts:
 
 - `progress/review_004-sellable-developer-preview.md`
@@ -85,65 +91,54 @@ Review artifacts:
 - `progress/review_012-design-partner-kit.md`
 - `progress/review_013-pricing-and-landing-copy.md`
 
-## Feature 013 Review
+## Feature 014 Spec Gate
 
-Created and updated:
+Created:
 
-- `docs/pricing.md`
-- `README.md`
-- `docs/design-partner-kit.md`
-- `specs/013-pricing-and-landing-copy/tasks.md`
-- `progress/013-pricing-and-landing-copy.md`
-- `progress/review_013-pricing-and-landing-copy.md`
+- `specs/014-stripe-entitlement-billing/requirements.md`
+- `specs/014-stripe-entitlement-billing/design.md`
+- `specs/014-stripe-entitlement-billing/tasks.md`
+- `adr/014-stripe-entitlement-billing.md`
+- `progress/014-stripe-entitlement-billing.md`
 
-Implemented pricing:
+Purpose:
 
-- 30-day free trial.
-- Solo: `$9/month`.
-- Team: `$19/user/month`.
-- Design Partner: `$49/month` flat for up to 5 users.
-- First 20 design partners only.
-- Founding price locked for 12 months.
-- Enterprise: custom future/custom scope.
+Feature 014 defines the Stripe billing and entitlement implementation contract.
 
-Implemented monetization architecture:
+Proposed billing flow:
 
 ```text
-public install -> 30-day trial -> Stripe billing -> entitlement backend -> license/API validation -> premium features enabled or disabled
+public install -> 30-day trial -> Stripe Checkout -> Stripe subscription -> Stripe webhooks -> entitlement DB -> license/API validation -> premium features enabled or disabled
 ```
 
-Verification passed:
+Proposed plans:
 
-- `python -m json.tool feature_list.json`
-- `PYTHONPATH=src python -m unittest discover -s tests`
-- `python examples/basic_agent/run_example.py`
-- `python examples/demo_experience/run_demo.py`
-- `PYTHONPATH=src python -m unittest discover -s tests/integration`
-- `python scripts/verify_release_candidate.py`
+- Solo: `$9/month`
+- Team: `$19/user/month`
+- Design Partner: `$49/month` flat for up to 5 users
 
-Hard constraints preserved:
+Proposed API contracts:
 
-- No runtime code changes.
-- No dependency changes.
-- No PyPI publish.
-- No git tag.
-- No GitHub Release.
-- No production-readiness claim.
-- No enterprise-readiness claim.
-- No compliance certification claim.
-- No guaranteed security outcome claim.
+```text
+POST /v1/billing/checkout
+POST /v1/billing/portal
+POST /v1/billing/webhooks/stripe
+GET /v1/entitlements/me
+POST /v1/licenses/activate
+POST /v1/licenses/deactivate
+```
 
-Known non-blocking follow-up:
-
-- Setuptools license metadata deprecation warnings remain.
+No billing runtime code was implemented during the spec gate.
 
 ## Next Valid Lifecycle Action
 
-Human closure approval:
+Explicit implementation approval:
 
 ```text
-APPROVAL TO CLOSE
-FEATURE: 013-pricing-and-landing-copy
+APPROVAL TO IMPLEMENT
+FEATURE: 014-stripe-entitlement-billing
 MODE: SHIP
-STATE CHANGE: review -> done
+STATE CHANGE: spec_ready -> in_progress
 ```
+
+Do not implement billing code until approval is received.
