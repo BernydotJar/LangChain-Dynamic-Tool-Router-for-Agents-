@@ -101,5 +101,5 @@ Feature 013 moved to `review`, not `done`, after verification.
 - [x] Update `feature_list.json`.
 - [x] Update `progress/013-pricing-and-landing-copy.md`.
 - [x] Update `progress/current.md`.
-- [ ] Update `progress/history.md`.
+- [x] Update `progress/history.md`.
 - [x] Open Feature 014 as a spec gate only.
