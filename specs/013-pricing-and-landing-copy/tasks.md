@@ -64,32 +64,32 @@ python scripts/verify_release_candidate.py
 
 Manual checks:
 
-- [ ] README link to `docs/pricing.md` resolves.
-- [ ] `docs/pricing.md` exists.
-- [ ] `docs/design-partner-kit.md` includes the design partner offer.
-- [ ] Pricing preserves developer-preview maturity.
-- [ ] Enterprise section is explicitly future/custom scope.
-- [ ] No production-readiness claim is introduced.
-- [ ] No enterprise-readiness claim is introduced.
-- [ ] No compliance certification claim is introduced.
-- [ ] No guaranteed security outcome claim is introduced.
-- [ ] No runtime behavior changed unless explicitly approved.
-- [ ] No dependency changes were introduced.
-- [ ] No release action was performed.
+- [x] README link to `docs/pricing.md` resolves.
+- [x] `docs/pricing.md` exists.
+- [x] `docs/design-partner-kit.md` includes the design partner offer.
+- [x] Pricing preserves developer-preview maturity.
+- [x] Enterprise section is explicitly future/custom scope.
+- [x] No production-readiness claim is introduced.
+- [x] No enterprise-readiness claim is introduced.
+- [x] No compliance certification claim is introduced.
+- [x] No guaranteed security outcome claim is introduced.
+- [x] No runtime behavior changed unless explicitly approved.
+- [x] No dependency changes were introduced.
+- [x] No release action was performed.
 
 Verification status:
 
-- [ ] `python -m json.tool feature_list.json`
-- [ ] `PYTHONPATH=src python -m unittest discover -s tests`
-- [ ] `python examples/basic_agent/run_example.py`
-- [ ] `python examples/demo_experience/run_demo.py`
-- [ ] `PYTHONPATH=src python -m unittest discover -s tests/integration`
-- [ ] `python scripts/verify_release_candidate.py`
+- [x] `python -m json.tool feature_list.json`
+- [x] `PYTHONPATH=src python -m unittest discover -s tests`
+- [x] `python examples/basic_agent/run_example.py`
+- [x] `python examples/demo_experience/run_demo.py`
+- [x] `PYTHONPATH=src python -m unittest discover -s tests/integration`
+- [x] `python scripts/verify_release_candidate.py`
 
 ## Phase 5: Review
 
-Create after verification:
+Created after verification:
 
-- [ ] `progress/review_013-pricing-and-landing-copy.md`
+- [x] `progress/review_013-pricing-and-landing-copy.md`
 
-Move Feature 013 to `review`, not `done`, after verification.
+Feature 013 moved to `review`, not `done`, after verification.
