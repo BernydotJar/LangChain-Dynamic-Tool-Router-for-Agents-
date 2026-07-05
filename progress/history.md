@@ -192,7 +192,16 @@
 - Captured Stripe products and prices: Solo `$9/month`, Team `$19/user/month`, and Design Partner `$49/month` flat for up to 5 users.
 - Captured required webhook events: checkout completion, subscription created/updated/deleted, trial ending, invoice paid, and invoice payment failed.
 - Captured entitlement states, API contracts, data model, license activation rules, grace-period behavior, secret-handling rules, feature flags, and test strategy.
-- No billing runtime code was implemented.
-- No dependencies were added.
-- No Stripe secrets, webhook secrets, customer data, or live payment operations were introduced.
-- Next valid lifecycle action is explicit approval for `spec_ready -> in_progress`.
+- Approval received for SHIP-mode implementation.
+- Moved Feature 014 from `spec_ready` to `in_progress`.
+- Created `src/tool_policy_router/billing.py`.
+- Exported billing contracts from `src/tool_policy_router/__init__.py`.
+- Created `tests/test_billing.py`.
+- Created `docs/stripe-entitlement-billing.md`.
+- Created `.env.example` with safe placeholders only.
+- Updated README documentation index, developer-preview boundary, roadmap, and billing references.
+- Implemented plan-to-price mapping, Checkout session boundary, Customer Portal session boundary, mock Stripe gateway, entitlement state mapping, premium feature mapping by plan, license key hashing, machine fingerprint hashing, activation/deactivation store, activation limit enforcement, webhook idempotency, and webhook payload hashing.
+- Verified with registry JSON validation, unit tests, basic demo, guided demo, integration tests, editable install, editable install with dev extra, package build, and release-candidate verifier.
+- Created `progress/review_014-stripe-entitlement-billing.md`.
+- Moved Feature 014 from `in_progress` to `review` after verification.
+- Accepted limitations: no real Stripe SDK dependency, no dependency changes, no Stripe live secrets, no webhook signing secret, no customer data, no live payment operation, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no enterprise-readiness claim, no compliance certification claim, no guaranteed security outcome claim, and setuptools license metadata warnings remain a documented follow-up.
