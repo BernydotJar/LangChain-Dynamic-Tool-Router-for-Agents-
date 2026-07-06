@@ -60,7 +60,21 @@ code --install-extension runtime-tool-authorization-0.0.1.vsix
 - [x] `code --install-extension runtime-tool-authorization-0.0.1.vsix --force` passed.
 - [x] `code --list-extensions --show-versions` confirmed `bernydotjar.runtime-tool-authorization@0.0.1`.
 - [x] Create `docs/vscode-extension-manual-test.md` for Command Palette validation.
-- [ ] User confirms commands work in VS Code.
+- [x] Ignore local extension-generated files in `.gitignore`.
+
+Manual Command Palette validation:
+
+- [x] Initialize Policy: PASS after opening the repository root with `code .`; created `tool_policies.json` in the repo workspace.
+- [x] Validate Policy: PASS after starter policy existed in the repo workspace.
+- [ ] Preview Authorized Tools: pending.
+- [ ] Run Demo: pending.
+- [ ] Open Audit Viewer: pending.
+
+Observed workspace-root behavior:
+
+- Validation fails with `ENOENT` when `tool_policies.json` does not exist in the active VS Code workspace root.
+- This is expected before initialization.
+- The repo root should be opened directly with `code .` from `LangChain-Dynamic-Tool-Router-for-Agents-` before running the manual gate.
 
 Manual command checklist:
 
