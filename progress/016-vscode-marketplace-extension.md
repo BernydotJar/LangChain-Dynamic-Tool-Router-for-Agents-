@@ -10,15 +10,15 @@ Wave: 3 - Distribution Readiness
 
 ## State
 
-Status: `in_progress`
+Status: `review`
 
 ## Summary
 
 Feature 016 creates a VS Code extension scaffold for local developer-preview workflows.
 
-The extension now compiles, packages into a VSIX, installs locally through the VS Code CLI, and is visible in the local extension list.
+The extension compiles, packages into a VSIX, installs locally through the VS Code CLI, is visible in the local extension list, and passed manual Command Palette validation for the five developer-preview commands.
 
-Feature 016 remains `in_progress` because one command behavior still needs manual validation inside VS Code before moving to `review`.
+Feature 016 has moved from `in_progress` to `review`.
 
 ## Created
 
@@ -96,18 +96,13 @@ Notes:
 
 ## Manual Command Test Gate
 
-Created manual checklist:
-
-```text
-docs/vscode-extension-manual-test.md
-```
-
-Partial manual validation passed:
+Manual validation passed:
 
 ```text
 - Initialize Policy: PASS
 - Validate Policy: PASS
 - Preview Authorized Tools: PASS
+- Run Demo: PASS
 - Open Audit Viewer: PASS
 ```
 
@@ -127,6 +122,15 @@ Tool: delete_customer_record
   required_permissions: records:delete
 ```
 
+Run Demo output confirmed:
+
+```text
+Injected tools: search_docs, fetch_customer_record, not_authorized
+search_docs: [{'title': 'Plan limits', 'snippet': 'Search result for retention policy'}]
+LangGraph state tools: search_docs, not_authorized
+Audit export: /var/folders/.../tool_policy_router_example/runtime_audit_export.json
+```
+
 Observed workspace-root behavior:
 
 - `Validate Policy` fails with `ENOENT` when `tool_policies.json` does not exist in the active VS Code workspace root.
@@ -136,30 +140,26 @@ Observed workspace-root behavior:
 - Opening the repository root with `code .` and then running `Initialize Policy` creates `tool_policies.json` under the repo workspace.
 - After that, `Validate Policy` passes.
 
-Remaining manual validation required:
+## Review Gate
 
-```text
-- Run Demo: pending
-```
+Feature 016 is ready for review.
 
-Feature 016 can move to `review` only after all five manual commands pass.
+Review should verify:
+
+- extension scope stays local and developer-preview only,
+- Marketplace publish has not been run,
+- no generated VSIX, `node_modules`, or compiled output is tracked,
+- publisher id is still the expected value,
+- README and changelog are included in the extension project,
+- public publish waits for review approval.
 
 ## Publish Gate
 
 Do not publish publicly until:
 
-- compile passes,
-- VSIX package is generated,
-- VSIX installs locally,
-- all commands are validated in VS Code,
+- review passes,
 - publisher id is confirmed,
+- extension name availability is confirmed,
 - README rendering is reviewed,
-- extension name is confirmed.
-
-## Notes
-
-The assistant has verified local CLI compile, package, install, and installed-extension listing through user-provided handoff evidence.
-
-Command Palette validation is partially complete. Manual validation is still required for:
-
-- Runtime Tool Auth: Run Demo
+- Marketplace auth path is confirmed,
+- `vsce publish` is explicitly approved.
