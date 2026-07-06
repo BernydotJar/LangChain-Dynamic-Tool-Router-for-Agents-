@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-No active implementation feature.
+`017-marketplace-publish-commercial-launch`
 
 ## Current State
 
@@ -38,7 +38,9 @@ Feature 015 status: `spec_ready`
 
 Feature 016 status: `done`
 
-Feature 016 is closed as `done`. Public Marketplace publish remains separate and has not been run.
+Feature 017 status: `in_progress`
+
+Feature 017 prepares the public Marketplace publish gate and the first commercial access path. Public Marketplace publish remains separate and has not been run.
 
 ## Product Direction
 
@@ -54,14 +56,14 @@ The intended buyer is a team building multi-tenant LangChain/LangGraph agents th
 
 Feature 016 added a VS Code extension wrapper under `vscode-extension/`.
 
-The extension is a thin local workflow shell for:
+Feature 017 prepares the distribution and commercial launch gate:
 
-- initializing policy files,
-- validating policy shape,
-- previewing configured tool gates,
-- launching the local demo,
-- viewing local audit exports,
-- preparing a local VSIX package.
+- Marketplace publish runbook,
+- commercial access runbook,
+- publisher and extension id confirmation,
+- README rendering review,
+- explicit publish approval phrase,
+- post-publish smoke test.
 
 ## Recently Closed
 
@@ -73,25 +75,15 @@ Feature 014 remains closed as `done` after entitlement contract implementation, 
 
 Feature 015 remains `spec_ready` for provider-neutral entitlement architecture.
 
-## Feature 016 Created And Updated
+## Feature 017 Created And Updated
 
-- `specs/016-vscode-marketplace-extension/requirements.md`
-- `specs/016-vscode-marketplace-extension/design.md`
-- `specs/016-vscode-marketplace-extension/tasks.md`
-- `adr/016-vscode-marketplace-extension.md`
-- `progress/016-vscode-marketplace-extension.md`
-- `progress/review_016-vscode-marketplace-extension.md`
-- `docs/vscode-extension-manual-test.md`
-- `vscode-extension/package.json`
-- `vscode-extension/package-lock.json`
-- `vscode-extension/tsconfig.json`
-- `vscode-extension/src/extension.ts`
-- `vscode-extension/README.md`
-- `vscode-extension/CHANGELOG.md`
-- `vscode-extension/LICENSE`
-- `vscode-extension/.vscodeignore`
+- `specs/017-marketplace-publish-commercial-launch/requirements.md`
+- `specs/017-marketplace-publish-commercial-launch/design.md`
+- `specs/017-marketplace-publish-commercial-launch/tasks.md`
+- `docs/vscode-marketplace-publish-runbook.md`
+- `docs/commercial-launch-runbook.md`
 
-## Local Verification
+## Last Verified Extension State
 
 Passed:
 
