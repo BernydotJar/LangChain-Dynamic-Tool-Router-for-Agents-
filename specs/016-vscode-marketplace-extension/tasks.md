@@ -68,12 +68,13 @@ Manual Command Palette validation:
 - [x] Validate Policy: PASS after starter policy existed in the repo workspace.
 - [ ] Preview Authorized Tools: pending.
 - [ ] Run Demo: pending.
-- [ ] Open Audit Viewer: pending.
+- [x] Open Audit Viewer: PASS because the webview opened and showed a clear not-found message when `runtime_audit_export.json` was missing.
 
 Observed workspace-root behavior:
 
 - Validation fails with `ENOENT` when `tool_policies.json` does not exist in the active VS Code workspace root.
-- This is expected before initialization.
+- Audit Viewer shows a clear `ENOENT` message when `runtime_audit_export.json` does not exist in the active VS Code workspace root.
+- These are expected before initialization or before an audit export exists.
 - The repo root should be opened directly with `code .` from `LangChain-Dynamic-Tool-Router-for-Agents-` before running the manual gate.
 
 Manual command checklist:
