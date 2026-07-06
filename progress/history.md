@@ -143,4 +143,12 @@
 - Created `vscode-extension/.vscodeignore`.
 - Added local commands for policy setup, policy validation, policy preview, demo launch, and audit viewing.
 - Prepared local VSIX packaging path.
-- Local compile, VSIX package creation, local install, and command validation remain pending in the user's environment.
+- Ran `npm install` in `vscode-extension/`; install passed with 0 vulnerabilities and transitive deprecation warnings.
+- Ran `npm run compile`; TypeScript compile passed.
+- Ran `npx @vscode/vsce package`; VSIX package was generated.
+- Added extension manifest repository metadata and extension-local MIT license to address `vsce` packaging warnings.
+- Updated generated artifact ignores for `vscode-extension/node_modules/`, `vscode-extension/out/`, and `vscode-extension/*.vsix`.
+- Re-ran `npx @vscode/vsce package`; package passed and included README, changelog, license, manifest, compiled output, and source map.
+- Ran `code --install-extension runtime-tool-authorization-0.0.1.vsix --force`; local VSIX install passed.
+- Ran `code --list-extensions --show-versions | rg 'bernydotjar.runtime-tool-authorization'`; installed extension was confirmed as `bernydotjar.runtime-tool-authorization@0.0.1`.
+- Feature 016 remains `in_progress` because manual Command Palette validation is still pending.

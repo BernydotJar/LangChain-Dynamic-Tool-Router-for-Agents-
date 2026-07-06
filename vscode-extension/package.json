@@ -5,6 +5,11 @@
   "version": "0.0.1",
   "publisher": "bernydotjar",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BernydotJar/LangChain-Dynamic-Tool-Router-for-Agents-.git",
+    "directory": "vscode-extension"
+  },
   "engines": {
     "vscode": "^1.95.0"
   },

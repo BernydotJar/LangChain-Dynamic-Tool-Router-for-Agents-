@@ -13,5 +13,7 @@ node_modules/**
 !.vscodeignore
 !README.md
 !CHANGELOG.md
+!LICENSE
 !package.json
 !out/**
+out/**/*.map

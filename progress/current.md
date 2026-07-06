@@ -38,7 +38,7 @@ Feature 015 status: `spec_ready`
 
 Feature 016 status: `in_progress`
 
-Feature 016 has a VS Code extension scaffold prepared. Local compile, VSIX package creation, local VSIX install, and command validation are still required before public publish.
+Feature 016 has a VS Code extension scaffold prepared. Local compile, VSIX package creation, local VSIX install, and installed-extension listing have passed. Command validation inside VS Code is still required before moving Feature 016 to `review`.
 
 ## Product Direction
 
@@ -79,24 +79,35 @@ Feature 015 remains `spec_ready` for provider-neutral entitlement architecture.
 - `adr/016-vscode-marketplace-extension.md`
 - `progress/016-vscode-marketplace-extension.md`
 - `vscode-extension/package.json`
+- `vscode-extension/package-lock.json`
 - `vscode-extension/tsconfig.json`
 - `vscode-extension/src/extension.ts`
 - `vscode-extension/README.md`
 - `vscode-extension/CHANGELOG.md`
+- `vscode-extension/LICENSE`
 - `vscode-extension/.vscodeignore`
 
-## Local Verification Required
+## Local Verification
 
-Run locally:
+Passed:
 
 ```sh
 cd vscode-extension
 npm install
 npm run compile
 npx @vscode/vsce package
-code --install-extension runtime-tool-authorization-0.0.1.vsix
+code --install-extension runtime-tool-authorization-0.0.1.vsix --force
+code --list-extensions --show-versions | rg 'bernydotjar.runtime-tool-authorization'
 ```
+
+The installed extension was confirmed as:
+
+```text
+bernydotjar.runtime-tool-authorization@0.0.1
+```
+
+Manual Command Palette validation is still pending.
 
 ## Publish Gate
 
-Do not run public publish until local verification passes and the publisher id is confirmed.
+Do not run public publish until manual command validation passes, publisher id is confirmed, README rendering is reviewed, and the extension name is confirmed.

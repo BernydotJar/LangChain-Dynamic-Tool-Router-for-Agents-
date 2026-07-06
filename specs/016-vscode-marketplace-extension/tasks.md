@@ -42,9 +42,9 @@ Wave: 3 - Distribution Readiness
 - [x] Document local VSIX install command.
 - [x] Do not publish automatically.
 
-## Phase 5: Local Verification Required
+## Phase 5: Local Verification
 
-To be run by the user locally:
+Run locally:
 
 ```sh
 cd vscode-extension
@@ -54,9 +54,11 @@ npx @vscode/vsce package
 code --install-extension runtime-tool-authorization-0.0.1.vsix
 ```
 
-- [ ] User confirms compile passed.
-- [ ] User confirms VSIX package created.
-- [ ] User confirms VSIX installed locally.
+- [x] `npm install` passed.
+- [x] `npm run compile` passed.
+- [x] `npx @vscode/vsce package` passed.
+- [x] `code --install-extension runtime-tool-authorization-0.0.1.vsix --force` passed.
+- [x] `code --list-extensions --show-versions` confirmed `bernydotjar.runtime-tool-authorization@0.0.1`.
 - [ ] User confirms commands work in VS Code.
 
 ## Phase 6: Marketplace Publish Gate
