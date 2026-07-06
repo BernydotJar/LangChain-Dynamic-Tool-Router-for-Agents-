@@ -18,7 +18,7 @@ Feature 016 creates a VS Code extension scaffold for local developer-preview wor
 
 The extension now compiles, packages into a VSIX, installs locally through the VS Code CLI, and is visible in the local extension list.
 
-Feature 016 remains `in_progress` because three command behaviors still need manual validation inside VS Code before moving to `review`.
+Feature 016 remains `in_progress` because two command behaviors still need manual validation inside VS Code before moving to `review`.
 
 ## Created
 
@@ -107,12 +107,15 @@ Partial manual validation passed:
 ```text
 - Initialize Policy: PASS
 - Validate Policy: PASS
+- Open Audit Viewer: PASS
 ```
 
 Observed workspace-root behavior:
 
 - `Validate Policy` fails with `ENOENT` when `tool_policies.json` does not exist in the active VS Code workspace root.
 - This is expected before `Initialize Policy` runs.
+- `Open Audit Viewer` shows a clear not-found message when `runtime_audit_export.json` does not exist in the active VS Code workspace root.
+- This is accepted behavior for developer-preview because the command opens the webview and explains the missing audit file clearly.
 - Opening the repository root with `code .` and then running `Initialize Policy` creates `tool_policies.json` under the repo workspace.
 - After that, `Validate Policy` passes.
 
@@ -121,7 +124,6 @@ Remaining manual validation required:
 ```text
 - Preview Authorized Tools: pending
 - Run Demo: pending
-- Open Audit Viewer: pending
 ```
 
 Feature 016 can move to `review` only after all five manual commands pass.
@@ -146,4 +148,3 @@ Command Palette validation is partially complete. Manual validation is still req
 
 - Runtime Tool Auth: Preview Authorized Tools
 - Runtime Tool Auth: Run Demo
-- Runtime Tool Auth: Open Audit Viewer
