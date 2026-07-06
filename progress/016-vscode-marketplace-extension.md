@@ -18,7 +18,7 @@ Feature 016 creates a VS Code extension scaffold for local developer-preview wor
 
 The extension now compiles, packages into a VSIX, installs locally through the VS Code CLI, and is visible in the local extension list.
 
-Feature 016 remains `in_progress` because two command behaviors still need manual validation inside VS Code before moving to `review`.
+Feature 016 remains `in_progress` because one command behavior still needs manual validation inside VS Code before moving to `review`.
 
 ## Created
 
@@ -107,7 +107,24 @@ Partial manual validation passed:
 ```text
 - Initialize Policy: PASS
 - Validate Policy: PASS
+- Preview Authorized Tools: PASS
 - Open Audit Viewer: PASS
+```
+
+Preview output confirmed:
+
+```text
+Tool: search_docs
+  allowed_plans: free, pro, enterprise
+  required_permissions: none
+
+Tool: fetch_customer_record
+  allowed_plans: pro, enterprise
+  required_permissions: records:read
+
+Tool: delete_customer_record
+  allowed_plans: enterprise
+  required_permissions: records:delete
 ```
 
 Observed workspace-root behavior:
@@ -122,7 +139,6 @@ Observed workspace-root behavior:
 Remaining manual validation required:
 
 ```text
-- Preview Authorized Tools: pending
 - Run Demo: pending
 ```
 
@@ -146,5 +162,4 @@ The assistant has verified local CLI compile, package, install, and installed-ex
 
 Command Palette validation is partially complete. Manual validation is still required for:
 
-- Runtime Tool Auth: Preview Authorized Tools
 - Runtime Tool Auth: Run Demo
