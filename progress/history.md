@@ -1,154 +1,26 @@
 # History
 
-## 001-dynamic-tool-router
+## Lifecycle Summary
 
-- Created the initial standalone Python package structure.
-- Added harness-style feature registry, specs, docs, ADR, and progress files.
-- Implemented policy routing, runtime injection, audit logging, fallback routing, and adapters.
-- Added examples, tests, and admin dashboard artifact.
-- Verified with unit tests and the basic example.
-- Closed as `done` after approval.
+- 001-dynamic-tool-router: closed as `done` after MVP implementation and verification.
+- 002-persistent-policy-and-audit-store: closed as `done` after file-backed policy and audit persistence verification.
+- 003-langchain-langgraph-real-integration-tests: closed as `done` after dependency-gated integration coverage was added.
+- 004-sellable-developer-preview: closed as `done` after developer-preview positioning and documentation work.
+- 005-readme-3-landing-page: closed as `done` after README landing-page updates.
+- 006-github-trust-signals: closed as `done` after repository trust-signal updates.
+- 007-architecture-mermaid-diagrams: closed as `done` after architecture documentation and diagrams.
+- 008-demo-experience: closed as `done` after guided demo work.
+- 009-packaging-and-release: closed as `done` after release-candidate verification path was added.
+- 010-release-candidate-polish: closed as `done` after release-candidate documentation polish.
+- 011-security-whitepaper: closed as `done` after whitepaper documentation work.
+- 012-design-partner-kit: closed as `done` after design-partner kit documentation.
+- 013-pricing-and-landing-copy: closed as `done` after pricing and landing-copy documentation.
+- 014-stripe-entitlement-billing: closed as `done` after entitlement contract implementation and verification.
+- 015-billing-provider-abstraction: currently `spec_ready`; provider-neutral design is specified, with no runtime implementation yet.
+- 016-vscode-marketplace-extension: closed as `done` after VS Code extension scaffold, local VSIX packaging, local install, Command Palette validation, review artifact, and closure approval.
 
-## 002-persistent-policy-and-audit-store
+## Current Publish Boundary
 
-- Added file-backed policy configuration and audit persistence.
-- Implemented `FilePolicyStore`, `PolicyBundle`, and `FileAuditStore`.
-- Added JSON policy example and JSON Lines audit sample.
-- Updated the basic example to load policy from JSON and persist/export audit events.
-- Added tests for policy loading, invalid policy rejection, audit persistence, audit export, and fallback behavior.
-- Closed as `done` after verification and approval.
-
-## 003-langchain-langgraph-real-integration-tests
-
-- Added optional real LangChain and LangGraph integration coverage.
-- Added dependency-gated tests for `langchain_core.tools.tool` and `langgraph.graph.StateGraph`.
-- Added shared integration fixtures for JSON-loaded policy, fallback routing, and `FileAuditStore`.
-- Closed as `done` after verification and approval.
-
-## 004-sellable-developer-preview
-
-- Reframed the project from MVP-only work into SHIP-mode productization.
-- Added Runtime Tool Authorization product identity.
-- Rewrote README for developer-preview positioning.
-- Added product docs for positioning, security model, policy format, audit format, demo guide, dashboard notes, and release notes.
-
-## SHIP-001-developer-preview-release
-
-- Created the SHIP epic for the commercial developer-preview release.
-- Defined Wave 1, Wave 2, and Wave 3 tracks.
-- Captured the product identity: Runtime Tool Authorization for AI Agents.
-- Captured the commercial message: Never expose every tool. Expose the right tool.
-
-## 005-readme-3-landing-page
-
-- Created README 3.0 landing-page artifacts.
-- Preserved Feature 004 as active during spec gate.
-- Closed as `done` after README verification and review artifact creation.
-
-## 006-github-trust-signals
-
-- Added GitHub trust-signal work for repository credibility.
-- Preserved harness evidence, governance files, and developer-preview boundaries.
-- Closed as `done` after verification and review artifact creation.
-
-## 007-architecture-mermaid-diagrams
-
-- Created `docs/architecture.md` as canonical architecture documentation.
-- Added terminal-native and Mermaid diagrams for system architecture, request lifecycle, policy decision flow, before/after tool exposure, audit lifecycle, MCP-style filtering, and adapter boundaries.
-- Updated product positioning and security docs with architecture cross-references.
-- Closed as `done` after verification and approval.
-
-## 008-demo-experience
-
-- Added guided local demo at `examples/demo_experience/run_demo.py`.
-- Updated `docs/demo-guide.md` with guided demo command and expected output shape.
-- Verified with registry JSON validation, unit tests, basic demo, guided demo, and integration test discovery.
-- Closed as `done` after approval.
-
-## 009-packaging-and-release
-
-- Added release-candidate verification through `scripts/verify_release_candidate.py`.
-- Fixed verifier behavior for `PYTHONPATH=src` and dev-extra build setup.
-- Verified registry JSON, unit tests, examples, integration discovery, editable install, dev-extra install, and package build.
-- Recorded setuptools license metadata warnings as non-blocking follow-up.
-- Closed as `done` after approval.
-
-## 010-release-candidate-polish
-
-- Aligned README roadmap, documentation index, release checklist, release notes, and CHANGELOG.
-- Added guided demo execution to release-candidate verification.
-- Preserved no-release-action constraints: no PyPI publish, no git tag, and no GitHub Release.
-- Closed as `done` after verification and approval.
-
-## 011-security-whitepaper
-
-- Created `docs/security-whitepaper.md`.
-- Documented runtime authorization boundary, request context, policy evaluation, fallback behavior, audit evidence, local audit limitations, JSON policy limitations, adapter boundaries, MCP-style filtering, threat model, non-goals, and reviewer checklist.
-- Added README discoverability and cross-linked from `docs/security-model.md`.
-- Closed as `done` after verification and approval.
-
-## 012-design-partner-kit
-
-- Created `docs/design-partner-kit.md`.
-- Documented ideal design partner profile, buyer personas, pain points, qualification criteria, discovery questions, pilot scope, demo call script, success metrics, feedback checklist, outbound message, security discussion guide, and non-goals.
-- Preserved developer-preview boundaries.
-- Closed as `done` after verification and approval.
-
-## 013-pricing-and-landing-copy
-
-- Created `docs/pricing.md`.
-- Added README pricing section and link to pricing docs.
-- Updated `docs/design-partner-kit.md` with the first-20 design partner offer.
-- Added monetization architecture for trial, billing-backed entitlement, license validation, and grace-period behavior.
-- Verified with registry JSON validation, unit tests, basic demo, guided demo, integration discovery, editable install, dev-extra install, package build, and release-candidate verifier.
-- Closed as `done` after approval.
-
-## 014-stripe-entitlement-billing
-
-- Created Stripe entitlement billing spec, design, tasks, ADR, and progress artifacts.
-- Implemented mock-safe billing contracts in `src/tool_policy_router/billing.py`.
-- Exported billing contracts from `src/tool_policy_router/__init__.py`.
-- Created `tests/test_billing.py`.
-- Created `docs/stripe-entitlement-billing.md`.
-- Created `.env.example` with safe placeholders only.
-- Updated README documentation index, developer-preview boundary, roadmap, and billing references.
-- Implemented plan mapping, Checkout boundary, Customer Portal boundary, mock gateway, entitlement mapping, premium feature mapping, license hashing, machine fingerprint hashing, activation/deactivation store, activation limits, webhook idempotency, and payload hashing.
-- Verified with registry JSON validation, unit tests, basic demo, guided demo, integration discovery, editable install, dev-extra install, package build, and release-candidate verifier.
-- Created `progress/review_014-stripe-entitlement-billing.md`.
-- Closed as `done` after approval.
-- Accepted limitations: no real provider dependency, no dependency changes, no customer data, no live charge operation, no PyPI publish, no git tag, no GitHub Release, no production-readiness claim, no enterprise-readiness claim, no compliance certification claim, no guaranteed security outcome claim, and setuptools license metadata warnings remain a follow-up.
-
-## 015-billing-provider-abstraction
-
-- Opened Feature 015 as a SHIP-mode spec gate.
-- Registered Feature 015 as `spec_ready`.
-- Tied Feature 015 to SHIP-001 Wave 3: commercial readiness.
-- Created requirements, design, tasks, ADR, and progress artifacts.
-- Updated README roadmap and billing language so Feature 014 is `done` and Feature 015 is `spec_ready`.
-- Captured provider-agnostic direction: entitlement is core, Stripe is optional, manual license activation is valid for developer preview, and merchant-of-record/local gateway paths remain future adapters.
-- No runtime provider abstraction was implemented.
-- No new provider dependency was added.
-- Next valid lifecycle action is explicit approval for `spec_ready -> in_progress`.
-
-## 016-vscode-marketplace-extension
-
-- Opened Feature 016 as a SHIP-mode implementation pass for VS Code distribution.
-- Registered Feature 016 as `in_progress`.
-- Created requirements, design, tasks, ADR, and progress artifacts.
-- Created `vscode-extension/package.json`.
-- Created `vscode-extension/tsconfig.json`.
-- Created `vscode-extension/src/extension.ts`.
-- Created `vscode-extension/README.md`.
-- Created `vscode-extension/CHANGELOG.md`.
-- Created `vscode-extension/.vscodeignore`.
-- Added local commands for policy setup, policy validation, policy preview, demo launch, and audit viewing.
-- Prepared local VSIX packaging path.
-- Ran `npm install` in `vscode-extension/`; install passed with 0 vulnerabilities and transitive deprecation warnings.
-- Ran `npm run compile`; TypeScript compile passed.
-- Ran `npx @vscode/vsce package`; VSIX package was generated.
-- Added extension manifest repository metadata and extension-local MIT license to address `vsce` packaging warnings.
-- Updated generated artifact ignores for `vscode-extension/node_modules/`, `vscode-extension/out/`, and `vscode-extension/*.vsix`.
-- Re-ran `npx @vscode/vsce package`; package passed and included README, changelog, license, manifest, compiled output, and source map.
-- Ran `code --install-extension runtime-tool-authorization-0.0.1.vsix --force`; local VSIX install passed.
-- Ran `code --list-extensions --show-versions | rg 'bernydotjar.runtime-tool-authorization'`; installed extension was confirmed as `bernydotjar.runtime-tool-authorization@0.0.1`.
-- Feature 016 remains `in_progress` because manual Command Palette validation is still pending.
+- The VS Code extension is locally packaged and validated.
+- Public Marketplace publish has not been run.
+- Public publish requires a separate explicit approval.
