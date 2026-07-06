@@ -83,11 +83,18 @@ Manual command checklist:
 docs/vscode-extension-manual-test.md
 ```
 
-## Phase 6: Marketplace Publish Gate
+## Phase 6: Review And Closure
+
+- [x] Create `progress/review_016-vscode-marketplace-extension.md`.
+- [x] Move Feature 016 from `in_progress` to `review`.
+- [x] Receive closure approval.
+- [x] Move Feature 016 from `review` to `done`.
+
+## Phase 7: Marketplace Publish Gate
 
 - [ ] Confirm publisher id.
 - [ ] Confirm extension name availability.
 - [ ] Confirm README renders correctly.
 - [ ] Confirm no SVG icon or unsupported README images.
 - [ ] Confirm Marketplace auth path.
-- [ ] Run `vsce publish` only after local verification and review approval.
+- [ ] Run `vsce publish` only after explicit publish approval.
