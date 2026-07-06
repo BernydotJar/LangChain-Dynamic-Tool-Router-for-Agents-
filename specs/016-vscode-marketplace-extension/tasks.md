@@ -66,7 +66,7 @@ Manual Command Palette validation:
 
 - [x] Initialize Policy: PASS after opening the repository root with `code .`; created `tool_policies.json` in the repo workspace.
 - [x] Validate Policy: PASS after starter policy existed in the repo workspace.
-- [ ] Preview Authorized Tools: pending.
+- [x] Preview Authorized Tools: PASS; output listed `search_docs`, `fetch_customer_record`, and `delete_customer_record` with expected allowed plans and permissions.
 - [ ] Run Demo: pending.
 - [x] Open Audit Viewer: PASS because the webview opened and showed a clear not-found message when `runtime_audit_export.json` was missing.
 
