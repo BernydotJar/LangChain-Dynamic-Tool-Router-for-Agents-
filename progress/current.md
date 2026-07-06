@@ -2,7 +2,7 @@
 
 ## Active Feature
 
-`016-vscode-marketplace-extension`
+No active implementation feature.
 
 ## Current State
 
@@ -36,9 +36,9 @@ Feature 014 status: `done`
 
 Feature 015 status: `spec_ready`
 
-Feature 016 status: `review`
+Feature 016 status: `done`
 
-Feature 016 has a VS Code extension scaffold prepared. Local compile, VSIX package creation, local VSIX install, installed-extension listing, and manual Command Palette validation have passed. Feature 016 is now in `review` and should not be closed or published until review approval.
+Feature 016 is closed as `done`. Public Marketplace publish remains separate and has not been run.
 
 ## Product Direction
 
@@ -52,7 +52,7 @@ The intended buyer is a team building multi-tenant LangChain/LangGraph agents th
 
 ## Distribution Direction
 
-Feature 016 adds a VS Code extension wrapper under `vscode-extension/`.
+Feature 016 added a VS Code extension wrapper under `vscode-extension/`.
 
 The extension is a thin local workflow shell for:
 
@@ -65,7 +65,9 @@ The extension is a thin local workflow shell for:
 
 ## Recently Closed
 
-Feature 014 is closed as `done` after entitlement contract implementation, release-candidate verification, SHIP review artifact creation, and closure approval.
+Feature 016 is closed as `done` after VSIX packaging, local install, manual Command Palette validation, review artifact creation, and closure approval.
+
+Feature 014 remains closed as `done` after entitlement contract implementation, release-candidate verification, SHIP review artifact creation, and closure approval.
 
 ## Parallel Spec Gate
 
@@ -120,4 +122,4 @@ Manual Command Palette validation passed:
 
 ## Publish Gate
 
-Do not run public publish until review approval, publisher id confirmation, README rendering review, extension name confirmation, and explicit publish approval.
+Do not run public publish until publisher id confirmation, README rendering review, extension name confirmation, Marketplace auth path confirmation, and explicit publish approval.
