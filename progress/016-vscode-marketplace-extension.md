@@ -34,6 +34,7 @@ Feature 016 remains `in_progress` because command behavior still needs manual va
 - `vscode-extension/CHANGELOG.md`
 - `vscode-extension/LICENSE`
 - `vscode-extension/.vscodeignore`
+- `docs/vscode-extension-manual-test.md`
 
 ## Packaging Adjustments
 
@@ -90,6 +91,33 @@ Notes:
 - `npx @vscode/vsce package` passed after adding repository metadata and extension-local license.
 - The VSIX includes `extension/out/extension.js.map`; this is acceptable for developer-preview local packaging.
 
+## Manual Command Test Gate
+
+Created manual checklist:
+
+```text
+docs/vscode-extension-manual-test.md
+```
+
+Feature 016 can move to `review` only after the following are manually confirmed from the VS Code Command Palette:
+
+- Runtime Tool Auth: Initialize Policy
+- Runtime Tool Auth: Validate Policy
+- Runtime Tool Auth: Preview Authorized Tools
+- Runtime Tool Auth: Run Demo
+- Runtime Tool Auth: Open Audit Viewer
+
+Required evidence:
+
+```text
+Manual command validation passed:
+- Initialize Policy: PASS
+- Validate Policy: PASS
+- Preview Authorized Tools: PASS
+- Run Demo: PASS
+- Open Audit Viewer: PASS
+```
+
 ## Publish Gate
 
 Do not publish publicly until:
@@ -104,7 +132,7 @@ Do not publish publicly until:
 
 ## Notes
 
-The assistant has verified local CLI compile, package, install, and installed-extension listing.
+The assistant has verified local CLI compile, package, install, and installed-extension listing through user-provided handoff evidence.
 
 The assistant has not validated Command Palette behavior inside the VS Code UI. Manual validation is still required for:
 
