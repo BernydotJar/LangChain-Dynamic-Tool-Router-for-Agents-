@@ -67,7 +67,7 @@ Manual Command Palette validation:
 - [x] Initialize Policy: PASS after opening the repository root with `code .`; created `tool_policies.json` in the repo workspace.
 - [x] Validate Policy: PASS after starter policy existed in the repo workspace.
 - [x] Preview Authorized Tools: PASS; output listed `search_docs`, `fetch_customer_record`, and `delete_customer_record` with expected allowed plans and permissions.
-- [ ] Run Demo: pending.
+- [x] Run Demo: PASS; demo output showed injected tools, fallback behavior, audit events, and audit export path.
 - [x] Open Audit Viewer: PASS because the webview opened and showed a clear not-found message when `runtime_audit_export.json` was missing.
 
 Observed workspace-root behavior:
@@ -90,4 +90,4 @@ docs/vscode-extension-manual-test.md
 - [ ] Confirm README renders correctly.
 - [ ] Confirm no SVG icon or unsupported README images.
 - [ ] Confirm Marketplace auth path.
-- [ ] Run `vsce publish` only after local verification.
+- [ ] Run `vsce publish` only after local verification and review approval.
