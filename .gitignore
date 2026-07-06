@@ -13,6 +13,9 @@ build/
 vscode-extension/node_modules/
 vscode-extension/out/
 vscode-extension/*.vsix
+/tool_policies.json
+/runtime_audit_export.json
+/package-lock.json
 .DS_Store
 .env
 .env.*
