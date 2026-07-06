@@ -36,9 +36,9 @@ Feature 014 status: `done`
 
 Feature 015 status: `spec_ready`
 
-Feature 016 status: `in_progress`
+Feature 016 status: `review`
 
-Feature 016 has a VS Code extension scaffold prepared. Local compile, VSIX package creation, local VSIX install, and installed-extension listing have passed. Command validation inside VS Code is still required before moving Feature 016 to `review`.
+Feature 016 has a VS Code extension scaffold prepared. Local compile, VSIX package creation, local VSIX install, installed-extension listing, and manual Command Palette validation have passed. Feature 016 is now in `review` and should not be closed or published until review approval.
 
 ## Product Direction
 
@@ -78,6 +78,8 @@ Feature 015 remains `spec_ready` for provider-neutral entitlement architecture.
 - `specs/016-vscode-marketplace-extension/tasks.md`
 - `adr/016-vscode-marketplace-extension.md`
 - `progress/016-vscode-marketplace-extension.md`
+- `progress/review_016-vscode-marketplace-extension.md`
+- `docs/vscode-extension-manual-test.md`
 - `vscode-extension/package.json`
 - `vscode-extension/package-lock.json`
 - `vscode-extension/tsconfig.json`
@@ -106,8 +108,16 @@ The installed extension was confirmed as:
 bernydotjar.runtime-tool-authorization@0.0.1
 ```
 
-Manual Command Palette validation is still pending.
+Manual Command Palette validation passed:
+
+```text
+- Initialize Policy: PASS
+- Validate Policy: PASS
+- Preview Authorized Tools: PASS
+- Run Demo: PASS
+- Open Audit Viewer: PASS
+```
 
 ## Publish Gate
 
-Do not run public publish until manual command validation passes, publisher id is confirmed, README rendering is reviewed, and the extension name is confirmed.
+Do not run public publish until review approval, publisher id confirmation, README rendering review, extension name confirmation, and explicit publish approval.
