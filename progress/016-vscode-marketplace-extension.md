@@ -10,15 +10,15 @@ Wave: 3 - Distribution Readiness
 
 ## State
 
-Status: `review`
+Status: `done`
 
 ## Summary
 
-Feature 016 creates a VS Code extension scaffold for local developer-preview workflows.
+Feature 016 created a VS Code extension scaffold for local developer-preview workflows.
 
 The extension compiles, packages into a VSIX, installs locally through the VS Code CLI, is visible in the local extension list, and passed manual Command Palette validation for the five developer-preview commands.
 
-Feature 016 has moved from `in_progress` to `review`.
+Feature 016 moved from `review` to `done` after closure approval.
 
 ## Created
 
@@ -35,6 +35,7 @@ Feature 016 has moved from `in_progress` to `review`.
 - `vscode-extension/LICENSE`
 - `vscode-extension/.vscodeignore`
 - `docs/vscode-extension-manual-test.md`
+- `progress/review_016-vscode-marketplace-extension.md`
 
 ## Packaging Adjustments
 
@@ -140,24 +141,24 @@ Observed workspace-root behavior:
 - Opening the repository root with `code .` and then running `Initialize Policy` creates `tool_policies.json` under the repo workspace.
 - After that, `Validate Policy` passes.
 
-## Review Gate
+## Closure
 
-Feature 016 is ready for review.
+Closure approval received:
 
-Review should verify:
+```text
+APPROVAL TO CLOSE
+FEATURE: 016-vscode-marketplace-extension
+STATE CHANGE: review -> done
+```
 
-- extension scope stays local and developer-preview only,
-- Marketplace publish has not been run,
-- no generated VSIX, `node_modules`, or compiled output is tracked,
-- publisher id is still the expected value,
-- README and changelog are included in the extension project,
-- public publish waits for review approval.
+Feature 016 is closed as `done`.
 
 ## Publish Gate
 
+Public Marketplace publish remains separate and has not been run.
+
 Do not publish publicly until:
 
-- review passes,
 - publisher id is confirmed,
 - extension name availability is confirmed,
 - README rendering is reviewed,
