@@ -59,7 +59,14 @@ code --install-extension runtime-tool-authorization-0.0.1.vsix
 - [x] `npx @vscode/vsce package` passed.
 - [x] `code --install-extension runtime-tool-authorization-0.0.1.vsix --force` passed.
 - [x] `code --list-extensions --show-versions` confirmed `bernydotjar.runtime-tool-authorization@0.0.1`.
+- [x] Create `docs/vscode-extension-manual-test.md` for Command Palette validation.
 - [ ] User confirms commands work in VS Code.
+
+Manual command checklist:
+
+```text
+docs/vscode-extension-manual-test.md
+```
 
 ## Phase 6: Marketplace Publish Gate
 
